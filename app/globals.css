@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  /* Cores personalizadas */
-  --color-light-hover: #fcf4ff;
-  --color-dark-hover: #2a004a;
-  --color-dark-theme: #11001f;
+  --color-light-bg: #ffffff;
+  --color-dark-bg: #0e0e0e;
+  --color-light-text: #000000;
+  --color-dark-text: #f9f9f9;
 
-  /* Fontes personalizadas */
   --font-sans: "Outfit", sans-serif;
   --font-display: "Ovo", serif;
 }
@@ -14,5 +13,13 @@
 @layer base {
   * {
     font-family: var(--font-sans);
+  }
+
+  html {
+    @apply bg-[var(--color-light-bg)] text-[var(--color-light-text)];
+  }
+
+  html.dark {
+    @apply bg-[var(--color-dark-bg)] text-[var(--color-dark-text)];
   }
 }

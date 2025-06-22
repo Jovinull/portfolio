@@ -4,12 +4,14 @@ import "./globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"]
+  weight: ["400", "500", "600", "700"],
+  variable: '--font-outfit',
 });
 
 const ovo = Ovo({
   subsets: ["latin"],
-  weight: ["400"]
+  weight: ["400"],
+  variable: '--font-ovo',
 });
 
 export const metadata: Metadata = {
@@ -66,10 +68,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${outfit.className} ${ovo.className} antialiased`}
-      >
+    <html lang="pt" suppressHydrationWarning>
+      <body className={`${outfit.variable} ${ovo.variable} antialiased`}>
         {children}
       </body>
     </html>
