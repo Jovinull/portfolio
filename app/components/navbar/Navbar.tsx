@@ -46,7 +46,7 @@ const Navbar = () => {
           </Link>
 
           {/* Menu Desktop */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex">
             <MenuLinks />
           </div>
 

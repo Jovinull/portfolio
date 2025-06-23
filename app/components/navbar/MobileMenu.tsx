@@ -23,23 +23,27 @@ const MobileMenu = ({ isOpen, closeMenu }: MobileMenuProps) => {
         bg-white dark:bg-neutral-950 shadow-lg 
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-        md:hidden z-[999] px-6 py-10 flex flex-col gap-8
+        md:hidden z-[999] px-6 py-8 flex flex-col gap-8
       `}
     >
-      {/* Logo */}
-      <Link href="#top" onClick={closeMenu} className="w-fit">
-        <Image
-          src={isDark ? assets.logo_dark : assets.logo}
-          alt="Logo"
-          className="w-24"
-        />
-      </Link>
+      {/* Topo - Logo e botão de tema */}
+      <div className="flex items-center justify-between">
+        <Link href="#top" onClick={closeMenu} className="w-fit">
+          <Image
+            src={isDark ? assets.logo_dark : assets.logo}
+            alt="Logo"
+            className="w-24"
+          />
+        </Link>
+
+        <ThemeToggle />
+      </div>
 
       {/* Links */}
       <MenuLinks onClick={closeMenu} />
 
+      {/* Botão de Contato */}
       <ContactButton />
-      <ThemeToggle />
     </div>
   );
 };
