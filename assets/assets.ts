@@ -117,22 +117,19 @@ export const serviceData: ServiceItem[] = [
   {
     icon: assets.mobile_icon,
     title: 'Mobile app',
-    description:
-      'Mobile app development involves creating software for mobile devices...',
+    description: 'Mobile app development involves creating software for mobile devices...',
     link: '',
   },
   {
     icon: assets.ui_icon,
     title: 'UI/UX design',
-    description:
-      'UI/UX design focuses on creating a seamless user experience...',
+    description: 'UI/UX design focuses on creating a seamless user experience...',
     link: '',
   },
   {
     icon: assets.graphics_icon,
     title: 'Graphics design',
-    description:
-      'Creative design solutions to enhance visual communication...',
+    description: 'Creative design solutions to enhance visual communication...',
     link: '',
   },
 ];

@@ -28,8 +28,8 @@ const Navbar = () => {
     <>
       <HeaderBackground />
 
-      <header className="w-full fixed top-0 left-0 z-50 bg-transparent">
-        <nav className="flex items-center justify-between px-6 md:px-8 py-5 max-w-[1280px] mx-auto">
+      <header className="fixed top-0 left-0 z-50 w-full bg-transparent">
+        <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-5 md:px-8">
           <Logo />
 
           {/* Menu Desktop */}
@@ -38,7 +38,7 @@ const Navbar = () => {
           </div>
 
           {/* Botões Desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden items-center gap-4 md:flex">
             <ContactButton />
             <ThemeToggle />
           </div>

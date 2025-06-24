@@ -16,11 +16,7 @@ const MobileMenuHeader = ({ closeMenu }: MobileMenuHeaderProps) => {
   return (
     <div className="flex items-center justify-between">
       <Link href="#top" onClick={closeMenu}>
-        <Image
-          src={isDark ? assets.logo_dark : assets.logo}
-          alt="Logo"
-          className="w-24"
-        />
+        <Image src={isDark ? assets.logo_dark : assets.logo} alt="Logo" className="w-24" />
       </Link>
       <ThemeToggle />
     </div>

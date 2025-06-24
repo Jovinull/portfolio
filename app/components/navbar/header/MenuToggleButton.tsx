@@ -17,12 +17,12 @@ const MenuToggleButton = ({ isOpen, toggleMenu }: Props) => {
       ? assets.close_white
       : assets.close_black
     : isDark
-    ? assets.menu_white
-    : assets.menu_black;
+      ? assets.menu_white
+      : assets.menu_black;
 
   return (
     <button onClick={toggleMenu} className="md:hidden" aria-label="Abrir menu">
-      <Image src={icon} alt="menu" className="w-6 h-6" />
+      <Image src={icon} alt="menu" className="h-6 w-6" />
     </button>
   );
 };

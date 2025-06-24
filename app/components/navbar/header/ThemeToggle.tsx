@@ -11,20 +11,11 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       aria-label="Alternar tema"
-      className={`
-        p-2 rounded-full transition 
-        ${
-          isDark
-            ? 'hover:bg-neutral-800'
-            : 'hover:bg-white/60 hover:backdrop-blur-md'
-        }
-      `}
+      className={`rounded-full p-2 transition ${
+        isDark ? 'hover:bg-neutral-800' : 'hover:bg-white/60 hover:backdrop-blur-md'
+      } `}
     >
-      <Image
-        src={isDark ? assets.sun_icon : assets.moon_icon}
-        alt="Tema"
-        className="w-5 h-5"
-      />
+      <Image src={isDark ? assets.sun_icon : assets.moon_icon} alt="Tema" className="h-5 w-5" />
     </button>
   );
 };

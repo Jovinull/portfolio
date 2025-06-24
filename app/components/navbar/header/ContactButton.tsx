@@ -8,16 +8,7 @@ const ContactButton = () => {
   return (
     <Link
       href="#contact"
-      className="
-        flex items-center gap-2
-        px-6 py-2
-        rounded-full
-        backdrop-blur-md shadow-sm
-        border border-theme
-        text-theme
-        hover:text-[var(--color-accent)]
-        transition-colors
-      "
+      className="border-theme text-theme flex items-center gap-2 rounded-full border px-6 py-2 shadow-sm backdrop-blur-md transition-colors hover:text-[var(--color-accent)]"
     >
       Contato
       <Image src={assets.arrow_icon} alt="seta" className="w-3" />

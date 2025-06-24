@@ -6,10 +6,10 @@ interface ThemeState {
   setTheme: (dark: boolean) => void;
 }
 
-export const useThemeStore = create<ThemeState>((set) => ({
+export const useThemeStore = create<ThemeState>(set => ({
   isDark: false,
   toggleTheme: () => {
-    set((state) => {
+    set(state => {
       const isDark = !state.isDark;
       const html = document.documentElement;
 
@@ -24,7 +24,7 @@ export const useThemeStore = create<ThemeState>((set) => ({
       return { isDark };
     });
   },
-  setTheme: (dark) => {
+  setTheme: dark => {
     const html = document.documentElement;
     if (dark) {
       html.classList.add('dark');
