@@ -3,10 +3,7 @@
 import MobileMenuOverlay from './MobileMenuOverlay';
 import MobileMenuContainer from './MobileMenuContainer';
 
-interface MobileMenuProps {
-  isOpen: boolean;
-  closeMenu: () => void;
-}
+import { MobileMenuProps } from '@/app/types/components/mobileMenu';
 
 const MobileMenu = ({ isOpen, closeMenu }: MobileMenuProps) => {
   return (

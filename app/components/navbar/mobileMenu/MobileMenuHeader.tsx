@@ -1,14 +1,12 @@
 'use client';
 
 import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/themeStore';
+import { useThemeStore } from '@/app/store/useThemeStore';
 import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from '../../buttons/ThemeToggle';
 
-interface MobileMenuHeaderProps {
-  closeMenu: () => void;
-}
+import { MobileMenuHeaderProps } from '@/app/types/components/mobileMenuHeader';
 
 const MobileMenuHeader = ({ closeMenu }: MobileMenuHeaderProps) => {
   const { isDark } = useThemeStore();

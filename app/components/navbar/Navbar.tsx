@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useThemeStore } from '@/app/store/themeStore';
+import { useThemeStore } from '@/app/store/useThemeStore';
 
 import HeaderBackground from './header/HeaderBackground';
 import Logo from './header/Logo';

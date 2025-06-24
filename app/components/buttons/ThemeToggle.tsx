@@ -1,5 +1,5 @@
 import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/themeStore';
+import { useThemeStore } from '@/app/store/useThemeStore';
 import Image from 'next/image';
 import BaseButton from './BaseButton';
 

@@ -1,20 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode } from 'react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import clsx from 'clsx';
 
-interface Props {
-  href?: string;
-  onClick?: () => void;
-  children: ReactNode;
-  icon?: StaticImageData;
-  variant?: 'primary' | 'theme' | 'ghost';
-  download?: boolean;
-  isIconOnly?: boolean;
-  className?: string;
-}
+import { BaseButtonProps } from '@/app/types/components/button';
 
 const BaseButton = ({
   href,
@@ -25,7 +15,7 @@ const BaseButton = ({
   download = false,
   isIconOnly = false,
   className = '',
-}: Props) => {
+}: BaseButtonProps) => {
   const classes = clsx('btn', `btn-${variant}`, isIconOnly ? 'px-3 py-3' : 'px-6 py-2', className);
 
   const content = (

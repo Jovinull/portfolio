@@ -1,7 +1,7 @@
 'use client';
 
 import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/themeStore';
+import { useThemeStore } from '@/app/store/useThemeStore';
 import Link from 'next/link';
 import Image from 'next/image';
 

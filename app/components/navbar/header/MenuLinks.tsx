@@ -1,12 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { MenuLinksProps } from '@/app/types/components/menuLinks';
 
-interface Props {
-  onClick?: () => void;
-}
-
-const MenuLinks = ({ onClick }: Props) => {
+const MenuLinks = ({ onClick }: MenuLinksProps) => {
   const links = ['Início', 'Sobre', 'Serviços', 'Projetos', 'Fale Comigo'];
 
   return (

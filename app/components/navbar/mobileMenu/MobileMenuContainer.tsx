@@ -6,10 +6,7 @@ import ContactButton from '../../buttons/ContactButton';
 import MobileMenuHeader from './MobileMenuHeader';
 import MobileMenuBackground from './MobileMenuBackground';
 
-interface MobileMenuContainerProps {
-  isOpen: boolean;
-  closeMenu: () => void;
-}
+import { MobileMenuContainerProps } from '@/app/types/components/mobileMenuContainer';
 
 const MobileMenuContainer = ({ isOpen, closeMenu }: MobileMenuContainerProps) => {
   const menuRef = useRef<HTMLDivElement>(null);

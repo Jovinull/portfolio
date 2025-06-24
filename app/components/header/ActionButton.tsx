@@ -1,16 +1,17 @@
-import Image, { StaticImageData } from 'next/image';
-import { ReactNode } from 'react';
+'use client';
+
+import Image from 'next/image';
 import Link from 'next/link';
 
-interface Props {
-  href: string;
-  children: ReactNode;
-  icon: StaticImageData;
-  variant?: 'primary' | 'theme';
-  download?: boolean;
-}
+import { ActionButtonProps } from '@/app/types/components/actionButton';
 
-const ActionButton = ({ href, children, icon, variant = 'primary', download = false }: Props) => {
+const ActionButton = ({
+  href,
+  children,
+  icon,
+  variant = 'primary',
+  download = false,
+}: ActionButtonProps) => {
   return (
     <Link href={href} download={download} className={`btn btn-${variant}`}>
       {children}

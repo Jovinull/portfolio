@@ -1,14 +1,13 @@
+'use client';
+
 import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/themeStore';
+import { useThemeStore } from '@/app/store/useThemeStore';
 import Image from 'next/image';
 import BaseButton from './BaseButton';
 
-interface Props {
-  isOpen: boolean;
-  toggleMenu: () => void;
-}
+import { MenuToggleButtonProps } from '@/app/types/components/menu';
 
-const MenuToggleButton = ({ isOpen, toggleMenu }: Props) => {
+const MenuToggleButton = ({ isOpen, toggleMenu }: MenuToggleButtonProps) => {
   const { isDark } = useThemeStore();
 
   const icon = isOpen
