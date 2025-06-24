@@ -10,14 +10,6 @@ const ActionButtons = () => {
   return (
     <div className="mt-6 flex flex-row items-center gap-4">
       <BaseButton
-        href="#contact"
-        variant="primary"
-        icon={isDark ? assets.arrow_icon : assets.arrow_icon_dark}
-      >
-        Fale comigo
-      </BaseButton>
-
-      <BaseButton
         href="/vitae.pdf"
         download
         variant="theme"
