@@ -2,17 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import { useThemeStore } from '@/app/store/themeStore';
-import { assets } from '@/assets/assets';
-import Image from 'next/image';
-import Link from 'next/link';
 
+import HeaderBackground from './HeaderBackground';
+import Logo from './Logo';
 import MenuLinks from './MenuLinks';
 import ContactButton from './ContactButton';
 import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
+import MenuToggleButton from './MenuToggleButton';
 
 const Navbar = () => {
-  const { isDark, setTheme } = useThemeStore();
+  const { setTheme } = useThemeStore();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -26,24 +26,11 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Background decorativo apenas no modo claro */}
-      {!isDark && (
-        <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] scale-120">
-          <Image src={assets.header_bg_color} alt="bg" className="w-full" />
-        </div>
-      )}
+      <HeaderBackground />
 
       <header className="w-full fixed top-0 left-0 z-50 bg-transparent">
         <nav className="flex items-center justify-between px-6 md:px-8 py-5 max-w-[1280px] mx-auto">
-          {/* Logo */}
-          <Link href="#top" className="cursor-pointer">
-            <Image
-              src={isDark ? assets.logo_dark : assets.logo}
-              alt="Logo"
-              className="w-24 md:w-28"
-              priority
-            />
-          </Link>
+          <Logo />
 
           {/* Menu Desktop */}
           <div className="hidden md:flex">
@@ -57,25 +44,7 @@ const Navbar = () => {
           </div>
 
           {/* Ícone Mobile */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden"
-            aria-label="Abrir menu"
-          >
-            <Image
-              src={
-                menuOpen
-                  ? isDark
-                    ? assets.close_white
-                    : assets.close_black
-                  : isDark
-                  ? assets.menu_white
-                  : assets.menu_black
-              }
-              alt="menu"
-              className="w-6 h-6"
-            />
-          </button>
+          <MenuToggleButton isOpen={menuOpen} toggleMenu={toggleMenu} />
 
           {/* Menu Mobile */}
           <MobileMenu isOpen={menuOpen} closeMenu={closeMenu} />
