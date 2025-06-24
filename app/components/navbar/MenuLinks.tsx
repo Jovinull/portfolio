@@ -17,6 +17,7 @@ const MenuLinks = ({ onClick }: Props) => {
         md:rounded-full md:px-8 md:py-3
         md:bg-neutral-100 md:dark:bg-neutral-900
         md:backdrop-blur-md md:shadow-sm
+        text-theme
       `}
     >
       {links.map((item) => (
@@ -25,7 +26,6 @@ const MenuLinks = ({ onClick }: Props) => {
             href={`#${item === 'Início' ? 'top' : item.toLowerCase().replace(' ', '')}`}
             onClick={onClick}
             className="
-              text-neutral-900 dark:text-neutral-100
               hover:text-indigo-600 dark:hover:text-indigo-400
               transition-colors
             "

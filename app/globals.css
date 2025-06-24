@@ -1,25 +1,40 @@
 @import "tailwindcss";
 
-@theme {
-  --color-light-bg: #ffffff;
-  --color-dark-bg: #0e0e0e;
-  --color-light-text: #000000;
-  --color-dark-text: #f9f9f9;
-
-  --font-sans: "Outfit", sans-serif;
-  --font-display: "Ovo", serif;
+/* Cores */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
 }
 
+html.dark {
+  --color-bg: #0e0e0e;
+  --color-text: #f9f9f9;
+}
+
+/* Fontes */
+:root {
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Ovo', serif;
+}
+
+/* Aplicação global */
 @layer base {
   * {
+    @apply antialiased;
     font-family: var(--font-sans);
   }
 
-  html {
-    @apply bg-[var(--color-light-bg)] text-[var(--color-light-text)];
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
+}
 
-  html.dark {
-    @apply bg-[var(--color-dark-bg)] text-[var(--color-dark-text)];
+@layer utilities {
+  .bg-theme {
+    background-color: var(--color-bg);
+  }
+  .text-theme {
+    color: var(--color-text);
   }
 }

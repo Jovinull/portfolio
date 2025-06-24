@@ -17,13 +17,14 @@ const MobileMenu = ({ isOpen, closeMenu }: MobileMenuProps) => {
   const { isDark } = useThemeStore();
 
   return (
-    <div
+<div
       className={`
         fixed top-0 right-0 h-full w-64 
-        bg-white dark:bg-neutral-950 shadow-lg 
+        shadow-lg 
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         md:hidden z-[999] px-6 py-8 flex flex-col gap-8
+        bg-theme text-theme
       `}
     >
       {/* Topo - Logo e botão de tema */}
