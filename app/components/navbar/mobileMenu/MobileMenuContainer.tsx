@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import MenuLinks from '../header/MenuLinks';
 import ContactButton from '../header/ContactButton';
 import MobileMenuHeader from './MobileMenuHeader';
+import MobileMenuBackground from './MobileMenuBackground';
 
 interface MobileMenuContainerProps {
   isOpen: boolean;
@@ -30,8 +31,11 @@ const MobileMenuContainer = ({ isOpen, closeMenu }: MobileMenuContainerProps) =>
   return (
     <div
       ref={menuRef}
-      className={`bg-theme text-theme fixed top-0 right-0 z-[999] flex h-full w-64 transform flex-col gap-8 px-6 py-8 shadow-lg backdrop-blur-md transition-transform duration-300 ease-in-out md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'} `}
+      className={`bg-theme text-theme fixed top-0 right-0 z-[999] flex h-full w-64 transform flex-col gap-8 px-6 py-8 shadow-lg backdrop-blur-md transition-transform duration-300 ease-in-out md:hidden ${
+        isOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}
     >
+      <MobileMenuBackground />
       <MobileMenuHeader closeMenu={closeMenu} />
       <MenuLinks onClick={closeMenu} />
       <ContactButton />
