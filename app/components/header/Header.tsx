@@ -6,6 +6,7 @@ import Greeting from './Greeting';
 import Title from './Title';
 import Description from './Description';
 import ActionButtons from './ActionButtons';
+import Subtitle from './Subtitle';
 
 const Header = () => {
   return (
@@ -13,6 +14,7 @@ const Header = () => {
       <ProfileImage />
       <Greeting />
       <Title />
+      <Subtitle />
       <Description />
       <ActionButtons />
     </div>
