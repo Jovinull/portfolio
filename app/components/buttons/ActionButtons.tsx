@@ -8,7 +8,7 @@ const ActionButtons = () => {
   const { isDark } = useThemeStore();
 
   return (
-    <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row">
+    <div className="mt-6 flex flex-row items-center gap-4">
       <BaseButton
         href="#contact"
         variant="primary"
