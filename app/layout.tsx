@@ -61,14 +61,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://meu-dominio.com'),
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt" suppressHydrationWarning>
-      <body className={`${outfit.variable} ${ovo.variable} antialiased`}>{children}</body>
+      <body
+        className={`${outfit.variable} ${ovo.variable} overflow-x-hidden leading-8 antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

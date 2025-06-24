@@ -8,8 +8,13 @@ import edu_icon_dark from './edu-icon-dark.png';
 import project_icon from './project-icon.png';
 import project_icon_dark from './project-icon-dark.png';
 import vscode from './vscode.png';
-import firebase from './firebase.png';
-import figma from './figma.png';
+import postgresql from './postgresql.png';
+import adonisjs from './adonisjs.png';
+import nextjs from './nextjs.png';
+import python from './python.png';
+import nodejs from './nodejs.png';
+import canva from './canva.png';
+import esp32_chip from './esp32_chip.png';
 import git from './git.png';
 import mongodb from './mongodb.png';
 import right_arrow_white from './right-arrow-white.png';
@@ -51,8 +56,13 @@ export const assets = {
   project_icon,
   project_icon_dark,
   vscode,
-  firebase,
-  figma,
+  postgresql,
+  adonisjs,
+  nextjs,
+  python,
+  nodejs,
+  esp32_chip,
+  canva,
   git,
   mongodb,
   right_arrow_white,
@@ -140,27 +150,32 @@ export const infoList: InfoItem[] = [
   {
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
-    title: 'Languages',
-    description: 'HTML, CSS, JavaScript, React Js, Next Js',
+    title: 'Linguagens',
+    description: 'TypeScript, JavaScript, Python, HTML, CSS',
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
-    title: 'Education',
-    description: 'B.Tech in Computer Science',
+    title: 'Formação',
+    description: 'Bacharel em Sistemas de Informação - IFS',
   },
   {
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
-    title: 'Projects',
-    description: 'Built more than 5 projects',
+    title: 'Projetos',
+    description: '+10 projetos em IA, IoT, Web e Educação',
   },
 ];
 
 export const toolsData: Tools[] = [
-  assets.vscode,
-  assets.firebase,
-  assets.mongodb,
-  assets.figma,
-  assets.git,
+  vscode,
+  mongodb,
+  git,
+  postgresql,
+  adonisjs,
+  nextjs,
+  python,
+  esp32_chip,
+  nodejs,
+  canva,
 ];
