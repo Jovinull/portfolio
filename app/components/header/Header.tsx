@@ -5,7 +5,7 @@ import ProfileImage from './ProfileImage';
 import Greeting from './Greeting';
 import Title from './Title';
 import Description from './Description';
-import ActionButtons from './ActionButtons';
+import ActionButtons from '@/app/components/buttons/ActionButtons';
 import Subtitle from './Subtitle';
 
 const Header = () => {

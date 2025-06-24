@@ -16,12 +16,12 @@ const BaseButton = ({
   isIconOnly = false,
   className = '',
 }: BaseButtonProps) => {
-  const classes = clsx('btn', `btn-${variant}`, isIconOnly ? 'px-3 py-3' : 'px-6 py-2', className);
+  const classes = clsx('btn', `btn-${variant}`, isIconOnly ? 'p-2' : 'px-6 py-2', className);
 
   const content = (
     <>
       {children}
-      {icon && <Image src={icon} alt="icon" className="w-4" />}
+      {icon && <Image src={icon} alt="icon" className="h-5 w-5" />}
     </>
   );
 

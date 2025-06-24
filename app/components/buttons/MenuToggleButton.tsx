@@ -19,7 +19,12 @@ const MenuToggleButton = ({ isOpen, toggleMenu }: MenuToggleButtonProps) => {
       : assets.menu_black;
 
   return (
-    <BaseButton onClick={toggleMenu} isIconOnly variant="ghost" className="md:hidden">
+    <BaseButton
+      onClick={toggleMenu}
+      isIconOnly
+      variant="ghost"
+      className="border-theme bg-theme/70 rounded-md border p-2 shadow-sm backdrop-blur-md hover:scale-105 hover:opacity-80 md:hidden"
+    >
       <Image src={icon} alt="menu" className="h-5 w-5" />
     </BaseButton>
   );

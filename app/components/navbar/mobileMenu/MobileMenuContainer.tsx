@@ -35,7 +35,7 @@ const MobileMenuContainer = ({ isOpen, closeMenu }: MobileMenuContainerProps) =>
       <MobileMenuBackground />
       <MobileMenuHeader closeMenu={closeMenu} />
       <MenuLinks onClick={closeMenu} />
-      <ContactButton />
+      <ContactButton isFullWidth />
     </div>
   );
 };
