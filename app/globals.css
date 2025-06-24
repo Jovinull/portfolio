@@ -1,27 +1,35 @@
 @import "tailwindcss";
 
-/* Cores */
+/* Paleta de Cores */
 :root {
   --color-bg: #ffffff;
+  --color-bg-secondary: #f7f7f7;
   --color-text: #000000;
+  --color-accent: #4f46e5;
+  --color-accent-hover: #4338ca;
+  --color-border: #e5e5e5;
 }
 
 html.dark {
   --color-bg: #0e0e0e;
+  --color-bg-secondary: #121212;
   --color-text: #f9f9f9;
+  --color-accent: #6366f1;
+  --color-accent-hover: #818cf8;
+  --color-border: #333333;
 }
 
-/* Fontes */
-:root {
-  --font-sans: 'Outfit', sans-serif;
-  --font-display: 'Ovo', serif;
-}
+/* Fontes herdadas do RootLayout (Outfit e Ovo) */
 
-/* Aplicação global */
+/* Base */
 @layer base {
   * {
     @apply antialiased;
-    font-family: var(--font-sans);
+    font-family: var(--font-sans); /* Define Outfit como padrão */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display); /* Ovo para títulos */
   }
 
   body {
@@ -30,11 +38,31 @@ html.dark {
   }
 }
 
+/* Utilitários */
 @layer utilities {
   .bg-theme {
     background-color: var(--color-bg);
   }
+  .bg-theme-secondary {
+    background-color: var(--color-bg-secondary);
+  }
   .text-theme {
     color: var(--color-text);
+  }
+  .border-theme {
+    border-color: var(--color-border);
+  }
+  .btn {
+    @apply px-6 py-2 rounded-full border transition-all flex items-center gap-2;
+  }
+  .btn-theme {
+    background-color: var(--color-bg);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+  .btn-theme:hover {
+    background-color: var(--color-accent-hover);
+    color: white;
+    border-color: var(--color-accent-hover);
   }
 }

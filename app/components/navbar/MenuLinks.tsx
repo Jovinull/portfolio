@@ -15,8 +15,8 @@ const MenuLinks = ({ onClick }: Props) => {
         flex flex-col md:flex-row gap-6 lg:gap-8
         md:items-center items-start
         md:rounded-full md:px-8 md:py-3
-        md:bg-neutral-100 md:dark:bg-neutral-900
         md:backdrop-blur-md md:shadow-sm
+        md:bg-theme md:border border-theme
         text-theme
       `}
     >
@@ -26,7 +26,7 @@ const MenuLinks = ({ onClick }: Props) => {
             href={`#${item === 'Início' ? 'top' : item.toLowerCase().replace(' ', '')}`}
             onClick={onClick}
             className="
-              hover:text-indigo-600 dark:hover:text-indigo-400
+              hover:text-[var(--color-accent)]
               transition-colors
             "
           >

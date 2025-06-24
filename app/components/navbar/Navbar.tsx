@@ -26,14 +26,14 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Background decorativo */}
+      {/* Background decorativo apenas no modo claro */}
       {!isDark && (
         <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] scale-120">
           <Image src={assets.header_bg_color} alt="bg" className="w-full" />
         </div>
       )}
 
-      <header className="w-full fixed top-0 left-0 z-50">
+      <header className="w-full fixed top-0 left-0 z-50 bg-transparent">
         <nav className="flex items-center justify-between px-6 md:px-8 py-5 max-w-[1280px] mx-auto">
           {/* Logo */}
           <Link href="#top" className="cursor-pointer">
@@ -50,14 +50,18 @@ const Navbar = () => {
             <MenuLinks />
           </div>
 
-          {/* Botões */}
+          {/* Botões Desktop */}
           <div className="hidden md:flex items-center gap-4">
             <ContactButton />
             <ThemeToggle />
           </div>
 
           {/* Ícone Mobile */}
-          <button onClick={toggleMenu} className="md:hidden">
+          <button
+            onClick={toggleMenu}
+            className="md:hidden"
+            aria-label="Abrir menu"
+          >
             <Image
               src={
                 menuOpen
