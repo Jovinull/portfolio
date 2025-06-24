@@ -6,7 +6,7 @@
   }
 
   .btn-theme {
-    background-color: var(--color-bg);
+    background-color: transparent;
     color: var(--color-accent);
     border-color: var(--color-accent);
   }
