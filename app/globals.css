@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* Paleta de Cores */
+/* Paleta de Cores e Variáveis Globais */
 :root {
   --color-bg: #ffffff;
   --color-bg-secondary: #f7f7f7;
@@ -8,11 +8,17 @@
   --color-accent: #4f46e5;
   --color-accent-hover: #4338ca;
   --color-border: #e5e5e5;
+
+  --navbar-height: 124px;
+
+  /* Fontes Globais */
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-ovo);
 }
 
 html.dark {
-  --color-bg: #1a1a1a; /* Fundo principal */
-  --color-bg-secondary: #262626; /* Fundo secundário */
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #262626;
   --color-text: #f0f0f0;
   --color-text-secondary: #a1a1aa;
   --color-accent: #6366f1;
@@ -20,10 +26,39 @@ html.dark {
   --color-border: #3f3f46;
 }
 
-/* Fontes herdadas do RootLayout (Outfit e Ovo) */
+/* Botões Globais */
+.btn {
+  @apply flex items-center gap-2 rounded-full border px-10 py-3 transition-all;
+}
 
-/* Base */
+.btn-theme {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn-theme:hover {
+  color: var(--color-accent);
+}
+
+.btn-primary {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.btn-primary:hover {
+  background-color: black;
+  color: var(--color-accent);
+}
+
+/* Fontes e Base */
 @layer base {
+  html,
+  body {
+    @apply m-0 box-border p-0;
+  }
+
   * {
     @apply antialiased;
     font-family: var(--font-sans);
@@ -41,10 +76,11 @@ html.dark {
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
+    padding-top: var(--navbar-height);
   }
 }
 
-/* Utilitários */
+/* Utilitários Customizados */
 @layer utilities {
   .bg-theme {
     background-color: var(--color-bg);
@@ -61,6 +97,8 @@ html.dark {
   .border-theme {
     border-color: var(--color-border);
   }
+
+  /* Botões Globais */
   .btn {
     @apply flex items-center gap-2 rounded-full border px-6 py-2 transition-all;
   }
