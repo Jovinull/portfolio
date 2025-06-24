@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { assets } from '@/assets/assets';
 import { useThemeStore } from '@/app/store/themeStore';
 import Image from 'next/image';
@@ -15,25 +16,46 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ isOpen, closeMenu }: MobileMenuProps) => {
   const { isDark } = useThemeStore();
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  if (!isOpen) return null; // Não renderiza nada se estiver fechado
+  // Fechar clicando fora
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, closeMenu]);
 
   return (
     <>
-      {/* Overlay que fecha ao clicar fora */}
+      {/* Overlay */}
       <div
-        onClick={closeMenu}
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[998] md:hidden"
+        className={`
+          fixed inset-0 bg-black/50 backdrop-blur-sm z-[998] md:hidden
+          ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
+          transition-opacity duration-300
+        `}
       />
 
       {/* Menu */}
       <div
+        ref={menuRef}
         className={`
           fixed top-0 right-0 h-full w-64 z-[999]
           px-6 py-8 flex flex-col gap-8
+          shadow-lg backdrop-blur-md bg-theme text-theme md:hidden
           transform transition-transform duration-300 ease-in-out
-          shadow-lg backdrop-blur-md
-          bg-theme text-theme
+          ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
         {/* Topo */}
