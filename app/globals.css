@@ -11,12 +11,13 @@
 }
 
 html.dark {
-  --color-bg: #0e0e0e;
-  --color-bg-secondary: #121212;
-  --color-text: #f9f9f9;
+  --color-bg: #1a1a1a; /* Fundo principal */
+  --color-bg-secondary: #262626; /* Fundo secundário */
+  --color-text: #f0f0f0;
+  --color-text-secondary: #a1a1aa;
   --color-accent: #6366f1;
   --color-accent-hover: #818cf8;
-  --color-border: #333333;
+  --color-border: #3f3f46;
 }
 
 /* Fontes herdadas do RootLayout (Outfit e Ovo) */
@@ -25,11 +26,11 @@ html.dark {
 @layer base {
   * {
     @apply antialiased;
-    font-family: var(--font-sans); /* Define Outfit como padrão */
+    font-family: var(--font-sans);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display); /* Ovo para títulos */
+    font-family: var(--font-display);
   }
 
   body {
@@ -48,6 +49,9 @@ html.dark {
   }
   .text-theme {
     color: var(--color-text);
+  }
+  .text-theme-secondary {
+    color: var(--color-text-secondary);
   }
   .border-theme {
     border-color: var(--color-border);
