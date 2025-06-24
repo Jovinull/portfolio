@@ -29,22 +29,30 @@ const Navbar = () => {
       <HeaderBackground />
 
       <header className="fixed top-0 left-0 z-50 w-full bg-transparent">
-        <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-5 md:px-8">
-          <Logo />
+        <nav className="mx-auto grid max-w-[1280px] grid-cols-2 items-center px-6 py-5 md:grid-cols-3 md:px-8">
+          {/* Esquerda */}
+          <div className="justify-self-start">
+            <Logo />
+          </div>
 
-          {/* Menu Desktop */}
-          <div className="hidden md:flex">
+          {/* Centro */}
+          <div className="hidden justify-self-center md:flex">
             <MenuLinks />
           </div>
 
-          {/* Botões Desktop */}
-          <div className="hidden items-center gap-4 md:flex">
-            <ContactButton />
-            <ThemeToggle />
-          </div>
+          {/* Direita */}
+          <div className="flex items-center gap-4 justify-self-end">
+            {/* Botões desktop */}
+            <div className="hidden items-center gap-4 md:flex">
+              <ContactButton />
+              <ThemeToggle />
+            </div>
 
-          {/* Ícone Mobile */}
-          <MenuToggleButton isOpen={menuOpen} toggleMenu={toggleMenu} />
+            {/* Botão mobile */}
+            <div className="md:hidden">
+              <MenuToggleButton isOpen={menuOpen} toggleMenu={toggleMenu} />
+            </div>
+          </div>
 
           {/* Menu Mobile */}
           <MobileMenu isOpen={menuOpen} closeMenu={closeMenu} />

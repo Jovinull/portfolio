@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { MenuLinksProps } from '@/app/types/components/menuLinks';
 
 const MenuLinks = ({ onClick }: MenuLinksProps) => {
-  const links = ['Início', 'Sobre', 'Serviços', 'Projetos', 'Fale Comigo'];
+  const links = ['Início', 'Sobre', 'Serviços', 'Projetos'];
 
   return (
     <ul
