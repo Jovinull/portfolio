@@ -9,9 +9,14 @@ const ActionButtons = () => {
 
   return (
     <div className="mt-6 flex flex-col items-center gap-4 sm:flex-row">
-      <BaseButton href="#contact" variant="primary" icon={assets.arrow_icon}>
+      <BaseButton
+        href="#contact"
+        variant="primary"
+        icon={isDark ? assets.arrow_icon : assets.arrow_icon_dark}
+      >
         Fale comigo
       </BaseButton>
+
       <BaseButton
         href="/vitae.pdf"
         download

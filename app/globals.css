@@ -17,12 +17,13 @@
   }
 
   .btn-primary {
-    background-color: black;
-    color: white;
-    border-color: black;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
   }
+
   .btn-primary:hover {
-    background-color: black;
+    background-color: var(--color-text);
     color: var(--color-accent);
   }
 
