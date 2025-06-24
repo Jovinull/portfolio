@@ -1,8 +1,7 @@
-'use client';
-
 import { assets } from '@/assets/assets';
 import { useThemeStore } from '@/app/store/themeStore';
 import Image from 'next/image';
+import BaseButton from './BaseButton';
 
 interface Props {
   isOpen: boolean;
@@ -21,9 +20,9 @@ const MenuToggleButton = ({ isOpen, toggleMenu }: Props) => {
       : assets.menu_black;
 
   return (
-    <button onClick={toggleMenu} className="md:hidden" aria-label="Abrir menu">
-      <Image src={icon} alt="menu" className="h-6 w-6" />
-    </button>
+    <BaseButton onClick={toggleMenu} isIconOnly variant="ghost" className="md:hidden">
+      <Image src={icon} alt="menu" className="h-5 w-5" />
+    </BaseButton>
   );
 };
 

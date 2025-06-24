@@ -6,10 +6,10 @@ import { useThemeStore } from '@/app/store/themeStore';
 import HeaderBackground from './header/HeaderBackground';
 import Logo from './header/Logo';
 import MenuLinks from './header/MenuLinks';
-import ContactButton from './header/ContactButton';
-import ThemeToggle from './header/ThemeToggle';
+import ContactButton from '../buttons/ContactButton';
+import ThemeToggle from '../buttons/ThemeToggle';
 import MobileMenu from './mobileMenu/MobileMenu';
-import MenuToggleButton from './header/MenuToggleButton';
+import MenuToggleButton from '../buttons/MenuToggleButton';
 
 const Navbar = () => {
   const { setTheme } = useThemeStore();

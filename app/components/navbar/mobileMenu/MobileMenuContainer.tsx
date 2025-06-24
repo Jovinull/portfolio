@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import MenuLinks from '../header/MenuLinks';
-import ContactButton from '../header/ContactButton';
+import ContactButton from '../../buttons/ContactButton';
 import MobileMenuHeader from './MobileMenuHeader';
 import MobileMenuBackground from './MobileMenuBackground';
 

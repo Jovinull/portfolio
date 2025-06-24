@@ -4,7 +4,7 @@ import { assets } from '@/assets/assets';
 import { useThemeStore } from '@/app/store/themeStore';
 import Image from 'next/image';
 import Link from 'next/link';
-import ThemeToggle from '../header/ThemeToggle';
+import ThemeToggle from '../../buttons/ThemeToggle';
 
 interface MobileMenuHeaderProps {
   closeMenu: () => void;
