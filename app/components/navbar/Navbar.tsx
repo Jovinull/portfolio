@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 import { useThemeStore } from '@/app/store/themeStore';
 
-import HeaderBackground from './HeaderBackground';
-import Logo from './Logo';
-import MenuLinks from './MenuLinks';
-import ContactButton from './ContactButton';
-import ThemeToggle from './ThemeToggle';
-import MobileMenu from './MobileMenu';
-import MenuToggleButton from './MenuToggleButton';
+import HeaderBackground from './header/HeaderBackground';
+import Logo from './header/Logo';
+import MenuLinks from './header/MenuLinks';
+import ContactButton from './header/ContactButton';
+import ThemeToggle from './header/ThemeToggle';
+import MobileMenu from './mobileMenu/MobileMenu';
+import MenuToggleButton from './header/MenuToggleButton';
 
 const Navbar = () => {
   const { setTheme } = useThemeStore();

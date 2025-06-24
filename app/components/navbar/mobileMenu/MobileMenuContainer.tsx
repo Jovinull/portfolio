@@ -1,8 +1,8 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import MenuLinks from './MenuLinks';
-import ContactButton from './ContactButton';
+import MenuLinks from '../header/MenuLinks';
+import ContactButton from '../header/ContactButton';
 import MobileMenuHeader from './MobileMenuHeader';
 
 interface MobileMenuContainerProps {
