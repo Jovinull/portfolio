@@ -6,7 +6,7 @@ import { assets, infoList, toolsData } from '@/assets/assets';
 
 const About = () => {
   return (
-    <section id="about" className="bg-theme text-theme w-full scroll-mt-20 px-[12%] py-10">
+    <section id="sobre" className="bg-theme text-theme w-full scroll-mt-20 px-[12%] py-10">
       <h4 className="font-display text-subtitle mb-2 text-center text-lg">Introdução</h4>
       <h2 className="font-display mb-10 text-center text-5xl">Sobre mim</h2>
 
