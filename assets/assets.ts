@@ -35,14 +35,16 @@ import menu_black from './menu-black.png';
 import menu_white from './menu-white.png';
 import close_black from './close-black.png';
 import close_white from './close-white.png';
-import web_icon from './web-icon.png';
-import mobile_icon from './mobile-icon.png';
-import ui_icon from './ui-icon.png';
-import graphics_icon from './graphics-icon.png';
 import right_arrow from './right-arrow.png';
 import send_icon from './send-icon.png';
 import right_arrow_bold from './right-arrow-bold.png';
 import right_arrow_bold_dark from './right-arrow-bold-dark.png';
+import edu_icon_service from './edu-icon-service.png';
+import code_icon_service from './code-icon-service.png';
+import ai_service from './ai-service.png';
+import embarcados_service from './embarcados-service.png';
+import web_icon_service from './web-icon-service.png';
+import research_icon_service from './research-icon-service.png';
 
 // ========================
 // Assets
@@ -83,14 +85,16 @@ export const assets = {
   menu_white,
   close_black,
   close_white,
-  web_icon,
-  mobile_icon,
-  ui_icon,
-  graphics_icon,
   right_arrow,
   send_icon,
   right_arrow_bold,
   right_arrow_bold_dark,
+  edu_icon_service,
+  code_icon_service,
+  ai_service,
+  embarcados_service,
+  web_icon_service,
+  research_icon_service,
 } as const;
 
 // ========================
@@ -121,27 +125,45 @@ export const workData: WorkItem[] = [
 
 export const serviceData: ServiceItem[] = [
   {
-    icon: assets.web_icon,
-    title: 'Web design',
-    description: 'Web development is the process of building, programming...',
+    icon: assets.web_icon_service,
+    title: 'Desenvolvimento Web',
+    description:
+      'Criação de aplicações modernas, responsivas e escaláveis usando Next.js, AdonisJS e PostgreSQL.',
     link: '',
   },
   {
-    icon: assets.mobile_icon,
-    title: 'Mobile app',
-    description: 'Mobile app development involves creating software for mobile devices...',
+    icon: assets.embarcados_service,
+    title: 'Sistemas Embarcados & IoT',
+    description:
+      'Desenvolvimento com ESP32 e sensores (DHT22, MQ-02, HC-SR04) para automação e monitoramento.',
     link: '',
   },
   {
-    icon: assets.ui_icon,
-    title: 'UI/UX design',
-    description: 'UI/UX design focuses on creating a seamless user experience...',
+    icon: assets.ai_service,
+    title: 'Inteligência Artificial Aplicada',
+    description:
+      'Implementação de IA com Python, redes neurais e aprendizagem por reforço para jogos e automações.',
     link: '',
   },
   {
-    icon: assets.graphics_icon,
-    title: 'Graphics design',
-    description: 'Creative design solutions to enhance visual communication...',
+    icon: assets.code_icon_service,
+    title: 'Soluções Full Stack',
+    description:
+      'Integração frontend e backend com autenticação JWT, bancos de dados e APIs RESTful robustas.',
+    link: '',
+  },
+  {
+    icon: assets.edu_icon_service,
+    title: 'Mentoria & Educação',
+    description:
+      'Criação de conteúdo educacional, monitoria e capacitação tecnológica para inclusão e formação em TI.',
+    link: '',
+  },
+  {
+    icon: assets.research_icon_service,
+    title: 'Projetos de Pesquisa',
+    description:
+      'Desenvolvimento de soluções inovadoras em IA, microeletrônica e educação com foco em impacto social.',
     link: '',
   },
 ];
