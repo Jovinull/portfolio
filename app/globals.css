@@ -55,15 +55,15 @@
   }
 
   html.dark {
-    --color-bg: #1a1a1a;
-    --color-bg-secondary: #262626;
-    --color-text: #f0f0f0;
-    --color-text-secondary: #a1a1aa;
-    --color-accent: #6366f1;
-    --color-accent-hover: #818cf8;
-    --color-border: #3f3f46;
-    --color-hover-card: #181660;
-    --color-subtitle: #52525b;
+    --color-bg: #0f172a;
+    --color-bg-secondary: #1e293b;
+    --color-text: #fef9c3;
+    --color-text-secondary: #facc15;
+    --color-accent: #3b82f6;
+    --color-accent-hover: #60a5fa;
+    --color-border: #334155;
+    --color-hover-card: #1e293b;
+    --color-subtitle: #c084fc;
   }
 
   html,
