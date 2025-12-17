@@ -1,19 +1,45 @@
 @import 'tailwindcss';
 
 @layer components {
+  /* =========================
+   * Buttons
+   * ========================= */
   .btn {
     @apply flex items-center gap-2 rounded-full border px-6 py-2 shadow-sm backdrop-blur-md transition-all;
   }
 
   .btn-theme {
     background-color: transparent;
-    color: var(--color-accent);
+    color: var(--color-text);
+    border-color: color-mix(in srgb, var(--color-text) 35%, transparent);
+  }
+
+  .btn-theme:hover {
+    background-color: color-mix(in srgb, var(--color-text) 8%, transparent);
+    border-color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  }
+
+  /* CTA com contraste (bom no claro e no escuro) */
+  .btn-solid {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+  }
+  .btn-solid:hover {
+    background-color: var(--color-accent);
+    color: #ffffff;
     border-color: var(--color-accent);
   }
-  .btn-theme:hover {
-    background-color: var(--color-accent-hover);
-    color: white;
-    border-color: var(--color-accent-hover);
+
+  html.dark .btn-solid {
+    background-color: #ffffff;
+    color: #0f172a;
+    border-color: #ffffff;
+  }
+  html.dark .btn-solid:hover {
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border-color: var(--color-accent);
   }
 
   .btn-primary {
@@ -21,7 +47,6 @@
     color: var(--color-bg);
     border-color: var(--color-text);
   }
-
   .btn-primary:hover {
     background-color: var(--color-text);
     color: var(--color-accent);
@@ -35,6 +60,28 @@
   .btn-ghost:hover {
     background-color: var(--color-bg-secondary);
   }
+
+  /* =========================
+   * Form fields (Contact)
+   * - Fix: borders/outline not visible in light mode
+   * - Dark: no background as requested
+   * ========================= */
+  .field {
+    @apply w-full rounded-md shadow-sm transition outline-none;
+    @apply bg-white/95 text-zinc-900 placeholder:text-zinc-400;
+    /* Use ring to guarantee visible “border” even if some CSS resets borders */
+    @apply ring-1 ring-black/20 focus:ring-2 focus:ring-black/30;
+    @apply px-4 py-3;
+  }
+
+  html.dark .field {
+    @apply bg-transparent text-zinc-100 shadow-none placeholder:text-zinc-400;
+    @apply ring-1 ring-white/15 focus:ring-2 focus:ring-white/25;
+  }
+
+  .field-textarea {
+    @apply p-4;
+  }
 }
 
 @layer base {
@@ -42,6 +89,10 @@
     --color-bg: #ffffff;
     --color-bg-secondary: #f7f7f7;
     --color-text: #000000;
+
+    /* Optional, but used in utilities */
+    --color-text-secondary: #374151;
+
     --color-accent: #4f46e5;
     --color-accent-hover: #4338ca;
     --color-border: #e5e5e5;
@@ -96,15 +147,19 @@
   .bg-theme {
     background-color: var(--color-bg);
   }
+
   .bg-theme-secondary {
     background-color: var(--color-bg-secondary);
   }
+
   .text-theme {
     color: var(--color-text);
   }
+
   .text-theme-secondary {
     color: var(--color-text-secondary);
   }
+
   .border-theme {
     border-color: var(--color-border);
   }
