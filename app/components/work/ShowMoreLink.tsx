@@ -1,19 +1,22 @@
-import Image from 'next/image';
+'use client';
+
 import { assets } from '@/assets/assets';
+import { useThemeStore } from '@/app/store/useThemeStore';
+import BaseButton from '@/app/components/buttons/BaseButton';
 
 export default function ShowMoreLink() {
+  const { isDark } = useThemeStore();
+
   return (
-    <a
-      href=""
-      className="hover:bg-lightHover mx-auto my-20 flex w-max items-center justify-center gap-2 rounded-full border-[0.5px] border-gray-700 px-10 py-3 text-gray-700 duration-500 dark:border-gray-500 dark:text-gray-200 dark:hover:bg-white/10"
-    >
-      Mostrar Mais
-      <Image src={assets.right_arrow_bold} alt="Right arrow" className="w-4 dark:hidden" />
-      <Image
-        src={assets.right_arrow_bold_dark}
-        alt="Right arrow"
-        className="hidden w-4 dark:block"
-      />
-    </a>
+    <div className="my-20 flex justify-center">
+      <BaseButton
+        href="/#work"
+        variant="theme"
+        icon={isDark ? assets.right_arrow_bold_dark : assets.right_arrow_bold}
+        className="px-10 py-3 shadow-md hover:shadow-lg"
+      >
+        Mostrar Mais
+      </BaseButton>
+    </div>
   );
 }
