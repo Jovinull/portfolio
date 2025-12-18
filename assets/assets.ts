@@ -45,6 +45,7 @@ import ai_service from './ai-service.png';
 import embarcados_service from './embarcados-service.png';
 import web_icon_service from './web-icon-service.png';
 import research_icon_service from './research-icon-service.png';
+import footer_bg_color from './footer-bg-color.png';
 
 // ========================
 // Assets
@@ -95,6 +96,7 @@ export const assets = {
   embarcados_service,
   web_icon_service,
   research_icon_service,
+  footer_bg_color,
 } as const;
 
 // ========================
