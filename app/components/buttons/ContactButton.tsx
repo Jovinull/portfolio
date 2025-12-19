@@ -15,7 +15,7 @@ export default function ContactButton({
   return (
     <BaseButton
       href={href}
-      variant="solid"
+      variant="theme"
       className={clsx(isFullWidth && 'w-full justify-center')}
     >
       {label}
