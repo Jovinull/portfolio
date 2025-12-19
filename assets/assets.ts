@@ -104,49 +104,49 @@ export const assets = {
 // ========================
 export const workData: WorkItem[] = [
   {
-    title: 'eSmart — Plataforma de Gestão em Saúde (WM Saúde)',
+    title: 'Gestão em Saúde (WM)',
     description:
       'Full-stack (AdonisJS v6, Next.js, PostgreSQL) • Produtos críticos • Qualidade e governança',
     bgImage: '/work-1.png',
   },
   {
-    title: 'Governança, CI/CD e RBAC (WM Saúde)',
+    title: 'Governança, CI/CD & RBAC (WM)',
     description: 'Pipelines, padrões de código, políticas, GitFlow e validações (VineJS/Bouncer)',
     bgImage: '/work-2.png',
   },
   {
-    title: 'AccessSim — IA + Realidade Aumentada (NBR 9050)',
+    title: 'MastersTech — Educação Tech',
+    description: 'Conteúdo educativo com foco em programação e desenvolvimento de software',
+    bgImage: '/work-3.png',
+  },
+  {
+    title: 'Pesquisa aplicada (LABIC/IFS)',
+    description: 'Projetos com Python, machine learning e sistemas embarcados (ESP32/IoT)',
+    bgImage: '/work-4.png',
+  },
+  {
+    title: 'AccessSim',
     description:
       'IA em Python + API • App mobile em React Native • Automação da análise de acessibilidade',
     bgImage: '/work-3.png',
   },
   {
-    title: 'WF3 Solutions — Produtos Digitais Escaláveis',
+    title: 'WF3 Solutions',
     description:
       'Plataformas web/mobile, portais e integrações • RBAC, auditoria e LGPD desde o primeiro deploy',
     bgImage: '/work-4.png',
   },
   {
-    title: 'Glicemy — API & Ecossistema (Projeto autoral)',
+    title: 'Glicemy',
     description:
       'Solução registrada como patente • Saúde e tecnologia com foco em impacto e utilidade real',
     bgImage: '/work-1.png',
   },
   {
-    title: 'CaptionEase — Acessibilidade & Produtividade (Projeto autoral)',
+    title: 'CaptionEase',
     description:
       'Projeto registrado como patente • Ferramenta voltada a acessibilidade e fluxo de conteúdo',
     bgImage: '/work-2.png',
-  },
-  {
-    title: 'MastersTech — Educação em Tecnologia',
-    description: 'Conteúdo educativo com foco em programação e desenvolvimento de software',
-    bgImage: '/work-3.png',
-  },
-  {
-    title: 'Pesquisa aplicada (LABIC/IFS) — IA/ML & IoT',
-    description: 'Projetos com Python, machine learning e sistemas embarcados (ESP32/IoT)',
-    bgImage: '/work-4.png',
   },
 ];
 
