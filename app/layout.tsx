@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Outfit, Ovo } from 'next/font/google';
 import './globals.css';
 
@@ -19,6 +19,13 @@ const ovo = Ovo({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://meu-dominio.com';
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -53,10 +60,6 @@ export const metadata: Metadata = {
     images: [`${SITE_URL}/og-image.png`],
     creator: '@meuusuario',
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
-  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
