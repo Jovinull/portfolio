@@ -1,9 +1,75 @@
 @import 'tailwindcss';
 
+@layer base {
+  :root {
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f7f7f7;
+    --color-text: #000000;
+
+    --color-text-secondary: #374151;
+
+    --color-accent: #4f46e5;
+    --color-accent-hover: #4338ca;
+    --color-border: #e5e5e5;
+    --color-hover-card: #ede9fe;
+    --color-subtitle: #1f2937;
+
+    --navbar-height: 124px;
+
+    --font-sans: var(--font-outfit);
+    --font-display: var(--font-ovo);
+  }
+
+  html.dark {
+    --color-bg: #0f172a;
+    --color-bg-secondary: #1e293b;
+    --color-text: #fef9c3;
+    --color-text-secondary: #facc15;
+    --color-accent: #3b82f6;
+    --color-accent-hover: #60a5fa;
+    --color-border: #334155;
+    --color-hover-card: #1e293b;
+    --color-subtitle: #c084fc;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    @apply antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding-top: var(--navbar-height);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 @layer components {
-  /* =========================
-   * Buttons
-   * ========================= */
   .btn {
     @apply flex items-center gap-2 rounded-full border px-6 py-2 shadow-sm backdrop-blur-md transition-all;
   }
@@ -19,7 +85,6 @@
     border-color: color-mix(in srgb, var(--color-text) 55%, transparent);
   }
 
-  /* CTA com contraste (bom no claro e no escuro) */
   .btn-solid {
     background-color: var(--color-text);
     color: var(--color-bg);
@@ -61,15 +126,9 @@
     background-color: var(--color-bg-secondary);
   }
 
-  /* =========================
-   * Form fields (Contact)
-   * - Fix: borders/outline not visible in light mode
-   * - Dark: no background as requested
-   * ========================= */
   .field {
     @apply w-full rounded-md shadow-sm transition outline-none;
     @apply bg-white/95 text-zinc-900 placeholder:text-zinc-400;
-    /* Use ring to guarantee visible “border” even if some CSS resets borders */
     @apply ring-1 ring-black/20 focus:ring-2 focus:ring-black/30;
     @apply px-4 py-3;
   }
@@ -81,65 +140,6 @@
 
   .field-textarea {
     @apply p-4;
-  }
-}
-
-@layer base {
-  :root {
-    --color-bg: #ffffff;
-    --color-bg-secondary: #f7f7f7;
-    --color-text: #000000;
-
-    /* Optional, but used in utilities */
-    --color-text-secondary: #374151;
-
-    --color-accent: #4f46e5;
-    --color-accent-hover: #4338ca;
-    --color-border: #e5e5e5;
-    --color-hover-card: #ede9fe;
-    --color-subtitle: #1f2937;
-
-    --navbar-height: 124px;
-
-    --font-sans: var(--font-outfit);
-    --font-display: var(--font-ovo);
-  }
-
-  html.dark {
-    --color-bg: #0f172a;
-    --color-bg-secondary: #1e293b;
-    --color-text: #fef9c3;
-    --color-text-secondary: #facc15;
-    --color-accent: #3b82f6;
-    --color-accent-hover: #60a5fa;
-    --color-border: #334155;
-    --color-hover-card: #1e293b;
-    --color-subtitle: #c084fc;
-  }
-
-  html,
-  body {
-    @apply m-0 box-border p-0;
-  }
-
-  * {
-    @apply antialiased;
-    font-family: var(--font-sans);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-display);
-  }
-
-  body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    padding-top: var(--navbar-height);
   }
 }
 

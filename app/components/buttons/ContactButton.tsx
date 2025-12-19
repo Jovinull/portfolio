@@ -1,22 +1,24 @@
-'use client';
-
-import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/useThemeStore';
+import clsx from 'clsx';
 import BaseButton from './BaseButton';
 
-const ContactButton = ({ isFullWidth = false }: { isFullWidth?: boolean }) => {
-  const { isDark } = useThemeStore();
-
-  return (
-    <BaseButton
-      href="#contact"
-      variant="theme"
-      icon={isDark ? assets.arrow_icon_dark : assets.arrow_icon}
-      className={isFullWidth ? 'w-full justify-center' : ''}
-    >
-      Contato
-    </BaseButton>
-  );
+type ContactButtonProps = {
+  isFullWidth?: boolean;
+  href?: string; // default: #contact
+  label?: string; // default: "Fale comigo"
 };
 
-export default ContactButton;
+export default function ContactButton({
+  isFullWidth = false,
+  href = '#contact',
+  label = 'Fale comigo',
+}: ContactButtonProps) {
+  return (
+    <BaseButton
+      href={href}
+      variant="solid"
+      className={clsx(isFullWidth && 'w-full justify-center')}
+    >
+      {label}
+    </BaseButton>
+  );
+}

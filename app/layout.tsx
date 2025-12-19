@@ -2,47 +2,42 @@ import type { Metadata } from 'next';
 import { Outfit, Ovo } from 'next/font/google';
 import './globals.css';
 
+import ThemeHydration from './components/theme/ThemeHydration';
+
 const outfit = Outfit({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-outfit',
+  display: 'swap',
 });
 
 const ovo = Ovo({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--font-ovo',
+  display: 'swap',
 });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://meu-dominio.com';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Jovino | Desenvolvedor Full Stack e Criador de Soluções Digitais',
   description:
-    'Portfólio profissional de Jovino, desenvolvedor full stack especializado em aplicações web, APIs, IoT e inteligência artificial. Confira projetos, experiências e soluções criativas.',
-  keywords: [
-    'Jovino',
-    'Portfólio Jovino',
-    'Desenvolvedor Full Stack',
-    'Programador',
-    'Desenvolvimento Web',
-    'Next.js',
-    'AdonisJS',
-    'Node.js',
-    'TypeScript',
-    'IoT',
-    'Inteligência Artificial',
-    'Soluções Digitais',
-  ],
-  authors: [{ name: 'Jovino', url: 'https://meu-dominio.com' }],
+    'Portfólio profissional de Jovino, desenvolvedor full stack especializado em aplicações web, APIs, IoT e inteligência artificial.',
+  applicationName: 'Portfólio Jovino',
+  authors: [{ name: 'Jovino', url: SITE_URL }],
   creator: 'Jovino',
+  alternates: { canonical: SITE_URL },
   openGraph: {
     title: 'Jovino | Desenvolvedor Full Stack e Criador de Soluções Digitais',
     description:
-      'Explore o portfólio de Jovino e descubra projetos inovadores nas áreas de desenvolvimento web, APIs, IoT e inteligência artificial.',
-    url: 'https://meu-dominio.com',
+      'Explore projetos inovadores nas áreas de desenvolvimento web, APIs, IoT e inteligência artificial.',
+    url: SITE_URL,
     siteName: 'Portfólio Jovino',
     images: [
       {
-        url: 'https://meu-dominio.com/og-image.png',
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'Jovino - Desenvolvedor Full Stack',
@@ -55,18 +50,22 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Jovino | Desenvolvedor Full Stack e Criador de Soluções Digitais',
     description: 'Confira meu portfólio com projetos em desenvolvimento web, APIs, IoT e IA.',
-    images: ['https://meu-dominio.com/og-image.png'],
+    images: [`${SITE_URL}/og-image.png`],
     creator: '@meuusuario',
   },
-  metadataBase: new URL('https://meu-dominio.com'),
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${ovo.variable} overflow-x-hidden leading-8 antialiased`}
+        className={`${outfit.variable} ${ovo.variable} min-h-dvh overflow-x-hidden leading-8 antialiased`}
       >
+        <ThemeHydration />
         {children}
       </body>
     </html>

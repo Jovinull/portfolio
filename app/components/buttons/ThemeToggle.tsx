@@ -1,16 +1,30 @@
+'use client';
+
+import Image from 'next/image';
 import { assets } from '@/assets/assets';
 import { useThemeStore } from '@/app/store/useThemeStore';
-import Image from 'next/image';
 import BaseButton from './BaseButton';
 
-const ThemeToggle = () => {
-  const { isDark, toggleTheme } = useThemeStore();
+export default function ThemeToggle() {
+  const toggleTheme = useThemeStore(s => s.toggleTheme);
 
   return (
-    <BaseButton onClick={toggleTheme} isIconOnly variant="ghost">
-      <Image src={isDark ? assets.sun_icon : assets.moon_icon} alt="tema" className="h-5 w-5" />
-    </BaseButton>
+    <BaseButton
+      onClick={toggleTheme}
+      isIconOnly
+      ariaLabel="Alternar tema"
+      variant="ghost"
+      startIcon={
+        <>
+          <Image src={assets.moon_icon} alt="" aria-hidden="true" className="h-5 w-5 dark:hidden" />
+          <Image
+            src={assets.sun_icon}
+            alt=""
+            aria-hidden="true"
+            className="hidden h-5 w-5 dark:block"
+          />
+        </>
+      }
+    />
   );
-};
-
-export default ThemeToggle;
+}

@@ -1,19 +1,10 @@
-'use client';
-
-import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/useThemeStore';
 import Image from 'next/image';
+import { assets } from '@/assets/assets';
 
-const HeaderBackground = () => {
-  const { isDark } = useThemeStore();
-
-  if (isDark) return null;
-
+export default function HeaderBackground() {
   return (
-    <div className="absolute top-0 right-0 -z-10 w-11/12 translate-y-[-40%] scale-80">
-      <Image src={assets.header_bg_color} alt="bg" className="w-full" />
+    <div className="pointer-events-none absolute top-0 right-0 -z-10 w-11/12 translate-y-[-40%] scale-80 dark:hidden">
+      <Image src={assets.header_bg_color} alt="" aria-hidden="true" className="w-full" priority />
     </div>
   );
-};
-
-export default HeaderBackground;
+}

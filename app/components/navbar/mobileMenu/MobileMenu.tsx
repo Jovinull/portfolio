@@ -3,15 +3,13 @@
 import MobileMenuOverlay from './MobileMenuOverlay';
 import MobileMenuContainer from './MobileMenuContainer';
 
-import { MobileMenuProps } from '@/app/types/components/mobileMenu';
+import type { MobileMenuProps } from '@/app/types/components/mobileMenu';
 
-const MobileMenu = ({ isOpen, closeMenu }: MobileMenuProps) => {
+export default function MobileMenu({ isOpen, closeMenu }: MobileMenuProps) {
   return (
     <>
-      <MobileMenuOverlay isOpen={isOpen} />
+      <MobileMenuOverlay isOpen={isOpen} onClose={closeMenu} />
       <MobileMenuContainer isOpen={isOpen} closeMenu={closeMenu} />
     </>
   );
-};
-
-export default MobileMenu;
+}

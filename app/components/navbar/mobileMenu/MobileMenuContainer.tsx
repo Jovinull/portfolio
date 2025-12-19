@@ -1,43 +1,67 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+
 import MenuLinks from '../header/MenuLinks';
 import ContactButton from '../../buttons/ContactButton';
 import MobileMenuHeader from './MobileMenuHeader';
 import MobileMenuBackground from './MobileMenuBackground';
 
-import { MobileMenuContainerProps } from '@/app/types/components/mobileMenuContainer';
+import type { MobileMenuContainerProps } from '@/app/types/components/mobileMenuContainer';
 
-const MobileMenuContainer = ({ isOpen, closeMenu }: MobileMenuContainerProps) => {
+export default function MobileMenuContainer({ isOpen, closeMenu }: MobileMenuContainerProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Detecta clique fora para fechar
+  // Foco no menu ao abrir
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        closeMenu();
-      }
+    if (isOpen) menuRef.current?.focus();
+  }, [isOpen]);
+
+  // ESC fecha
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) closeMenu();
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
   }, [isOpen, closeMenu]);
+
+  // Trava scroll do body quando menu está aberto
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [isOpen]);
 
   return (
     <div
       ref={menuRef}
-      className={`bg-theme text-theme fixed top-0 right-0 z-[999] flex h-full w-64 transform flex-col gap-8 px-6 py-8 shadow-lg backdrop-blur-md transition-transform duration-300 ease-in-out md:hidden ${
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!isOpen}
+      tabIndex={-1}
+      className={`bg-theme text-theme fixed top-0 right-0 z-[60] flex h-dvh w-72 transform flex-col gap-8 px-6 py-8 shadow-xl backdrop-blur-md transition-transform duration-300 ease-in-out md:hidden ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}
+      // Fecha quando clicar em qualquer <a> dentro do menu
+      onClick={e => {
+        const target = e.target as HTMLElement;
+        if (target.closest('a')) closeMenu();
+      }}
     >
       <MobileMenuBackground />
+
       <MobileMenuHeader closeMenu={closeMenu} />
-      <MenuLinks onClick={closeMenu} />
+
+      <MenuLinks variant="mobile" />
+
       <ContactButton isFullWidth />
     </div>
   );
-};
-
-export default MobileMenuContainer;
+}

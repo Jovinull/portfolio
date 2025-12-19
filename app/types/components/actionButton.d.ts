@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { StaticImageData } from 'next/image';
+import type { ReactNode } from 'react';
+import type { StaticImageData } from 'next/image';
 
 export interface ActionButtonProps {
   href: string;

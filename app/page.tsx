@@ -1,21 +1,21 @@
-'use client';
-
-import Navbar from './components/navbar/Navbar';
-import Header from './components/header/Header';
-import About from './components/about/About';
-import Services from './components/services/Services';
-import Work from './components/work/Work';
-import Contact from './components/contact/Contact';
+import Navbar from '@/app/components/navbar/Navbar';
+import Header from '@/app/components/header/Header';
+import About from '@/app/components/about/About';
+import Services from '@/app/components/services/Services';
+import Work from '@/app/components/work/Work';
+import Contact from '@/app/components/contact/Contact';
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <Header />
-      <About />
-      <Services />
-      <Work />
-      <Contact />
+      <main>
+        <Header />
+        <About />
+        <Services />
+        <Work />
+        <Contact />
+      </main>
     </>
   );
 }

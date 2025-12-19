@@ -1,3 +1,3 @@
 export interface MenuLinksProps {
-  onClick?: () => void;
+  variant?: 'desktop' | 'mobile';
 }

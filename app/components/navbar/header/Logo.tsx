@@ -1,23 +1,17 @@
-'use client';
-
-import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/useThemeStore';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { assets } from '@/assets/assets';
 
-const Logo = () => {
-  const { isDark } = useThemeStore();
-
+export default function Logo() {
   return (
-    <Link href="#top" className="cursor-pointer">
+    <Link href="#top" className="inline-flex cursor-pointer items-center">
+      <Image src={assets.logo} alt="Logo" className="w-24 md:w-28 dark:hidden" priority />
       <Image
-        src={isDark ? assets.logo_dark : assets.logo}
+        src={assets.logo_dark}
         alt="Logo"
-        className="w-24 md:w-28"
+        className="hidden w-24 md:w-28 dark:block"
         priority
       />
     </Link>
   );
-};
-
-export default Logo;
+}

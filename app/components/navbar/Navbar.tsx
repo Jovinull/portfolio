@@ -1,67 +1,29 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useThemeStore } from '@/app/store/useThemeStore';
-
 import HeaderBackground from './header/HeaderBackground';
 import Logo from './header/Logo';
 import MenuLinks from './header/MenuLinks';
-import ContactButton from '../buttons/ContactButton';
-import ThemeToggle from '../buttons/ThemeToggle';
-import MobileMenu from './mobileMenu/MobileMenu';
-import MenuToggleButton from '../buttons/MenuToggleButton';
+import NavbarClient from './NavbarClient';
 
-const Navbar = () => {
-  const { setTheme } = useThemeStore();
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const theme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setTheme(theme === 'dark' || (!theme && prefersDark));
-  }, [setTheme]);
-
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
-
+export default function Navbar() {
   return (
-    <>
-      <div className="relative">
-        <HeaderBackground />
+    <div className="relative">
+      <HeaderBackground />
 
-        <header className="fixed top-0 left-0 z-50 w-full bg-transparent">
-          <nav className="mx-auto grid max-w-[1280px] grid-cols-2 items-center px-6 py-5 md:grid-cols-3 md:px-8">
-            {/* Esquerda */}
-            <div className="justify-self-start">
-              <Logo />
-            </div>
+      <header className="fixed top-0 left-0 z-50 w-full">
+        <nav className="border-theme bg-theme/70 supports-[backdrop-filter]:bg-theme/60 mx-auto flex max-w-[1280px] items-center justify-between border-b px-6 py-5 shadow-sm backdrop-blur-md md:px-8">
+          {/* Esquerda */}
+          <div className="flex items-center gap-3">
+            <Logo />
+          </div>
 
-            {/* Centro */}
-            <div className="hidden justify-self-center md:flex">
-              <MenuLinks />
-            </div>
+          {/* Centro */}
+          <div className="hidden md:flex">
+            <MenuLinks variant="desktop" />
+          </div>
 
-            {/* Direita */}
-            <div className="flex items-center gap-4 justify-self-end">
-              {/* Botões desktop */}
-              <div className="hidden items-center gap-4 md:flex">
-                <ContactButton />
-                <ThemeToggle />
-              </div>
-
-              {/* Botão mobile */}
-              <div className="md:hidden">
-                <MenuToggleButton isOpen={menuOpen} toggleMenu={toggleMenu} />
-              </div>
-            </div>
-
-            {/* Menu Mobile */}
-            <MobileMenu isOpen={menuOpen} closeMenu={closeMenu} />
-          </nav>
-        </header>
-      </div>
-    </>
+          {/* Direita + Mobile */}
+          <NavbarClient />
+        </nav>
+      </header>
+    </div>
   );
-};
-
-export default Navbar;
+}

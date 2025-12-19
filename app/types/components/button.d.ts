@@ -5,10 +5,23 @@ export interface BaseButtonProps {
   href?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
-  children: ReactNode;
+
+  children?: ReactNode;
+
   icon?: StaticImageData;
-  variant?: 'primary' | 'theme' | 'ghost';
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
+
+  variant?: 'primary' | 'theme' | 'ghost' | 'solid';
+
   download?: boolean;
+
   isIconOnly?: boolean;
+  ariaLabel?: string;
+
   className?: string;
+  disabled?: boolean;
+
+  target?: '_self' | '_blank';
+  rel?: string;
 }

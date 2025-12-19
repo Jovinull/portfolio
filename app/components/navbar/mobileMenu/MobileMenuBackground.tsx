@@ -1,23 +1,18 @@
 'use client';
 
-import { assets } from '@/assets/assets';
-import { useThemeStore } from '@/app/store/useThemeStore';
 import Image from 'next/image';
+import { assets } from '@/assets/assets';
 
-const MobileMenuBackground = () => {
-  const { isDark } = useThemeStore();
-
-  if (isDark) return null;
-
+export default function MobileMenuBackground() {
   return (
-    <div className="fixed top-0 right-0 -z-10 h-full w-full overflow-hidden">
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden dark:hidden">
       <Image
         src={assets.header_bg_color}
-        alt="Mobile Menu Background"
+        alt=""
+        aria-hidden="true"
         className="h-full w-full scale-125 object-cover opacity-100"
+        priority
       />
     </div>
   );
-};
-
-export default MobileMenuBackground;
+}
