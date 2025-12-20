@@ -31,7 +31,7 @@ export default function WorkCard({ project }: WorkCardProps) {
         className="object-cover transition-transform duration-500 group-hover:scale-[1.04] group-focus-visible:scale-[1.04]"
       />
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent dark:from-black/55" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/35 via-black/5 to-transparent dark:from-black/55" />
 
       <div
         role="tooltip"

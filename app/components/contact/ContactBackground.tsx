@@ -35,7 +35,7 @@ export default function ContactBackground() {
       </motion.div>
 
       {/* Véu para manter leitura boa */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/20 to-white" />
+      <div className="absolute inset-0 bg-linear-to-b from-white/0 via-white/20 to-white" />
     </motion.div>
   );
 }

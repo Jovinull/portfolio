@@ -19,7 +19,7 @@ export default function HeaderBackground() {
         "
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/15 to-white" />
+      <div className="absolute inset-0 bg-linear-to-b from-white/0 via-white/15 to-white" />
     </div>
   );
 }

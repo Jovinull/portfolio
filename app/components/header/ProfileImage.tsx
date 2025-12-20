@@ -12,7 +12,7 @@ export default function ProfileImage() {
     <motion.div variants={popIn(!!reduced, 0)}>
       <div className="mb-3">
         <div className="relative inline-flex">
-          <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25 blur-xl" />
+          <div className="absolute -inset-2 rounded-full bg-linear-to-r from-indigo-500/25 via-sky-500/25 to-emerald-500/25 blur-xl" />
           <Image
             src={assets.profile_img}
             alt="Foto de perfil de Felipe Jovino"

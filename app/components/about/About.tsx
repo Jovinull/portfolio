@@ -43,14 +43,14 @@ export default function About() {
                   : { duration: 5.5, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }
               }
             >
-              <div className="absolute -inset-6 rounded-[28px] bg-gradient-to-r from-indigo-500/10 via-sky-500/10 to-emerald-500/10 blur-2xl" />
+              <div className="absolute -inset-6 rounded-[28px] bg-linear-to-r from-indigo-500/10 via-sky-500/10 to-emerald-500/10 blur-2xl" />
               <Image
                 src={assets.user_image}
                 alt="Foto de Jovino"
                 width={350}
                 height={350}
                 priority
-                className="relative w-[250px] rounded-3xl ring-1 ring-black/10 shadow-xl sm:w-[300px] md:w-[350px] dark:ring-white/10"
+                className="relative w-62.5 rounded-3xl ring-1 ring-black/10 shadow-xl sm:w-75 md:w-87.5 dark:ring-white/10"
               />
             </motion.div>
           </motion.div>
