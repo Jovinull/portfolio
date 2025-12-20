@@ -1,12 +1,23 @@
+'use client';
+
+import { motion, useReducedMotion } from 'framer-motion';
 import { workData } from '@/assets/assets';
 import WorkCard from './WorkCard';
+import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
 
 export default function WorkGrid() {
+  const reduced = useReducedMotion();
+
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <motion.div
+      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      variants={staggerContainer(!!reduced, 0.06, 0.02)}
+    >
       {workData.map((project, index) => (
-        <WorkCard key={`${project.title}-${index}`} project={project} />
+        <motion.div key={`${project.title}-${index}`} variants={fadeUp(!!reduced, { distance: 18 })}>
+          <WorkCard project={project} />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }

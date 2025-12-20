@@ -1,4 +1,7 @@
+'use client';
+
 import Image, { type StaticImageData } from 'next/image';
+import { motion, useReducedMotion } from 'framer-motion';
 import { assets } from '@/assets/assets';
 import type { WorkCardProps } from '@/app/types/components/workCard';
 
@@ -7,15 +10,18 @@ function resolveImageSrc(img: string | StaticImageData) {
 }
 
 export default function WorkCard({ project }: WorkCardProps) {
+  const reduced = useReducedMotion();
   const imgSrc = resolveImageSrc(project.bgImage);
 
   return (
-    <article
+    <motion.article
+      whileHover={reduced ? undefined : { y: -6 }}
+      whileFocus={reduced ? undefined : { y: -6 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 22 }}
       className="group relative aspect-square overflow-hidden rounded-2xl ring-1 ring-black/10 transition-shadow duration-300 hover:shadow-xl focus-visible:shadow-xl focus-visible:ring-2 focus-visible:ring-black/30 focus-visible:outline-none dark:ring-white/10 dark:focus-visible:ring-white/30"
       aria-label={`${project.title} - ${project.description}`}
       tabIndex={0}
     >
-      {/* Imagem de fundo */}
       <Image
         src={imgSrc}
         alt=""
@@ -25,10 +31,8 @@ export default function WorkCard({ project }: WorkCardProps) {
         className="object-cover transition-transform duration-500 group-hover:scale-[1.04] group-focus-visible:scale-[1.04]"
       />
 
-      {/* Overlay para contraste */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent dark:from-black/55" />
 
-      {/* Tooltip (descrição) */}
       <div
         role="tooltip"
         className="pointer-events-none absolute top-4 right-4 left-4 z-10 translate-y-1 rounded-xl bg-white/90 px-4 py-3 text-sm text-zinc-900 opacity-0 shadow-lg backdrop-blur-md transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 dark:bg-zinc-950/70 dark:text-zinc-50"
@@ -36,7 +40,6 @@ export default function WorkCard({ project }: WorkCardProps) {
         <p className="line-clamp-3 leading-relaxed">{project.description}</p>
       </div>
 
-      {/* Barra inferior */}
       <div className="absolute inset-x-4 bottom-4 z-10 flex items-center justify-between gap-4 rounded-xl bg-white/85 px-5 py-4 backdrop-blur-md transition-all duration-300 group-hover:bottom-5 dark:bg-zinc-950/60">
         <h3
           className="line-clamp-2 min-w-0 flex-1 text-sm leading-snug font-semibold text-zinc-900 md:text-base dark:text-zinc-50"
@@ -51,6 +54,6 @@ export default function WorkCard({ project }: WorkCardProps) {
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
