@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* Faz o Tailwind ativar `dark:` quando existir `html.dark` */
+@custom-variant dark (&:where(html.dark, html.dark *));
+
 @layer base {
   :root {
     --color-bg: #ffffff;
