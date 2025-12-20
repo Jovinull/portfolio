@@ -1,10 +1,5 @@
-import HeaderBackground from '../navbar/header/HeaderBackground';
-import ProfileImage from './ProfileImage';
-import Greeting from './Greeting';
-import Title from './Title';
-import Subtitle from './Subtitle';
-import Description from './Description';
-import ActionButtons from '@/app/components/buttons/ActionButtons';
+import HeaderBackground from '../navbar/header/HeaderBackground'
+import HeaderMotion from './HeaderMotion'
 
 export default function Header() {
   return (
@@ -17,15 +12,7 @@ export default function Header() {
       "
     >
       <HeaderBackground />
-
-      <div className="relative z-10 flex flex-col items-center text-center">
-        <ProfileImage />
-        <Greeting />
-        <Title />
-        <Subtitle />
-        <Description />
-        <ActionButtons />
-      </div>
+      <HeaderMotion />
     </section>
-  );
+  )
 }
