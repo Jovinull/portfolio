@@ -3,6 +3,7 @@ import { Outfit, Ovo } from 'next/font/google';
 import './globals.css';
 
 import ThemeHydration from './components/theme/ThemeHydration';
+import Providers from './providers';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -69,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${outfit.variable} ${ovo.variable} min-h-dvh overflow-x-hidden leading-8 antialiased`}
       >
         <ThemeHydration />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

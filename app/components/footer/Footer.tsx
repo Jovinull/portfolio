@@ -1,11 +1,13 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { assets } from '@/assets/assets';
 import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
+import { useThemeStore } from '@/app/store/useThemeStore';
 
 type SocialLink = {
   label: string;
@@ -27,10 +29,20 @@ export default function Footer({
   ],
 }: FooterProps) {
   const reduced = useReducedMotion();
+  const isDark = useThemeStore((s) => s.isDark);
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const year = new Date().getFullYear();
 
+  const logoSrc = mounted && isDark ? assets.logo_dark : assets.logo;
+  const mailSrc = mounted && isDark ? assets.mail_icon_dark : assets.mail_icon;
+
+  const ringClass = isDark ? 'focus-visible:ring-white/30' : 'focus-visible:ring-black/30';
+
   return (
-    <footer className="mt-20 border-t border-black/10 bg-theme text-theme dark:border-white/10">
+    <footer className="mt-20 border-t border-theme bg-theme text-theme">
       <motion.div
         className="mx-auto w-full max-w-6xl px-4 py-10"
         variants={staggerContainer(!!reduced, 0.08, 0.04)}
@@ -46,44 +58,24 @@ export default function Footer({
             transition={{ type: 'spring', stiffness: 260, damping: 20 }}
           >
             <Image
-              src={assets.logo}
+              src={logoSrc}
               alt={`${brandName} — logo`}
               priority
               sizes="144px"
-              className="block h-auto w-36 dark:hidden"
-            />
-            <Image
-              src={assets.logo_dark}
-              alt={`${brandName} — logo`}
-              priority
-              sizes="144px"
-              className="hidden h-auto w-36 dark:block"
+              className="h-auto w-36"
             />
           </motion.div>
 
           <motion.div
-            className="mx-auto mt-4 flex w-max items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm text-black/80 dark:border-white/10 dark:text-white/80"
+            className="text-theme-secondary border-theme mx-auto mt-4 flex w-max items-center gap-2 rounded-full border px-4 py-2 text-sm"
             whileHover={reduced ? undefined : { y: -2 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
           >
-            <Image
-              src={assets.mail_icon}
-              alt=""
-              aria-hidden="true"
-              sizes="24px"
-              className="block h-auto w-6 dark:hidden"
-            />
-            <Image
-              src={assets.mail_icon_dark}
-              alt=""
-              aria-hidden="true"
-              sizes="24px"
-              className="hidden h-auto w-6 dark:block"
-            />
+            <Image src={mailSrc} alt="" aria-hidden="true" sizes="24px" className="h-auto w-6" />
 
             <a
               href={`mailto:${email}`}
-              className="underline-offset-4 hover:underline focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30"
+              className={`underline-offset-4 hover:underline focus:outline-none focus-visible:rounded focus-visible:ring-2 ${ringClass}`}
             >
               {email}
             </a>
@@ -93,7 +85,7 @@ export default function Footer({
         {/* Bottom */}
         <motion.div
           variants={fadeUp(!!reduced, { delay: 0.04, distance: 16 })}
-          className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-black/10 pt-6 text-sm text-black/70 dark:border-white/10 dark:text-white/70 sm:flex-row"
+          className="text-theme-secondary border-theme mt-10 flex flex-col items-center justify-between gap-4 border-t pt-6 text-sm sm:flex-row"
         >
           <p className="text-center sm:text-left">
             © {year} {brandName}. All rights reserved.
@@ -116,7 +108,7 @@ export default function Footer({
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="transition-opacity hover:opacity-80 focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30"
+                      className={`transition-opacity hover:opacity-80 focus:outline-none focus-visible:rounded focus-visible:ring-2 ${ringClass}`}
                     >
                       {item.label}
                     </Link>
