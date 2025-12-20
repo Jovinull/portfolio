@@ -1,14 +1,19 @@
 import ContactHeader from './ContactHeader';
 import ContactForm from './ContactForm';
+import ContactBackground from './ContactBackground';
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className='bg-theme text-theme w-full scroll-mt-20 bg-[url("/footer-bg-color.png")] bg-[length:90%_auto] bg-center bg-no-repeat px-[12%] py-10 dark:bg-none'
+      className="bg-theme text-theme relative isolate w-full scroll-mt-20 overflow-hidden px-[12%] py-10"
     >
-      <ContactHeader />
-      <ContactForm />
+      <ContactBackground />
+
+      <div className="relative z-10">
+        <ContactHeader />
+        <ContactForm />
+      </div>
     </section>
   );
 }
