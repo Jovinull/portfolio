@@ -1,19 +1,22 @@
-// app/components/Footer.tsx
-import Image from 'next/image'
-import Link from 'next/link'
+'use client';
 
-import { assets } from '@/assets/assets'
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion, useReducedMotion } from 'framer-motion';
+
+import { assets } from '@/assets/assets';
+import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
 
 type SocialLink = {
-  label: string
-  href: string
-}
+  label: string;
+  href: string;
+};
 
 type FooterProps = {
-  email?: string
-  brandName?: string
-  socials?: SocialLink[]
-}
+  email?: string;
+  brandName?: string;
+  socials?: SocialLink[];
+};
 
 export default function Footer({
   email = 'felipejovinogamerplay@gmail.com',
@@ -23,14 +26,25 @@ export default function Footer({
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jobas/' },
   ],
 }: FooterProps) {
-  const year = new Date().getFullYear()
+  const reduced = useReducedMotion();
+  const year = new Date().getFullYear();
 
   return (
     <footer className="mt-20 border-t border-black/10 bg-theme text-theme dark:border-white/10">
-      <div className="mx-auto w-full max-w-6xl px-4 py-10">
+      <motion.div
+        className="mx-auto w-full max-w-6xl px-4 py-10"
+        variants={staggerContainer(!!reduced, 0.08, 0.04)}
+        initial={reduced ? false : 'hidden'}
+        whileInView={reduced ? undefined : 'show'}
+        viewport={{ once: true, amount: 0.22 }}
+      >
         {/* Top */}
-        <div className="text-center">
-          <div className="mx-auto w-max">
+        <motion.div variants={fadeUp(!!reduced, { delay: 0 })} className="text-center">
+          <motion.div
+            className="mx-auto w-max"
+            whileHover={reduced ? undefined : { y: -2 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+          >
             <Image
               src={assets.logo}
               alt={`${brandName} — logo`}
@@ -45,9 +59,13 @@ export default function Footer({
               sizes="144px"
               className="hidden h-auto w-36 dark:block"
             />
-          </div>
+          </motion.div>
 
-          <div className="mx-auto mt-4 flex w-max items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm text-black/80 dark:border-white/10 dark:text-white/80">
+          <motion.div
+            className="mx-auto mt-4 flex w-max items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm text-black/80 dark:border-white/10 dark:text-white/80"
+            whileHover={reduced ? undefined : { y: -2 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+          >
             <Image
               src={assets.mail_icon}
               alt=""
@@ -69,33 +87,46 @@ export default function Footer({
             >
               {email}
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-black/10 pt-6 text-sm text-black/70 dark:border-white/10 dark:text-white/70 sm:flex-row">
+        <motion.div
+          variants={fadeUp(!!reduced, { delay: 0.04, distance: 16 })}
+          className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-black/10 pt-6 text-sm text-black/70 dark:border-white/10 dark:text-white/70 sm:flex-row"
+        >
           <p className="text-center sm:text-left">
             © {year} {brandName}. All rights reserved.
           </p>
 
           <nav aria-label="Social links">
-            <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <motion.ul
+              className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
+              variants={staggerContainer(!!reduced, 0.05, 0.02)}
+              initial={false}
+              animate={reduced ? undefined : 'show'}
+            >
               {socials.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="transition-opacity hover:opacity-80 focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30"
+                <motion.li key={item.label} variants={fadeUp(!!reduced, { distance: 10 })}>
+                  <motion.div
+                    whileHover={reduced ? undefined : { y: -2 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 22 }}
                   >
-                    {item.label}
-                  </Link>
-                </li>
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-opacity hover:opacity-80 focus:outline-none focus-visible:rounded focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </nav>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </footer>
-  )
+  );
 }

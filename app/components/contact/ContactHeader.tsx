@@ -5,9 +5,9 @@ export default function ContactHeader() {
       <h2 className="font-display text-center text-5xl">Vamos conversar</h2>
 
       <p className="text-theme-secondary mx-auto mt-5 mb-12 max-w-2xl text-center font-sans text-balance">
-        Sou Felipe Jovino, Desenvolvedor Full Stack com atuação em soluções para saúde, automação e
-        produtos web/mobile. Se você quer tirar uma dúvida, propor um projeto, parceria ou
-        oportunidade, é só me enviar uma mensagem pelo formulário abaixo.
+        Tem uma ideia, projeto ou oportunidade e quer discutir o próximo passo? Me envie uma
+        mensagem com um pouco de contexto (o que você precisa, objetivo e prazo). Eu respondo assim
+        que possível e podemos seguir por e-mail ou LinkedIn.
       </p>
     </>
   );
