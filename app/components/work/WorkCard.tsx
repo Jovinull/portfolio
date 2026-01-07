@@ -2,7 +2,7 @@
 
 import Image, { type StaticImageData } from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
-import { assets } from '@/assets/assets';
+import { FiSend } from 'react-icons/fi';
 import type { WorkCardProps } from '@/app/types/components/workCard';
 
 function resolveImageSrc(img: string | StaticImageData) {
@@ -50,7 +50,7 @@ export default function WorkCard({ project }: WorkCardProps) {
 
         <div className="shrink-0">
           <div className="flex aspect-square w-10 items-center justify-center rounded-full border border-black/70 bg-white/40 shadow-[2px_2px_0_rgba(0,0,0,0.75)] transition-all duration-200 group-hover:-translate-y-0.5 group-hover:bg-lime-300 dark:border-white/70 dark:bg-white/10 dark:shadow-[2px_2px_0_rgba(255,255,255,0.25)]">
-            <Image src={assets.send_icon} alt="" aria-hidden="true" width={20} height={20} />
+            <FiSend aria-hidden="true" className="h-5 w-5" />
           </div>
         </div>
       </div>

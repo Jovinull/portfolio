@@ -1,31 +1,14 @@
 'use client';
 
-import Image from 'next/image';
-import { assets } from '@/assets/assets';
+import { FiMenu, FiX } from 'react-icons/fi';
 import BaseButton from './BaseButton';
 import type { MenuToggleButtonProps } from '@/app/types/components/menu';
 
 export default function MenuToggleButton({ isOpen, toggleMenu }: MenuToggleButtonProps) {
   const iconNode = isOpen ? (
-    <>
-      <Image src={assets.close_black} alt="" aria-hidden="true" className="h-5 w-5 dark:hidden" />
-      <Image
-        src={assets.close_white}
-        alt=""
-        aria-hidden="true"
-        className="hidden h-5 w-5 dark:block"
-      />
-    </>
+    <FiX className="text-theme h-5 w-5" aria-hidden="true" />
   ) : (
-    <>
-      <Image src={assets.menu_black} alt="" aria-hidden="true" className="h-5 w-5 dark:hidden" />
-      <Image
-        src={assets.menu_white}
-        alt=""
-        aria-hidden="true"
-        className="hidden h-5 w-5 dark:block"
-      />
-    </>
+    <FiMenu className="text-theme h-5 w-5" aria-hidden="true" />
   );
 
   return (

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
+import { FiMail } from 'react-icons/fi';
 
 import { assets } from '@/assets/assets';
 import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
@@ -37,7 +38,6 @@ export default function Footer({
   const year = new Date().getFullYear();
 
   const logoSrc = mounted && isDark ? assets.logo_dark : assets.logo;
-  const mailSrc = mounted && isDark ? assets.mail_icon_dark : assets.mail_icon;
 
   const ringClass = isDark ? 'focus-visible:ring-white/30' : 'focus-visible:ring-black/30';
 
@@ -71,7 +71,7 @@ export default function Footer({
             whileHover={reduced ? undefined : { y: -2 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
           >
-            <Image src={mailSrc} alt="" aria-hidden="true" sizes="24px" className="h-auto w-6" />
+            <FiMail aria-hidden="true" className="h-6 w-6" />
 
             <a
               href={`mailto:${email}`}

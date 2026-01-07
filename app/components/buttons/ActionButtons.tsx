@@ -1,8 +1,10 @@
-import { assets } from '@/assets/assets';
 import BaseButton from './BaseButton';
-import Image from 'next/image';
+import { FiDownload } from 'react-icons/fi';
+import { useThemeStore } from '@/app/store/useThemeStore';
 
 export default function ActionButtons() {
+  const isDark = useThemeStore((s) => s.isDark);
+
   return (
     <div className="mt-6 flex flex-row items-center justify-center gap-4">
       <BaseButton
@@ -10,20 +12,10 @@ export default function ActionButtons() {
         download
         variant="theme"
         endIcon={
-          <>
-            <Image
-              src={assets.download_icon}
-              alt=""
-              aria-hidden="true"
-              className="h-5 w-5 dark:hidden"
-            />
-            <Image
-              src={assets.download_icon_dark}
-              alt=""
-              aria-hidden="true"
-              className="hidden h-5 w-5 dark:block"
-            />
-          </>
+          <FiDownload
+            aria-hidden="true"
+            className={isDark ? 'h-5 w-5 text-white' : 'h-5 w-5 text-black'}
+          />
         }
       >
         Meu Currículo

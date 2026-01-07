@@ -1,8 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
-import { assets } from '@/assets/assets'
+import { FaRegHandPaper } from 'react-icons/fa'
 import { fadeUp } from '@/app/components/motion/variants'
 
 export default function Greeting() {
@@ -35,7 +34,7 @@ export default function Greeting() {
               }
         }
       >
-        <Image src={assets.hand_icon} alt="" aria-hidden="true" className="w-6" />
+        <FaRegHandPaper aria-hidden="true" className="h-6 w-6" />
       </motion.span>
     </motion.h3>
   )

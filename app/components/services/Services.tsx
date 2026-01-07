@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
-import { assets, serviceData } from '@/assets/assets';
-import type { ServiceItem } from '@/app/types/assets';
+import { FiArrowRight } from 'react-icons/fi';
+
+import { serviceData } from '@/assets/assets';
 import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
 
 export default function Services() {
@@ -43,7 +43,7 @@ export default function Services() {
           className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
           variants={staggerContainer(!!reduced, 0.06, 0.02)}
         >
-          {serviceData.map(({ icon, title, description, link }: ServiceItem, idx) => (
+          {serviceData.map(({ Icon, title, description, link }, idx) => (
             <motion.article
               key={`${title}-${idx}`}
               variants={fadeUp(!!reduced, { distance: 18 })}
@@ -52,7 +52,7 @@ export default function Services() {
               className="border-theme hover-card rounded-lg border px-8 py-12"
             >
               <div className="flex justify-center">
-                <Image src={icon} alt="" aria-hidden="true" width={40} height={40} />
+                <Icon aria-hidden="true" className="h-10 w-10" />
               </div>
 
               <h3 className="mt-4 text-center text-lg font-semibold">{title}</h3>
@@ -64,13 +64,9 @@ export default function Services() {
               <div className="mt-5 flex justify-center">
                 <a href={link} className="text-accent flex items-center gap-2 text-sm hover:underline">
                   Saiba mais
-                  <Image
-                    src={assets.right_arrow_bold}
-                    alt=""
+                  <FiArrowRight
                     aria-hidden="true"
-                    width={16}
-                    height={16}
-                    className="transition-transform duration-200 group-hover:translate-x-0.5"
+                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
                   />
                 </a>
               </div>

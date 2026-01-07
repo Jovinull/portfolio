@@ -71,7 +71,7 @@ export default function About() {
               className="grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3"
               variants={staggerContainer(!!reduced, 0.06, 0.02)}
             >
-              {infoList.map(({ icon, iconDark, title, description }, index) => (
+              {infoList.map(({ Icon, title, description }, index) => (
                 <motion.li
                   key={`${title}-${index}`}
                   variants={fadeUp(!!reduced, { distance: 18 })}
@@ -79,18 +79,7 @@ export default function About() {
                   transition={{ type: 'spring', stiffness: 260, damping: 22 }}
                   className="border-theme hover-card rounded-xl border-[0.5px] p-6"
                 >
-                  <Image
-                    src={icon}
-                    alt=""
-                    aria-hidden="true"
-                    className="mb-3 w-7 transition-all duration-300 dark:hidden"
-                  />
-                  <Image
-                    src={iconDark}
-                    alt=""
-                    aria-hidden="true"
-                    className="mb-3 hidden w-7 transition-all duration-300 dark:block"
-                  />
+                  <Icon aria-hidden="true" className="text-theme mb-3 h-7 w-7" />
 
                   <h3 className="mb-2 text-lg font-semibold">{title}</h3>
                   <p className="text-theme-secondary text-sm">{description}</p>
@@ -109,7 +98,7 @@ export default function About() {
               className="flex flex-wrap items-center gap-4"
               variants={staggerContainer(!!reduced, 0.04, 0.02)}
             >
-              {toolsData.map((tool, index) => (
+              {toolsData.map(({ name, Icon }, index) => (
                 <motion.li
                   key={`tool-${index}`}
                   variants={fadeUp(!!reduced, { distance: 12 })}
@@ -117,7 +106,7 @@ export default function About() {
                   transition={{ type: 'spring', stiffness: 280, damping: 20 }}
                   className="border-theme hover-card flex aspect-square w-12 items-center justify-center rounded-lg border sm:w-14"
                 >
-                  <Image src={tool} alt="Ferramenta" className="w-5 sm:w-7" />
+                  <Icon aria-hidden="true" title={name} className="h-5 w-5 sm:h-7 sm:w-7" />
                 </motion.li>
               ))}
             </motion.ul>
