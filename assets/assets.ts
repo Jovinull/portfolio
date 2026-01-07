@@ -1,4 +1,4 @@
-import type { WorkItem } from '@/app/types/assets';
+import type { TimelineEntry, WorkItem } from '@/app/types/assets';
 
 import user_image from './user-image.png';
 import logo from './logo.png';
@@ -180,4 +180,227 @@ export const toolsData: ToolItem[] = [
   { name: 'ESP32 (Espressif)', Icon: SiEspressif },
   { name: 'Node.js', Icon: SiNodedotjs },
   { name: 'Canva', Icon: SiCanva },
+];
+
+// ========================
+// Timeline (NOVO - não usa Work/WorkItem)
+// ========================
+// Baseado no seu LinkedIn/PDF e no texto que você colou.
+// Técnica anti-“monstro”: usamos highlight pra um modo "Destaques" por padrão.
+export const timelineData: TimelineEntry[] = [
+  // 2025
+  {
+    id: 'wm-ti-coord-2025',
+    year: 2025,
+    title: 'Coordenador de TI',
+    org: 'WM Saúde',
+    period: 'set/2025 – atual',
+    type: 'work',
+    highlight: true,
+    sort: 100,
+    description:
+      'Liderança de squads + governança: CI/CD, políticas, padronização e RBAC com VineJS/Bouncer.',
+  },
+  {
+    id: 'accesssim-cto-2025',
+    year: 2025,
+    title: 'Cofundador & CTO',
+    org: 'AccessSim',
+    period: 'abr/2025 – atual',
+    type: 'startup',
+    highlight: true,
+    sort: 95,
+    description:
+      'IA em Python + app React Native para automatizar análise de acessibilidade (NBR 9050) com foco em impacto real.',
+  },
+  {
+    id: 'wf3-cofounder-2025',
+    year: 2025,
+    title: 'Cofundador',
+    org: 'WF3 Solutions',
+    period: 'out/2025 – atual',
+    type: 'startup',
+    highlight: true,
+    sort: 90,
+    description:
+      'Entrega de produtos digitais com base sólida (RBAC, auditoria, LGPD) e integrações para negócios e setor público.',
+  },
+  {
+    id: 'masters-tech-publicacao-2025',
+    year: 2025,
+    title: 'MastersTech (publicações)',
+    org: 'YouTube',
+    period: 'jul/2025 – atual',
+    type: 'community',
+    highlight: true,
+    sort: 80,
+    description:
+      'Videoaulas práticas com foco em programação e desenvolvimento — conteúdo pensado pra ser aplicável e direto.',
+  },
+  {
+    id: 'patentes-2025',
+    year: 2025,
+    title: 'Registros / Patentes (INPI)',
+    org: 'Projetos autorais',
+    period: '2025',
+    type: 'patent',
+    highlight: true,
+    sort: 70,
+    description:
+      'Registros como Glicemy, Glicemy API e SignForest, além de histórico de patente/registro do CaptionEase.',
+  },
+
+  // 2024
+  {
+    id: 'wm-devjr-2024',
+    year: 2024,
+    title: 'Desenvolvedor de Software Júnior',
+    org: 'WM Saúde',
+    period: 'nov/2024 – set/2025',
+    type: 'work',
+    highlight: true,
+    sort: 100,
+    description:
+      'Full-stack (AdonisJS v6 + Next.js + PostgreSQL), discovery com stakeholders e padronização (GitFlow/ESLint/Prettier).',
+  },
+  {
+    id: 'premios-ifs-2024',
+    year: 2024,
+    title: 'Reconhecimentos acadêmicos',
+    org: 'IFS',
+    period: '2024',
+    type: 'award',
+    highlight: true,
+    sort: 80,
+    description:
+      'Premiações em eventos científicos: Melhor Artigo (SEMEXT/IFS) e Segundo Melhor Artigo (SNCT/IFS).',
+  },
+  {
+    id: 'inov-ifs-2024',
+    year: 2024,
+    title: 'Bolsista – Inov@IFS (DINOVE)',
+    org: 'IFS',
+    period: 'dez/2023 – out/2024',
+    type: 'research',
+    highlight: true,
+    sort: 70,
+    description:
+      'Apoio a projetos de inovação: backend/IA, integrações e visão prática de tecnologia como ponte pra impacto.',
+  },
+  {
+    id: 'monitor-ed1-2024',
+    year: 2024,
+    title: 'Monitor – Estrutura de Dados I',
+    org: 'IFS',
+    period: 'fev/2024 – jun/2024',
+    type: 'education',
+    highlight: false,
+    sort: 20,
+    description:
+      'Monitoria com foco em fundamentos de algoritmos e estruturas de dados, apoio direto aos alunos.',
+  },
+
+  // 2023
+  {
+    id: 'robocode-2023',
+    year: 2023,
+    title: 'Coordenador Adjunto – Competição de Robocode',
+    org: 'IFS (SNCT)',
+    period: 'set/2023 – nov/2023',
+    type: 'community',
+    highlight: false,
+    sort: 60,
+    description:
+      'Organização técnica, supervisão e divulgação científica com foco em programação competitiva e IA.',
+  },
+  {
+    id: 'monitor-ia-2023',
+    year: 2023,
+    title: 'Monitor Bolsista – Capacitação em IA (Residência TIC 08)',
+    org: 'IFS',
+    period: 'dez/2022 – ago/2023',
+    type: 'education',
+    highlight: false,
+    sort: 50,
+    description:
+      'Aulas de Python, materiais e atividades práticas em IA, com suporte pedagógico e técnico.',
+  },
+  {
+    id: 'publicacao-2023',
+    year: 2023,
+    title: 'Publicação científica',
+    org: 'SBCOpenLib',
+    period: '2023',
+    type: 'publication',
+    highlight: false,
+    sort: 40,
+    description:
+      'Trabalho sobre acesso à formação em IA para pessoas de baixa renda (estudo de caso em Sergipe).',
+  },
+
+  // 2022
+  {
+    id: 'labic-grupo-ia-2022',
+    year: 2022,
+    title: 'Grupo de Estudos de IA (LABIC)',
+    org: 'IFS',
+    period: 'fev/2022 – set/2024',
+    type: 'research',
+    highlight: true,
+    sort: 80,
+    description:
+      'Estudos e projetos com Python, ciência de dados e IA; experimentos, código e relatórios para pesquisa.',
+  },
+  {
+    id: 'colegiado-2022',
+    year: 2022,
+    title: 'Membro Discente Efetivo do Colegiado',
+    org: 'IFS',
+    period: 'jul/2022 – set/2024',
+    type: 'community',
+    highlight: false,
+    sort: 30,
+    description:
+      'Participação em decisões acadêmicas e melhoria contínua do curso, representando a visão dos estudantes.',
+  },
+
+  // 2021
+  {
+    id: 'labic-pesquisa-2021',
+    year: 2021,
+    title: 'Pesquisador em IA & Eletrônica (LABIC)',
+    org: 'IFS',
+    period: 'jul/2021 – set/2024',
+    type: 'research',
+    highlight: true,
+    sort: 70,
+    description:
+      'Projetos de pesquisa e extensão: ML, redes neurais e aplicações em sistemas embarcados (IoT/ESP32).',
+  },
+  {
+    id: 'aprendiz-40-2021',
+    year: 2021,
+    title: 'Instrutor e Monitor – Programa Aprendiz 4.0',
+    org: 'IFS',
+    period: 'jan/2021 – fev/2024',
+    type: 'education',
+    highlight: false,
+    sort: 30,
+    description:
+      'Capacitação tecnológica: condução de atividades, materiais didáticos e suporte técnico/pedagógico.',
+  },
+
+  // 2020
+  {
+    id: 'bacharelado-2020',
+    year: 2020,
+    title: 'Bacharelado em Sistemas de Informação',
+    org: 'IFS',
+    period: 'fev/2020 – set/2024',
+    type: 'education',
+    highlight: true,
+    sort: 50,
+    description:
+      'Formação base que sustentou pesquisa, projetos, monitorias e evolução profissional no desenvolvimento full stack.',
+  },
 ];

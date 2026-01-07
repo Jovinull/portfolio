@@ -7,6 +7,7 @@ const LINKS = [
   { label: 'Início', href: '#top' },
   { label: 'Sobre', href: '#sobre' },
   { label: 'Serviços', href: '#servicos' },
+  { label: 'Linha do tempo', href: '#timeline' },
   { label: 'Projetos', href: '#work' },
   { label: 'Contato', href: '#contact' },
 ] as const;

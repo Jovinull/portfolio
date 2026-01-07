@@ -6,6 +6,7 @@ import Work from '@/app/components/work/Work'
 import Contact from '@/app/components/contact/Contact'
 import Footer from './components/footer/Footer'
 import SectionReveal from './components/motion/SectionReveal'
+import TimelineSection from './components/timeline/TimelineSection'
 
 export default function Home() {
   return (
@@ -20,6 +21,10 @@ export default function Home() {
 
         <SectionReveal>
           <Services />
+        </SectionReveal>
+
+        <SectionReveal>
+          <TimelineSection />
         </SectionReveal>
 
         <SectionReveal>
