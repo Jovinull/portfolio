@@ -9,17 +9,7 @@ import { FiMail } from 'react-icons/fi';
 import { assets } from '@/assets/assets';
 import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
 import { useThemeStore } from '@/app/store/useThemeStore';
-
-type SocialLink = {
-  label: string;
-  href: string;
-};
-
-type FooterProps = {
-  email?: string;
-  brandName?: string;
-  socials?: SocialLink[];
-};
+import type { FooterProps } from '@/app/types/components/footer';
 
 export default function Footer({
   email = 'felipejovinogamerplay@gmail.com',

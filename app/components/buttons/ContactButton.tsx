@@ -1,11 +1,6 @@
 import clsx from 'clsx';
 import BaseButton from './BaseButton';
-
-type ContactButtonProps = {
-  isFullWidth?: boolean;
-  href?: string; // default: #contact
-  label?: string; // default: "Fale comigo"
-};
+import type { ContactButtonProps } from '@/app/types/components/contactButton';
 
 export default function ContactButton({
   isFullWidth = false,

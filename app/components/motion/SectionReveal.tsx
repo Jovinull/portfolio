@@ -1,17 +1,11 @@
-'use client'
+'use client';
 
-import type { ReactNode } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
-import { fadeUp } from '@/app/components/motion/variants'
-
-type SectionRevealProps = {
-  children: ReactNode
-  className?: string
-  delay?: number
-}
+import { motion, useReducedMotion } from 'framer-motion';
+import { fadeUp } from '@/app/components/motion/variants';
+import type { SectionRevealProps } from '@/app/types/components/sectionReveal';
 
 export default function SectionReveal({ children, className, delay = 0 }: SectionRevealProps) {
-  const reduced = useReducedMotion()
+  const reduced = useReducedMotion();
 
   return (
     <motion.div
@@ -23,5 +17,5 @@ export default function SectionReveal({ children, className, delay = 0 }: Sectio
     >
       {children}
     </motion.div>
-  )
+  );
 }

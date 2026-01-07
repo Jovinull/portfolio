@@ -1,19 +1,14 @@
-import type { Variants } from 'framer-motion'
+import type { Variants } from 'framer-motion';
+import type { FadeUpOpts } from '@/app/types/motion/variants';
 
-const easeOut = [0.16, 1, 0.3, 1] as const
-
-type FadeUpOpts = {
-  delay?: number
-  distance?: number
-  duration?: number
-}
+const easeOut = [0.16, 1, 0.3, 1] as const;
 
 export function staggerContainer(reduced: boolean, stagger = 0.08, delayChildren = 0.05): Variants {
   if (reduced) {
     return {
       hidden: {},
       show: {},
-    }
+    };
   }
 
   return {
@@ -24,17 +19,17 @@ export function staggerContainer(reduced: boolean, stagger = 0.08, delayChildren
         delayChildren,
       },
     },
-  }
+  };
 }
 
 export function fadeUp(reduced: boolean, opts: FadeUpOpts = {}): Variants {
-  const { delay = 0, distance = 16, duration = 0.55 } = opts
+  const { delay = 0, distance = 16, duration = 0.55 } = opts;
 
   if (reduced) {
     return {
       hidden: { opacity: 1, y: 0 },
       show: { opacity: 1, y: 0 },
-    }
+    };
   }
 
   return {
@@ -45,7 +40,7 @@ export function fadeUp(reduced: boolean, opts: FadeUpOpts = {}): Variants {
       filter: 'blur(0px)',
       transition: { duration, delay, ease: easeOut },
     },
-  }
+  };
 }
 
 export function popIn(reduced: boolean, delay = 0): Variants {
@@ -53,7 +48,7 @@ export function popIn(reduced: boolean, delay = 0): Variants {
     return {
       hidden: { opacity: 1, scale: 1 },
       show: { opacity: 1, scale: 1 },
-    }
+    };
   }
 
   return {
@@ -65,5 +60,5 @@ export function popIn(reduced: boolean, delay = 0): Variants {
       filter: 'blur(0px)',
       transition: { duration: 0.6, delay, ease: [0.2, 1, 0.2, 1] },
     },
-  }
+  };
 }

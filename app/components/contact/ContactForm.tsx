@@ -4,19 +4,16 @@ import { useMemo, useState, type FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import BaseButton from '@/app/components/buttons/BaseButton';
 import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
-
-type Web3FormsResponse = {
-  success: boolean;
-  message: string;
-};
-
-type Status = 'idle' | 'sending' | 'success' | 'error';
+import type {
+  Web3FormsResponse,
+  ContactFormStatus,
+} from '@/app/types/components/contactForm';
 
 export default function ContactForm() {
   const reduced = useReducedMotion();
 
   const accessKey = useMemo(() => process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? '', []);
-  const [status, setStatus] = useState<Status>('idle');
+  const [status, setStatus] = useState<ContactFormStatus>('idle');
   const [result, setResult] = useState<string>('');
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
