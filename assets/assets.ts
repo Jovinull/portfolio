@@ -45,24 +45,14 @@ export const workData: WorkItem[] = [
     bgImage: '/work-1.png',
   },
   {
-    title: 'Governança, CI/CD & RBAC (WM)',
-    description: 'Pipelines, padrões de código, políticas, GitFlow e validações (VineJS/Bouncer)',
+    title: 'CaptionEase',
+    description:
+      'Projeto registrado como patente • Ferramenta voltada a acessibilidade e fluxo de conteúdo',
     bgImage: '/work-2.png',
   },
   {
     title: 'MastersTech — Educação Tech',
     description: 'Conteúdo educativo com foco em programação e desenvolvimento de software',
-    bgImage: '/work-3.png',
-  },
-  {
-    title: 'Pesquisa aplicada (LABIC/IFS)',
-    description: 'Projetos com Python, machine learning e sistemas embarcados (ESP32/IoT)',
-    bgImage: '/work-4.png',
-  },
-  {
-    title: 'AccessSim',
-    description:
-      'IA em Python + API • App mobile em React Native • Automação da análise de acessibilidade',
     bgImage: '/work-3.png',
   },
   {
@@ -72,16 +62,26 @@ export const workData: WorkItem[] = [
     bgImage: '/work-4.png',
   },
   {
+    title: 'AccessSim',
+    description:
+      'IA em Python + API • App mobile em React Native • Automação da análise de acessibilidade',
+    bgImage: '/work-5.png',
+  },
+  {
     title: 'Glicemy',
     description:
       'Solução registrada como patente • Saúde e tecnologia com foco em impacto e utilidade real',
-    bgImage: '/work-1.png',
+    bgImage: '/work-6.png',
   },
   {
-    title: 'CaptionEase',
-    description:
-      'Projeto registrado como patente • Ferramenta voltada a acessibilidade e fluxo de conteúdo',
-    bgImage: '/work-2.png',
+    title: 'Governança, CI/CD & RBAC (WM)',
+    description: 'Pipelines, padrões de código, políticas, GitFlow e validações (VineJS/Bouncer)',
+    bgImage: '/work-7.png',
+  },
+  {
+    title: 'Pesquisa aplicada (LABIC/IFS)',
+    description: 'Projetos com Python, machine learning e sistemas embarcados (ESP32/IoT)',
+    bgImage: '/work-8.png',
   },
 ];
 
