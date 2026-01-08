@@ -6,12 +6,12 @@ import type { AwardsHighlightItem } from '@/app/types/assets/awards'
 import AwardCard from '@/app/components/awards/AwardCard'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
-type AwardsShelfProps = {
+type AwardsShelfProps = Readonly<{
   items: ReadonlyArray<AwardsHighlightItem>
   activeIndex: number
   setActiveIndex: (index: number) => void
   detailsId: string
-}
+}>
 
 export default function AwardsShelf({
   items,
@@ -26,7 +26,7 @@ export default function AwardsShelf({
 
   // evita o “detector do centro” sobrescrever o clique enquanto o scroll programático acontece
   const programmaticRef = useRef(false)
-  const programmaticTimerRef = useRef<number | null>(null)
+  const programmaticTimerRef = useRef<ReturnType<typeof globalThis.setTimeout> | null>(null)
 
   const clamp = useMemo(
     () => (i: number) => Math.max(0, Math.min(items.length - 1, i)),
@@ -41,8 +41,12 @@ export default function AwardsShelf({
 
   const markProgrammatic = () => {
     programmaticRef.current = true
-    if (programmaticTimerRef.current) window.clearTimeout(programmaticTimerRef.current)
-    programmaticTimerRef.current = window.setTimeout(() => {
+
+    if (programmaticTimerRef.current) {
+      globalThis.clearTimeout(programmaticTimerRef.current)
+    }
+
+    programmaticTimerRef.current = globalThis.setTimeout(() => {
       programmaticRef.current = false
       programmaticTimerRef.current = null
     }, 260)
@@ -64,11 +68,9 @@ export default function AwardsShelf({
     const btnRect = btn.getBoundingClientRect()
 
     // posição do centro do botão relativa ao scroller, considerando o scroll atual
-    const btnCenterWithinScroller =
-      (btnRect.left - scrollerRect.left) + btnRect.width / 2
+    const btnCenterWithinScroller = btnRect.left - scrollerRect.left + btnRect.width / 2
 
-    const targetLeft =
-      scroller.scrollLeft + btnCenterWithinScroller - scroller.clientWidth / 2
+    const targetLeft = scroller.scrollLeft + btnCenterWithinScroller - scroller.clientWidth / 2
 
     markProgrammatic()
     scroller.scrollTo({
@@ -109,19 +111,19 @@ export default function AwardsShelf({
     }
 
     const onScroll = () => {
-      if (raf) cancelAnimationFrame(raf)
-      raf = requestAnimationFrame(computeActive)
+      if (raf) globalThis.cancelAnimationFrame(raf)
+      raf = globalThis.requestAnimationFrame(computeActive)
     }
 
     el.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+    globalThis.addEventListener('resize', onScroll)
 
     onScroll()
 
     return () => {
       el.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-      if (raf) cancelAnimationFrame(raf)
+      globalThis.removeEventListener('resize', onScroll)
+      if (raf) globalThis.cancelAnimationFrame(raf)
     }
   }, [activeIndex, canScroll, setActiveIndex])
 
@@ -129,8 +131,8 @@ export default function AwardsShelf({
   useEffect(() => {
     if (!items.length) return
     // pequena “sincronia” pós-render pra garantir refs prontas
-    const t = window.setTimeout(() => centerIndex(activeIndex), 0)
-    return () => window.clearTimeout(t)
+    const t = globalThis.setTimeout(() => centerIndex(activeIndex), 0)
+    return () => globalThis.clearTimeout(t)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items.length])
 
@@ -153,8 +155,8 @@ export default function AwardsShelf({
     }
   }
 
-  const hasPrev = activeIndex > 0
-  const hasNext = activeIndex < items.length - 1
+  const prevDisabled = activeIndex <= 0
+  const nextDisabled = activeIndex >= items.length - 1
   const showArrows = items.length > 1
 
   return (
@@ -166,12 +168,12 @@ export default function AwardsShelf({
             <button
               type="button"
               onClick={() => centerIndex(activeIndex - 1, { focus: true })}
-              disabled={!hasPrev}
+              disabled={prevDisabled}
               aria-label="Anterior"
               className={[
                 'inline-flex items-center justify-center rounded-full border border-theme bg-theme p-2 shadow-sm backdrop-blur-md transition',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/25',
-                !hasPrev ? 'opacity-40' : 'hover:bg-theme-secondary',
+                prevDisabled ? 'opacity-40' : 'hover:bg-theme-secondary',
               ].join(' ')}
             >
               <FiChevronLeft aria-hidden="true" className="h-5 w-5" />
@@ -182,12 +184,12 @@ export default function AwardsShelf({
             <button
               type="button"
               onClick={() => centerIndex(activeIndex + 1, { focus: true })}
-              disabled={!hasNext}
+              disabled={nextDisabled}
               aria-label="Próximo"
               className={[
                 'inline-flex items-center justify-center rounded-full border border-theme bg-theme p-2 shadow-sm backdrop-blur-md transition',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/25',
-                !hasNext ? 'opacity-40' : 'hover:bg-theme-secondary',
+                nextDisabled ? 'opacity-40' : 'hover:bg-theme-secondary',
               ].join(' ')}
             >
               <FiChevronRight aria-hidden="true" className="h-5 w-5" />
