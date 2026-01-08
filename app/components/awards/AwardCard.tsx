@@ -4,7 +4,11 @@ import { motion, useReducedMotion } from 'framer-motion'
 import type { AwardsHighlightItem } from '@/app/types/assets/awards'
 import { FiAward, FiCpu, FiShield, FiStar, FiZap } from 'react-icons/fi'
 
-function Icon({ iconKey }: { iconKey?: AwardsHighlightItem['iconKey'] }) {
+function Icon({
+  iconKey,
+}: Readonly<{
+  iconKey?: AwardsHighlightItem['iconKey']
+}>) {
   if (iconKey === 'cpu') return <FiCpu aria-hidden="true" className="h-4 w-4" />
   if (iconKey === 'shield') return <FiShield aria-hidden="true" className="h-4 w-4" />
   if (iconKey === 'award') return <FiAward aria-hidden="true" className="h-4 w-4" />
@@ -12,14 +16,14 @@ function Icon({ iconKey }: { iconKey?: AwardsHighlightItem['iconKey'] }) {
   return <FiZap aria-hidden="true" className="h-4 w-4" />
 }
 
-type AwardCardProps = {
-  item: AwardsHighlightItem
+type AwardCardProps = Readonly<{
+  item: Readonly<AwardsHighlightItem>
   isActive: boolean
   detailsId: string
   onActivate: () => void
   onKeyNav: (e: React.KeyboardEvent<HTMLButtonElement>) => void
   buttonRef: (el: HTMLButtonElement | null) => void
-}
+}>
 
 export default function AwardCard({
   item,
