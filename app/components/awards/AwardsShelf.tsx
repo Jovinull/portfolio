@@ -34,10 +34,11 @@ export default function AwardsShelf({
   )
 
   const compact = items.length <= 3
-  const canScroll = !compact
+  const isCarousel = items.length > 3
 
   // padding para permitir 1º e último centralizarem
   const pad = 'clamp(1rem, calc((100% - 280px) / 2), 6rem)'
+  const scrollerClass = 'awards-shelf-scroller'
 
   const markProgrammatic = () => {
     programmaticRef.current = true
@@ -61,7 +62,7 @@ export default function AwardsShelf({
 
     if (opts?.focus) btn?.focus()
 
-    if (!canScroll || !btn || !scroller) return
+    if (!isCarousel || !btn || !scroller) return
 
     // centralização manual (mais confiável que scrollIntoView inline:center no Firefox)
     const scrollerRect = scroller.getBoundingClientRect()
@@ -81,7 +82,7 @@ export default function AwardsShelf({
 
   // Atualiza “ativo” conforme scroll (pega o item mais perto do centro) — apenas no modo carrossel
   useEffect(() => {
-    if (!canScroll) return
+    if (!isCarousel) return
     const el = scrollerRef.current
     if (!el) return
 
@@ -125,7 +126,7 @@ export default function AwardsShelf({
       globalThis.removeEventListener('resize', onScroll)
       if (raf) globalThis.cancelAnimationFrame(raf)
     }
-  }, [activeIndex, canScroll, setActiveIndex])
+  }, [activeIndex, isCarousel, setActiveIndex])
 
   // mantém o item ativo centralizado quando mudar a lista (ex.: alternar Destaques/Tudo)
   useEffect(() => {
@@ -201,6 +202,7 @@ export default function AwardsShelf({
       <div
         ref={scrollerRef}
         className={[
+          scrollerClass,
           'relative -mx-4 flex gap-4 px-4 py-3',
           compact ? 'justify-center overflow-x-visible' : 'snap-x snap-mandatory overflow-x-auto',
         ].join(' ')}
@@ -215,9 +217,9 @@ export default function AwardsShelf({
               }
         }
       >
-        {!compact ? (
-          <style jsx>{`
-            div::-webkit-scrollbar {
+        {isCarousel ? (
+          <style>{`
+            .${scrollerClass}::-webkit-scrollbar {
               display: none;
             }
           `}</style>
