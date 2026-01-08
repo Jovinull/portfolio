@@ -1,14 +1,15 @@
-import type { TimelineEntry, WorkItem } from '@/app/types/assets';
+import type { TimelineEntry, WorkItem } from '@/app/types/assets'
+import type { AwardsHighlightItem } from '@/app/types/assets/awards'
 
-import user_image from './user-image.png';
-import logo from './logo.png';
-import logo_dark from './logo-dark.png';
-import profile_img from './profile-img.png';
-import header_bg_color from './header-bg-color.png';
-import footer_bg_color from './footer-bg-color.png';
+import user_image from './user-image.png'
+import logo from './logo.png'
+import logo_dark from './logo-dark.png'
+import profile_img from './profile-img.png'
+import header_bg_color from './header-bg-color.png'
+import footer_bg_color from './footer-bg-color.png'
 
-import type { IconType } from 'react-icons';
-import { FiBookOpen, FiCode, FiCpu, FiFolder, FiGlobe, FiSearch, FiZap } from 'react-icons/fi';
+import type { IconType } from 'react-icons'
+import { FiBookOpen, FiCode, FiCpu, FiFolder, FiGlobe, FiSearch, FiZap } from 'react-icons/fi'
 import {
   SiAdonisjs,
   SiCanva,
@@ -19,8 +20,8 @@ import {
   SiNextdotjs,
   SiPostgresql,
   SiPython,
-} from 'react-icons/si';
-import { BiLogoVisualStudio } from 'react-icons/bi';
+} from 'react-icons/si'
+import { BiLogoVisualStudio } from 'react-icons/bi'
 
 // ========================
 // Assets (somente imagens)
@@ -32,7 +33,7 @@ export const assets = {
   profile_img,
   header_bg_color,
   footer_bg_color,
-} as const;
+} as const
 
 // ========================
 // Dados
@@ -43,54 +44,62 @@ export const workData: WorkItem[] = [
     description:
       'Full-stack (AdonisJS v6, Next.js, PostgreSQL) • Produtos críticos • Qualidade e governança',
     bgImage: '/work-1.png',
+    featured: true,
   },
   {
     title: 'CaptionEase',
     description:
       'Projeto registrado como patente • Ferramenta voltada a acessibilidade e fluxo de conteúdo',
     bgImage: '/work-2.png',
+    featured: true,
   },
   {
     title: 'MastersTech — Educação Tech',
     description: 'Conteúdo educativo com foco em programação e desenvolvimento de software',
     bgImage: '/work-3.png',
+    featured: true,
   },
   {
     title: 'WF3 Solutions',
     description:
       'Plataformas web/mobile, portais e integrações • RBAC, auditoria e LGPD desde o primeiro deploy',
     bgImage: '/work-4.png',
+    featured: true,
   },
   {
     title: 'AccessSim',
     description:
       'IA em Python + API • App mobile em React Native • Automação da análise de acessibilidade',
     bgImage: '/work-5.png',
+    featured: true,
   },
   {
     title: 'Glicemy',
     description:
       'Solução registrada como patente • Saúde e tecnologia com foco em impacto e utilidade real',
     bgImage: '/work-6.png',
+    featured: true,
   },
   {
     title: 'Governança, CI/CD & RBAC (WM)',
     description: 'Pipelines, padrões de código, políticas, GitFlow e validações (VineJS/Bouncer)',
     bgImage: '/work-7.png',
+    featured: true,
   },
   {
     title: 'Pesquisa aplicada (LABIC/IFS)',
     description: 'Projetos com Python, machine learning e sistemas embarcados (ESP32/IoT)',
     bgImage: '/work-8.png',
+    featured: true,
   },
 ];
 
 export type ServiceCardItem = {
-  Icon: IconType;
-  title: string;
-  description: string;
-  link: string;
-};
+  Icon: IconType
+  title: string
+  description: string
+  link: string
+}
 
 export const serviceData: ServiceCardItem[] = [
   {
@@ -135,16 +144,16 @@ export const serviceData: ServiceCardItem[] = [
       'Desenvolvimento de soluções inovadoras em IA, microeletrônica e educação com foco em impacto social.',
     link: '',
   },
-];
+]
 
 // ========================
 // About (ícones via react-icons)
 // ========================
 export type InfoListItem = {
-  Icon: IconType;
-  title: string;
-  description: string;
-};
+  Icon: IconType
+  title: string
+  description: string
+}
 
 export const infoList: InfoListItem[] = [
   {
@@ -162,12 +171,12 @@ export const infoList: InfoListItem[] = [
     title: 'Projetos',
     description: '+10 projetos em IA, IoT, Web e Educação',
   },
-];
+]
 
 export type ToolItem = {
-  name: string;
-  Icon: IconType;
-};
+  name: string
+  Icon: IconType
+}
 
 export const toolsData: ToolItem[] = [
   { name: 'VS Code', Icon: BiLogoVisualStudio },
@@ -180,12 +189,31 @@ export const toolsData: ToolItem[] = [
   { name: 'ESP32 (Espressif)', Icon: SiEspressif },
   { name: 'Node.js', Icon: SiNodedotjs },
   { name: 'Canva', Icon: SiCanva },
-];
+]
 
 // ========================
 // Timeline
 // ========================
 export const timelineData: TimelineEntry[] = [
+  // 2026
+  {
+    id: 'ufs-procc-mestrado-2026',
+    year: 2026,
+    title: 'Mestrado Acadêmico em Ciência da Computação',
+    org: 'UFS • PROCC',
+    period: 'fev/2026 – atual',
+    type: 'education',
+    highlight: true,
+    sort: 110,
+    badges: [
+      { label: '1º lugar geral • Nota 6,245', tone: 'accent', icon: 'star' },
+      { label: 'Orientador: Jugurta Rosa Montalvão Filho', tone: 'neutral' },
+      { label: 'Edital PROCC/POSGRAP/UFS nº 04/2025 (Comunidade)', tone: 'neutral' },
+    ],
+    description:
+      'Aprovado no PROCC/UFS (ingresso 2026/1). Linha: Engenharia de Software (ES) e Sistemas de Informação (SI). Média final 6,245 (Barema 463,35; PPQ 80).',
+  },
+
   // 2025
   {
     id: 'wm-ti-coord-2025',
@@ -208,9 +236,7 @@ export const timelineData: TimelineEntry[] = [
     type: 'startup',
     highlight: true,
     sort: 95,
-    badges: [
-      { label: 'Selecionado no Catalisa ICT (Sebrae)', tone: 'accent' },
-    ],
+    badges: [{ label: 'Selecionado no Catalisa ICT (Sebrae)', tone: 'accent' }],
     description:
       'IA em Python + app React Native para automatizar análise de acessibilidade (NBR 9050) com foco em impacto real.',
   },
@@ -433,4 +459,85 @@ export const timelineData: TimelineEntry[] = [
     description:
       'Formação base que sustentou pesquisa, projetos, monitorias e evolução profissional no desenvolvimento full stack.',
   },
-];
+]
+
+// ========================
+// Prêmios & Destaques (sem mock)
+// ========================
+export const awardsHighlightsData: AwardsHighlightItem[] = [
+  {
+    id: 'award-ufs-procc-2026',
+    title: 'Mestrado Acadêmico em Ciência da Computação',
+    subtitle: '1º lugar geral • Nota 6,245',
+    org: 'UFS • PROCC',
+    dateLabel: 'fev/2026',
+    year: 2026,
+    category: 'admission',
+    highlight: true,
+    iconKey: 'star',
+    rank: '1º lugar geral',
+    score: 'Nota 6,245',
+    tags: ['Engenharia de Software (ES)', 'Sistemas de Informação (SI)'],
+    description:
+      'Aprovado no PROCC/UFS (ingresso 2026/1). Média final 6,245 (Barema 463,35; PPQ 80).',
+    sort: 110,
+  },
+  {
+    id: 'award-catalisa-ict-2025',
+    title: 'Selecionado no Catalisa ICT',
+    subtitle: 'Sebrae',
+    org: 'AccessSim',
+    dateLabel: '2025',
+    year: 2025,
+    category: 'program',
+    highlight: true,
+    iconKey: 'bolt',
+    tags: ['Catalisa ICT', 'Sebrae'],
+    description: 'Seleção no programa Catalisa ICT (Sebrae), vinculado ao trabalho na AccessSim.',
+    sort: 95,
+  },
+  {
+    id: 'award-inpi-registrations-2025',
+    title: 'Registros / Patentes (INPI)',
+    subtitle: 'Projetos autorais',
+    org: 'Projetos autorais',
+    dateLabel: '2025',
+    year: 2025,
+    category: 'patent',
+    highlight: true,
+    iconKey: 'award',
+    tags: ['Glicemy', 'Glicemy API', 'SignForest', 'CaptionEase'],
+    description:
+      'Registros como Glicemy, Glicemy API e SignForest, além de histórico de patente/registro do CaptionEase.',
+    sort: 70,
+  },
+  {
+    id: 'award-ifs-recognitions-2024',
+    title: 'Reconhecimentos acadêmicos',
+    subtitle: 'Melhor Artigo • 2º Melhor Artigo',
+    org: 'IFS',
+    dateLabel: '2024',
+    year: 2024,
+    category: 'award',
+    highlight: false,
+    iconKey: 'award',
+    tags: ['SEMEXT/IFS', 'SNCT/IFS'],
+    description:
+      'Premiações em eventos científicos: Melhor Artigo (SEMEXT/IFS) e Segundo Melhor Artigo (SNCT/IFS).',
+    sort: 80,
+  },
+  {
+    id: 'award-sbcopenlib-publication-2023',
+    title: 'Publicação científica',
+    subtitle: 'SBCOpenLib',
+    org: 'SBCOpenLib',
+    dateLabel: '2023',
+    year: 2023,
+    category: 'publication',
+    highlight: false,
+    iconKey: 'star',
+    description:
+      'Trabalho sobre acesso à formação em IA para pessoas de baixa renda (estudo de caso em Sergipe).',
+    sort: 40,
+  },
+]
