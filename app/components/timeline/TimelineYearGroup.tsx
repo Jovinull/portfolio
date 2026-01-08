@@ -3,7 +3,14 @@
 import type { TimelineEntry } from '@/app/types/assets';
 import TimelineItem from './TimelineItem';
 
-export default function TimelineYearGroup({ group }: { group: { year: number; items: TimelineEntry[] } }) {
+type TimelineYearGroupProps = Readonly<{
+  group: Readonly<{
+    year: number;
+    items: ReadonlyArray<TimelineEntry>;
+  }>;
+}>;
+
+export default function TimelineYearGroup({ group }: TimelineYearGroupProps) {
   return (
     <li className="relative pb-10 md:pb-14">
       <div className="md:grid md:grid-cols-[140px_1fr] md:gap-8">
@@ -16,7 +23,7 @@ export default function TimelineYearGroup({ group }: { group: { year: number; it
         </div>
 
         <ul className="flex flex-col gap-3">
-          {group.items.map(item => (
+          {group.items.map((item) => (
             <TimelineItem key={item.id} item={item} />
           ))}
         </ul>
