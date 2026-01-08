@@ -183,10 +183,8 @@ export const toolsData: ToolItem[] = [
 ];
 
 // ========================
-// Timeline (NOVO - não usa Work/WorkItem)
+// Timeline
 // ========================
-// Baseado no seu LinkedIn/PDF e no texto que você colou.
-// Técnica anti-“monstro”: usamos highlight pra um modo "Destaques" por padrão.
 export const timelineData: TimelineEntry[] = [
   // 2025
   {
