@@ -12,7 +12,7 @@ const LINKS = [
   { label: 'Contato', href: '#contact' },
 ] as const;
 
-export default function MenuLinks({ variant = 'desktop' }: MenuLinksProps) {
+export default function MenuLinks({ variant = 'desktop' }: Readonly<MenuLinksProps>) {
   const base = 'text-theme flex gap-6 transition-colors hover:text-[var(--color-accent)]';
 
   const wrapper =
@@ -22,7 +22,7 @@ export default function MenuLinks({ variant = 'desktop' }: MenuLinksProps) {
 
   return (
     <ul className={wrapper}>
-      {LINKS.map(item => (
+      {LINKS.map((item) => (
         <li key={item.href}>
           <Link href={item.href} className={base}>
             {item.label}
