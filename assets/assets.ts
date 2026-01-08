@@ -92,6 +92,118 @@ export const workData: WorkItem[] = [
     bgImage: '/work-8.png',
     featured: true,
   },
+    {
+    title: 'TalkSmith',
+    description:
+      'Chatbot em PT-BR com TF-IDF + BM25 • NLP com spaCy/NLTK • Interface desktop (Tkinter) sobre corpus local',
+    bgImage: '/work-9.png',
+    featured: false,
+  },
+  {
+    title: 'Saberly — LMS Full Stack (Laravel)',
+    description:
+      'Udemy-like com catálogo dinâmico • Carrinho/wishlist via AJAX • Checkout (Stripe) + RBAC Admin/Instrutor/Aluno',
+    bgImage: '/work-10.png',
+    featured: false,
+  },
+  {
+    title: 'Asteroids (TypeScript + Canvas)',
+    description:
+      'Arcade moderno no browser • Modos, dificuldades, power-ups e UFO • Progressão meta + ranking local (offline-first)',
+    bgImage: '/work-11.png',
+    featured: false,
+  },
+  {
+    title: 'RhythmRater (Discord Music Bot)',
+    description:
+      'Bot de música em Python (discord.py) • Player YouTube (yt-dlp) + FFmpeg • Fila, busca e comandos bem definidos',
+    bgImage: '/work-12.png',
+    featured: false,
+  },
+  {
+    title: 'MarioMind (Reinforcement Learning)',
+    description:
+      'Agentes no Super Mario (NES) • PPO (Actor-Critic) e Dueling DQN • Experimentos reprodutíveis (runs/ e checkpoints)',
+    bgImage: '/work-13.png',
+    featured: false,
+  },
+  {
+    title: 'BitHunter',
+    description:
+      'RPG 2D top-down em Java (AWT/Swing) • Exploração + dungeons infinitas • Combate, HUD, inventário, iluminação e progressão',
+    bgImage: '/work-14.png',
+    featured: false,
+  },
+  {
+    title: 'Idle Mine Redux',
+    description:
+      'Jogo incremental (idle) em HTML/CSS/JS • Correções + novas features • UI/UX e i18n • Build desktop via Electron',
+    bgImage: '/work-15.png',
+    featured: false,
+  },
+  {
+    title: 'DomuServer (ESP32 + MQTT/TLS)',
+    description:
+      'Sistema IoT modular com ESP32 • Sensores (DHT22, HC-SR04, MQ-02) • MQTT via TLS (HiveMQ Cloud) • Máquina de estados (millis)',
+    bgImage: '/work-16.png',
+    featured: false,
+  },
+  {
+    title: 'Snake Game AI',
+    description:
+      'IA para Snake com Deep Q-Learning • PyTorch + Pygame • Replay Buffer e treino com métricas em tempo real',
+    bgImage: '/work-17.png',
+    featured: false,
+  },
+  {
+    title: 'Tramix API',
+    description:
+      'API REST em AdonisJS v6 + TypeScript • JWT (tokens opacos), users e tasks • Arquitetura em camadas (Controller/Service/Repo) • PostgreSQL',
+    bgImage: '/work-18.png',
+    featured: false,
+  },
+  {
+    title: 'Tramix Client',
+    description:
+      'Frontend em Next.js 15 + Tailwind • Dashboard de tarefas com filtros • Auth JWT persistente • Drag-and-drop (dnd-kit) e perfil via API',
+    bgImage: '/work-19.png',
+    featured: false,
+  },
+  {
+    title: 'Irrigação Automática (ESP32 + Flask)',
+    description:
+      'Sistema de irrigação com ESP32 • Sensores (solo + DHT22) e relé • API HTTP no ESP32 • Dashboard web em Flask com atualização em tempo real',
+    bgImage: '/work-20.png',
+    featured: false,
+  },
+  {
+    title: 'Breast Cancer (NN Classification)',
+    description:
+      'Classificação binária com redes neurais • Keras/Scikeras + validação cruzada • Tuning com GridSearchCV (UCI Breast Cancer)',
+    bgImage: '/work-21.png',
+    featured: false,
+  },
+  {
+    title: 'Curso: Deep Learning com Python (A a Z)',
+    description:
+      'Projetos e estudos do curso IA Expert Academy • Fundamentos de deep learning • Implementações práticas em Python',
+    bgImage: '/work-22.png',
+    featured: false,
+  },
+  {
+    title: 'Two Player PyChess',
+    description:
+      'Xadrez 2 jogadores em Python • Interface clicável com regras de turno • Projeto baseado em tutorial (com ajustes e organização própria)',
+    bgImage: '/work-23.png',
+    featured: false,
+  },
+  {
+    title: 'Gestão de Resíduos (IoT + MQTT) — TCC',
+    description:
+      'Projeto de TCC com ESP32 + sensores (HC-SR04, DHT11) • Monitoramento de resíduos via MQTT • Arquitetura IoT para cidades inteligentes',
+    bgImage: '/work-24.png',
+    featured: false,
+  },
 ];
 
 export type ServiceCardItem = {
