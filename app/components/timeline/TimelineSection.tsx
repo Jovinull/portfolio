@@ -3,11 +3,10 @@
 import { useMemo, useState } from 'react';
 import { timelineData } from '@/assets/assets';
 import type { TimelineEntry } from '@/app/types/assets';
+import type { TimelineGroup, TimelineSectionMode } from '@/app/types/components/timeline';
 import Timeline from './Timeline';
 
-type Group = { year: number; items: TimelineEntry[] };
-
-function groupByYear(items: TimelineEntry[]): Group[] {
+function groupByYear(items: ReadonlyArray<TimelineEntry>): TimelineGroup[] {
   const map = new Map<number, TimelineEntry[]>();
 
   for (const item of items) {
@@ -25,10 +24,10 @@ function groupByYear(items: TimelineEntry[]): Group[] {
 }
 
 export default function TimelineSection() {
-  const [mode, setMode] = useState<'highlights' | 'all'>('highlights');
+  const [mode, setMode] = useState<TimelineSectionMode>('highlights');
 
   const items = useMemo(() => {
-    const base = [...timelineData];
+    const base = [...timelineData] as TimelineEntry[];
     return mode === 'highlights' ? base.filter((i) => i.highlight) : base;
   }, [mode]);
 

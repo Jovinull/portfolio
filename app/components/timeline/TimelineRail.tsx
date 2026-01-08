@@ -1,11 +1,7 @@
 'use client';
 
-import { motion, type MotionValue } from 'framer-motion';
-
-type TimelineRailProps = Readonly<{
-  progress: MotionValue<number>;
-  years: ReadonlyArray<number>;
-}>;
+import { motion } from 'framer-motion';
+import type { TimelineRailProps } from '@/app/types/components/timeline';
 
 export default function TimelineRail({ progress }: TimelineRailProps) {
   return (

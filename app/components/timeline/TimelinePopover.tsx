@@ -1,10 +1,10 @@
 'use client';
 
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import type { ReactNode } from 'react';
 import { useLayoutEffect, useRef, useState } from 'react';
 import { FiAward, FiCpu, FiShield, FiStar, FiZap } from 'react-icons/fi';
 import type { TimelineBadge } from '@/app/types/assets';
+import type { TimelinePopoverProps } from '@/app/types/components/timeline';
 
 function BadgeIcon({ icon }: Readonly<{ icon?: TimelineBadge['icon'] }>) {
   if (icon === 'cpu') return <FiCpu aria-hidden="true" className="h-4 w-4" />;
@@ -13,13 +13,6 @@ function BadgeIcon({ icon }: Readonly<{ icon?: TimelineBadge['icon'] }>) {
   if (icon === 'star') return <FiStar aria-hidden="true" className="h-4 w-4" />;
   return <FiZap aria-hidden="true" className="h-4 w-4" />; // bolt/default
 }
-
-type TimelinePopoverProps = Readonly<{
-  id: string;
-  open: boolean;
-  badges?: TimelineBadge[];
-  children: ReactNode;
-}>;
 
 export default function TimelinePopover({ id, open, badges, children }: TimelinePopoverProps) {
   const reduced = useReducedMotion();

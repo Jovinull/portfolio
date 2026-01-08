@@ -2,15 +2,9 @@
 
 import { useMemo, useRef } from 'react';
 import { motion, useReducedMotion, useScroll } from 'framer-motion';
-import type { TimelineEntry } from '@/app/types/assets';
+import type { TimelineProps } from '@/app/types/components/timeline';
 import TimelineRail from './TimelineRail';
 import TimelineYearGroup from './TimelineYearGroup';
-
-type Group = { year: number; items: TimelineEntry[] };
-
-type TimelineProps = Readonly<{
-  groups: Group[];
-}>;
 
 export default function Timeline({ groups }: TimelineProps) {
   const reduced = useReducedMotion();

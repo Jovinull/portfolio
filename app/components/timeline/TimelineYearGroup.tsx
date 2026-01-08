@@ -1,14 +1,7 @@
 'use client';
 
-import type { TimelineEntry } from '@/app/types/assets';
+import type { TimelineYearGroupProps } from '@/app/types/components/timeline';
 import TimelineItem from './TimelineItem';
-
-type TimelineYearGroupProps = Readonly<{
-  group: Readonly<{
-    year: number;
-    items: ReadonlyArray<TimelineEntry>;
-  }>;
-}>;
 
 export default function TimelineYearGroup({ group }: TimelineYearGroupProps) {
   return (
