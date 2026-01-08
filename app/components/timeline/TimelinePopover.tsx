@@ -6,7 +6,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { FiAward, FiCpu, FiShield, FiStar, FiZap } from 'react-icons/fi';
 import type { TimelineBadge } from '@/app/types/assets';
 
-function BadgeIcon({ icon }: { icon?: TimelineBadge['icon'] }) {
+function BadgeIcon({ icon }: Readonly<{ icon?: TimelineBadge['icon'] }>) {
   if (icon === 'cpu') return <FiCpu aria-hidden="true" className="h-4 w-4" />;
   if (icon === 'shield') return <FiShield aria-hidden="true" className="h-4 w-4" />;
   if (icon === 'award') return <FiAward aria-hidden="true" className="h-4 w-4" />;
@@ -14,17 +14,14 @@ function BadgeIcon({ icon }: { icon?: TimelineBadge['icon'] }) {
   return <FiZap aria-hidden="true" className="h-4 w-4" />; // bolt/default
 }
 
-export default function TimelinePopover({
-  id,
-  open,
-  badges,
-  children,
-}: {
+type TimelinePopoverProps = Readonly<{
   id: string;
   open: boolean;
   badges?: TimelineBadge[];
   children: ReactNode;
-}) {
+}>;
+
+export default function TimelinePopover({ id, open, badges, children }: TimelinePopoverProps) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement | null>(null);
   const [shiftX, setShiftX] = useState(0);
@@ -106,7 +103,11 @@ export default function TimelinePopover({
                           color: 'var(--color-text)',
                         }}
                       >
-                        <span style={{ color: isAccent ? 'var(--color-accent)' : 'var(--color-text-secondary)' }}>
+                        <span
+                          style={{
+                            color: isAccent ? 'var(--color-accent)' : 'var(--color-text-secondary)',
+                          }}
+                        >
                           <BadgeIcon icon={b.icon} />
                         </span>
                         <span className="leading-none">{b.label}</span>
