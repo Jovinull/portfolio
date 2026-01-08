@@ -10,21 +10,95 @@ type AwardDetailsProps = Readonly<{
   detailsId: string
 }>
 
+function AwardMetaLine({ item }: Readonly<{ item: Readonly<AwardsHighlightItem> }>) {
+  const showSeparator1 = !!(item.subtitle && (item.org || item.dateLabel))
+  const showSeparator2 = !!(item.org && item.dateLabel)
+
+  if (!item.subtitle && !item.org && !item.dateLabel) return null
+
+  return (
+    <p className="mt-1 text-sm text-theme-secondary">
+      {item.subtitle ? <span className="font-semibold">{item.subtitle}</span> : null}
+      {showSeparator1 ? <span> • </span> : null}
+      {item.org ? <span>{item.org}</span> : null}
+      {showSeparator2 ? <span> • </span> : null}
+      {item.dateLabel ? <span>{item.dateLabel}</span> : null}
+    </p>
+  )
+}
+
+function AwardProofButton({
+  proofLink,
+}: Readonly<{
+  proofLink?: AwardsHighlightItem['proofLink']
+}>) {
+  const proofHref = proofLink?.href
+  if (!proofHref) return null
+
+  const proofLabel = proofLink?.label ?? 'Comprovação'
+
+  return (
+    <Link
+      href={proofHref}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex items-center gap-2 rounded-full border border-theme px-4 py-2 text-sm font-semibold text-theme-secondary transition hover:bg-theme-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/25"
+    >
+      <span>{proofLabel}</span>
+      <FiExternalLink aria-hidden="true" className="h-4 w-4" />
+    </Link>
+  )
+}
+
+function AwardRankScore({
+  rank,
+  score,
+}: Readonly<{
+  rank?: string
+  score?: string
+}>) {
+  if (!rank && !score) return null
+
+  return (
+    <div className="mt-4 flex flex-wrap gap-2">
+      {rank ? (
+        <span className="rounded-full border border-theme px-3 py-1 text-xs font-semibold">
+          {rank}
+        </span>
+      ) : null}
+      {score ? (
+        <span className="rounded-full border border-theme px-3 py-1 text-xs font-semibold">
+          {score}
+        </span>
+      ) : null}
+    </div>
+  )
+}
+
+function AwardTags({
+  tags,
+}: Readonly<{
+  tags?: readonly string[]
+}>) {
+  const list = tags ?? []
+  if (list.length === 0) return null
+
+  return (
+    <div className="mt-4 flex flex-wrap gap-2">
+      {list.map((t) => (
+        <span
+          key={t}
+          className="rounded-full border border-theme px-3 py-1 text-xs font-semibold text-theme-secondary"
+        >
+          {t}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
   const reduced = useReducedMotion()
-
-  const showMetaSeparator1 = !!(item.subtitle && (item.org || item.dateLabel))
-  const showMetaSeparator2 = !!(item.org && item.dateLabel)
-
-  const hasProof = !!item.proofLink?.href
-  const proofLabel = item.proofLink?.label ?? 'Comprovação'
-
-  const hasRankOrScore = !!(item.rank || item.score)
-  const hasTags = !!item.tags?.length
-
-  const subtitleNode = item.subtitle ? <span className="font-semibold">{item.subtitle}</span> : null
-  const orgNode = item.org ? <span>{item.org}</span> : null
-  const dateNode = item.dateLabel ? <span>{item.dateLabel}</span> : null
 
   return (
     <section
@@ -47,14 +121,7 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
           <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
             <div className="min-w-0">
               <h3 className="text-lg font-bold leading-snug">{item.title}</h3>
-
-              <p className="mt-1 text-sm text-theme-secondary">
-                {subtitleNode}
-                {showMetaSeparator1 ? <span> • </span> : null}
-                {orgNode}
-                {showMetaSeparator2 ? <span> • </span> : null}
-                {dateNode}
-              </p>
+              <AwardMetaLine item={item} />
             </div>
 
             <div className="flex shrink-0 items-center gap-2">
@@ -62,17 +129,7 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
                 {item.year}
               </span>
 
-              {hasProof ? (
-                <Link
-                  href={item.proofLink!.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-theme px-4 py-2 text-sm font-semibold text-theme-secondary transition hover:bg-theme-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/25"
-                >
-                  <span>{proofLabel}</span>
-                  <FiExternalLink aria-hidden="true" className="h-4 w-4" />
-                </Link>
-              ) : null}
+              <AwardProofButton proofLink={item.proofLink} />
             </div>
           </div>
 
@@ -80,33 +137,8 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
             {item.description}
           </p>
 
-          {hasRankOrScore ? (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {item.rank ? (
-                <span className="rounded-full border border-theme px-3 py-1 text-xs font-semibold">
-                  {item.rank}
-                </span>
-              ) : null}
-              {item.score ? (
-                <span className="rounded-full border border-theme px-3 py-1 text-xs font-semibold">
-                  {item.score}
-                </span>
-              ) : null}
-            </div>
-          ) : null}
-
-          {hasTags ? (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {item.tags!.map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-theme px-3 py-1 text-xs font-semibold text-theme-secondary"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          ) : null}
+          <AwardRankScore rank={item.rank} score={item.score} />
+          <AwardTags tags={item.tags} />
         </motion.div>
       </AnimatePresence>
     </section>
