@@ -2,12 +2,12 @@
 
 import { motion, type MotionValue } from 'framer-motion';
 
-export default function TimelineRail({
-  progress,
-}: {
+type TimelineRailProps = Readonly<{
   progress: MotionValue<number>;
-  years: number[];
-}) {
+  years: ReadonlyArray<number>;
+}>;
+
+export default function TimelineRail({ progress }: TimelineRailProps) {
   return (
     <div className="pointer-events-none absolute left-6 top-0 h-full w-10">
       {/* trilho base */}
