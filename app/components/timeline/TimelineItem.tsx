@@ -2,11 +2,20 @@
 
 import { useId, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import type { TimelineEntry, TimelineEntryType } from '@/app/types/assets';
+import type { TimelineEntry, TimelineEntryType, TimelineBadge } from '@/app/types/assets';
 import TimelinePopover from './TimelinePopover';
 
 import type { IconType } from 'react-icons';
-import { FiAward, FiBookOpen, FiBriefcase, FiCpu, FiHash, FiUsers, FiZap } from 'react-icons/fi';
+import {
+  FiAward,
+  FiBookOpen,
+  FiBriefcase,
+  FiCpu,
+  FiHash,
+  FiUsers,
+  FiZap,
+  FiStar,
+} from 'react-icons/fi';
 
 const ICON_BY_TYPE: Record<TimelineEntryType, IconType> = {
   work: FiBriefcase,
@@ -30,9 +39,40 @@ const LABEL_BY_TYPE: Record<TimelineEntryType, string> = {
   community: 'Comunidade',
 };
 
+function BadgePill({ badge }: { badge: TimelineBadge }) {
+  const isAccent = badge.tone === 'accent';
+
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold leading-none"
+      style={
+        isAccent
+          ? {
+              borderColor: 'color-mix(in srgb, var(--color-accent) 55%, transparent)',
+              background: 'color-mix(in srgb, var(--color-accent) 14%, transparent)',
+              boxShadow:
+                '0 0 0 1px color-mix(in srgb, var(--color-accent) 18%, transparent), 0 10px 30px color-mix(in srgb, var(--color-accent) 16%, transparent)',
+            }
+          : undefined
+      }
+    >
+      {isAccent ? (
+        <FiStar
+          aria-hidden="true"
+          className="shrink-0"
+          style={{ color: 'var(--color-accent)' }}
+        />
+      ) : null}
+      <span className="text-theme">{badge.label}</span>
+    </span>
+  );
+}
+
 export default function TimelineItem({ item }: { item: TimelineEntry }) {
   const reduced = useReducedMotion();
   const [open, setOpen] = useState(false);
+
+  // ✅ useId retorna string; serve como id do tooltip/popover
   const tooltipId = useId();
 
   const Icon = ICON_BY_TYPE[item.type];
@@ -47,7 +87,10 @@ export default function TimelineItem({ item }: { item: TimelineEntry }) {
     >
       {/* DOT no trilho */}
       <span className="absolute -left-8 top-6 grid h-4 w-4 place-items-center">
-        <span className="h-2.5 w-2.5 rounded-full" style={{ background: 'var(--color-accent)' }} />
+        <span
+          className="h-2.5 w-2.5 rounded-full"
+          style={{ background: 'var(--color-accent)' }}
+        />
         <span
           aria-hidden="true"
           className="absolute inset-0 rounded-full blur-sm"
@@ -62,7 +105,7 @@ export default function TimelineItem({ item }: { item: TimelineEntry }) {
         onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.key === 'Escape') setOpen(false);
         }}
         whileHover={reduced ? undefined : { y: -3 }}
@@ -86,8 +129,18 @@ export default function TimelineItem({ item }: { item: TimelineEntry }) {
 
                 <p className="text-theme-secondary mt-0.5 text-sm">
                   {item.org ? item.org : '—'}
-                  {item.period ? <span className="opacity-80"> • {item.period}</span> : null}
+                  {item.period ? (
+                    <span className="opacity-80"> • {item.period}</span>
+                  ) : null}
                 </p>
+
+                {item.badges?.length ? (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {item.badges.map((b) => (
+                      <BadgePill key={b.label} badge={b} />
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -97,7 +150,7 @@ export default function TimelineItem({ item }: { item: TimelineEntry }) {
           </span>
         </div>
 
-        {/* sheen sutil no hover (efeito uau discreto) */}
+        {/* sheen sutil no hover */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"

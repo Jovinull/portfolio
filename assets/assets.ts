@@ -208,6 +208,9 @@ export const timelineData: TimelineEntry[] = [
     type: 'startup',
     highlight: true,
     sort: 95,
+    badges: [
+      { label: 'Selecionado no Catalisa ICT (Sebrae)', tone: 'accent' },
+    ],
     description:
       'IA em Python + app React Native para automatizar análise de acessibilidade (NBR 9050) com foco em impacto real.',
   },
@@ -224,16 +227,16 @@ export const timelineData: TimelineEntry[] = [
       'Entrega de produtos digitais com base sólida (RBAC, auditoria, LGPD) e integrações para negócios e setor público.',
   },
   {
-    id: 'masters-tech-publicacao-2025',
+    id: 'pos-ead-ept-2025',
     year: 2025,
-    title: 'MastersTech (publicações)',
-    org: 'YouTube',
-    period: 'jul/2025 – atual',
-    type: 'community',
+    title: 'Pós-graduação (Especialização) – EAD na EPT',
+    org: 'IFS (UAB)',
+    period: 'ago/2025 – fev/2027',
+    type: 'education',
     highlight: true,
-    sort: 80,
+    sort: 65,
     description:
-      'Videoaulas práticas com foco em programação e desenvolvimento — conteúdo pensado pra ser aplicável e direto.',
+      'Especialização Lato Sensu em Educação a Distância na Educação Profissional e Tecnológica (EPT).',
   },
   {
     id: 'patentes-2025',
@@ -246,6 +249,18 @@ export const timelineData: TimelineEntry[] = [
     sort: 70,
     description:
       'Registros como Glicemy, Glicemy API e SignForest, além de histórico de patente/registro do CaptionEase.',
+  },
+  {
+    id: 'coorientador-tcc-unifal-2025',
+    year: 2025,
+    title: 'Coorientador de TCC (ESP32 & RFID)',
+    org: 'UNIFAL-MG',
+    period: 'ago/2025 – atual',
+    type: 'education',
+    highlight: false,
+    sort: 72,
+    description:
+      'Mentoria técnica: arquitetura IoT, integração ESP32+RFID, autenticação, criptografia e boas práticas.',
   },
 
   // 2024
@@ -262,13 +277,25 @@ export const timelineData: TimelineEntry[] = [
       'Full-stack (AdonisJS v6 + Next.js + PostgreSQL), discovery com stakeholders e padronização (GitFlow/ESLint/Prettier).',
   },
   {
+    id: 'masterstech-youtube-2024',
+    year: 2024,
+    title: 'MastersTech (canal educacional)',
+    org: 'YouTube',
+    period: 'jun/2024 – atual',
+    type: 'community',
+    highlight: true,
+    sort: 85,
+    description:
+      'Canal iniciado em jun/2024; publicações a partir de jul/2025. Conteúdo prático de programação e desenvolvimento.',
+  },
+  {
     id: 'premios-ifs-2024',
     year: 2024,
     title: 'Reconhecimentos acadêmicos',
     org: 'IFS',
     period: '2024',
     type: 'award',
-    highlight: true,
+    highlight: false,
     sort: 80,
     description:
       'Premiações em eventos científicos: Melhor Artigo (SEMEXT/IFS) e Segundo Melhor Artigo (SNCT/IFS).',
@@ -314,14 +341,19 @@ export const timelineData: TimelineEntry[] = [
   {
     id: 'monitor-ia-2023',
     year: 2023,
-    title: 'Monitor Bolsista – Capacitação em IA (Residência TIC 08)',
-    org: 'IFS',
+    title: 'Monitor Bolsista – Programa Huawei AI (Residência TIC 08)',
+    org: 'IFS • DINOVE • Huawei (Softex/MCTI)',
     period: 'dez/2022 – ago/2023',
     type: 'education',
-    highlight: false,
-    sort: 50,
+    highlight: true,
+    sort: 58,
+    badges: [
+      { label: 'Huawei AI', tone: 'accent', icon: 'cpu' },
+      { label: 'PPI • Lei da Informática', tone: 'neutral', icon: 'shield' },
+      { label: 'Curso híbrido • 40h', tone: 'neutral', icon: 'bolt' },
+    ],
     description:
-      'Aulas de Python, materiais e atividades práticas em IA, com suporte pedagógico e técnico.',
+      'Atuação na capacitação em IA para a comunidade sergipana, em programa institucional com Huawei (parcerias Softex/MCTI). Apoio pedagógico e técnico em Python/IA, materiais, atividades práticas e orientação aos alunos.',
   },
   {
     id: 'publicacao-2023',
@@ -370,7 +402,7 @@ export const timelineData: TimelineEntry[] = [
     org: 'IFS',
     period: 'jul/2021 – set/2024',
     type: 'research',
-    highlight: true,
+    highlight: false,
     sort: 70,
     description:
       'Projetos de pesquisa e extensão: ML, redes neurais e aplicações em sistemas embarcados (IoT/ESP32).',
