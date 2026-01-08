@@ -12,7 +12,7 @@ export default function ShowMoreLink() {
       variants={fadeUp(!!reduced, { delay: 0.06 })}
       className="my-20 flex justify-center"
     >
-      <BaseButton href="#work" variant="theme" className="px-10 py-3">
+      <BaseButton href="/projects" variant="theme" className="px-10 py-3">
         Mostrar Mais
       </BaseButton>
     </motion.div>

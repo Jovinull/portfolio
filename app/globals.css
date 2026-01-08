@@ -62,7 +62,6 @@
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
-    padding-top: var(--navbar-height);
   }
 
   html {

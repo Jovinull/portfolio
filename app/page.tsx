@@ -7,12 +7,13 @@ import Contact from '@/app/components/contact/Contact'
 import Footer from './components/footer/Footer'
 import SectionReveal from './components/motion/SectionReveal'
 import TimelineSection from './components/timeline/TimelineSection'
+import AwardsSection from './components/awards/AwardsSection'
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pt-[var(--navbar-height)]">
         <Header />
 
         <SectionReveal>
@@ -25,6 +26,10 @@ export default function Home() {
 
         <SectionReveal>
           <TimelineSection />
+        </SectionReveal>
+
+        <SectionReveal>
+          <AwardsSection />
         </SectionReveal>
 
         <SectionReveal>

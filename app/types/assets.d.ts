@@ -1,13 +1,11 @@
 import type { StaticImageData } from 'next/image';
 
-export interface WorkItem {
+export type WorkItem = {
   title: string;
   description: string;
-  /**
-   * Pode ser URL externa, path interno (/img.png) ou StaticImageData (import de imagem).
-   */
-  bgImage: string | StaticImageData;
-}
+  bgImage: string;
+  featured?: boolean;
+};
 
 export interface ServiceItem {
   icon: StaticImageData;
