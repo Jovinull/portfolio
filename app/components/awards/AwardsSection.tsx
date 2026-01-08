@@ -19,7 +19,7 @@ function sortAwards(items: ReadonlyArray<AwardsHighlightItem>) {
   })
 }
 
-export default function AwardsSection({ className }: AwardsSectionProps) {
+export default function AwardsSection({ className }: Readonly<AwardsSectionProps>) {
   const reduced = useReducedMotion()
   const [mode, setMode] = useState<AwardsMode>('highlights')
 
@@ -30,9 +30,10 @@ export default function AwardsSection({ className }: AwardsSectionProps) {
   }, [])
 
   const items = useMemo(() => {
-    const base = mode === 'highlights'
-      ? awardsHighlightsData.filter((i) => i.highlight)
-      : awardsHighlightsData
+    const base =
+      mode === 'highlights'
+        ? awardsHighlightsData.filter((i) => i.highlight)
+        : awardsHighlightsData
 
     return sortAwards(base)
   }, [mode])
@@ -56,16 +57,13 @@ export default function AwardsSection({ className }: AwardsSectionProps) {
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-subtitle text-sm font-semibold tracking-wide">
-              Prêmios & Destaques
-            </p>
+            <p className="text-subtitle text-sm font-semibold tracking-wide">Prêmios & Destaques</p>
 
-            <h2 className="mt-2 text-3xl font-bold leading-tight md:text-4xl">
-              Museu de Conquistas
-            </h2>
+            <h2 className="mt-2 text-3xl font-bold leading-tight md:text-4xl">Museu de Conquistas</h2>
 
             <p className="mt-3 text-sm leading-relaxed text-theme-secondary">
-              Use as setas (na tela ou no teclado) para alternar o destaque. Você também pode clicar em qualquer item.
+              Use as setas (na tela ou no teclado) para alternar o destaque. Você também pode clicar
+              em qualquer item.
             </p>
           </div>
 
