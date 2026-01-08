@@ -3,12 +3,16 @@
 import { useMemo, useRef } from 'react';
 import { motion, useReducedMotion, useScroll } from 'framer-motion';
 import type { TimelineEntry } from '@/app/types/assets';
-import TimelineRail from './TimelineRail'; 
+import TimelineRail from './TimelineRail';
 import TimelineYearGroup from './TimelineYearGroup';
 
 type Group = { year: number; items: TimelineEntry[] };
 
-export default function Timeline({ groups }: { groups: Group[] }) {
+type TimelineProps = Readonly<{
+  groups: Group[];
+}>;
+
+export default function Timeline({ groups }: TimelineProps) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -17,7 +21,7 @@ export default function Timeline({ groups }: { groups: Group[] }) {
     offset: ['start end', 'end start'],
   });
 
-  const years = useMemo(() => groups.map(g => g.year), [groups]);
+  const years = useMemo(() => groups.map((g) => g.year), [groups]);
 
   return (
     <div ref={ref} className="relative">
@@ -29,7 +33,7 @@ export default function Timeline({ groups }: { groups: Group[] }) {
         animate={reduced ? undefined : { opacity: 1 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        {groups.map(group => (
+        {groups.map((group) => (
           <TimelineYearGroup key={group.year} group={group} />
         ))}
       </motion.ol>
