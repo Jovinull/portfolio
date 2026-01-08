@@ -34,6 +34,18 @@ export default function TimelineSection() {
 
   const groups = useMemo(() => groupByYear(items), [items]);
 
+  const isHighlights = mode === 'highlights';
+  const isAll = mode === 'all';
+
+  const tabBase =
+    'btn relative inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/25 dark:focus-visible:ring-white/25';
+
+  const tabActive =
+    'bg-theme text-theme border border-theme shadow-sm';
+
+  const tabInactive =
+    'btn-theme opacity-90 hover:opacity-100';
+
   return (
     <section
       id="timeline"
@@ -52,29 +64,53 @@ export default function TimelineSection() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Toggle com indicador visual claro do selecionado */}
+          <div
+            role="tablist"
+            aria-label="Filtro da linha do tempo"
+            className="relative inline-flex items-center gap-1 rounded-full border border-theme bg-theme px-1 py-1 shadow-sm backdrop-blur-md"
+          >
+            {/* “pill” animado (uau discreto) */}
+            <span
+              aria-hidden="true"
+              className={[
+                'pointer-events-none absolute top-1 bottom-1 w-[calc(50%-0.25rem)] rounded-full',
+                'transition-transform duration-300 ease-out',
+              ].join(' ')}
+              style={{
+                transform: isAll ? 'translateX(100%)' : 'translateX(0%)',
+                background: 'color-mix(in srgb, var(--color-accent) 14%, transparent)',
+                boxShadow:
+                  '0 0 0 1px color-mix(in srgb, var(--color-accent) 22%, transparent), 0 12px 26px color-mix(in srgb, var(--color-accent) 14%, transparent)',
+              }}
+            />
+
             <button
               type="button"
+              role="tab"
+              aria-selected={isHighlights}
+              aria-pressed={isHighlights}
               onClick={() => setMode('highlights')}
               className={[
-                'btn btn-theme',
-                mode === 'highlights'
-                  ? 'ring-2 ring-black/20 dark:ring-white/20'
-                  : 'opacity-90 hover:opacity-100',
+                tabBase,
+                'z-10 w-28',
+                isHighlights ? tabActive : tabInactive,
               ].join(' ')}
-              aria-pressed={mode === 'highlights'}
             >
               Destaques
             </button>
 
             <button
               type="button"
+              role="tab"
+              aria-selected={isAll}
+              aria-pressed={isAll}
               onClick={() => setMode('all')}
               className={[
-                'btn btn-theme',
-                mode === 'all' ? 'ring-2 ring-black/20 dark:ring-white/20' : 'opacity-90 hover:opacity-100',
+                tabBase,
+                'z-10 w-28',
+                isAll ? tabActive : tabInactive,
               ].join(' ')}
-              aria-pressed={mode === 'all'}
             >
               Tudo
             </button>
