@@ -12,7 +12,11 @@ function clampIndex(next: number, total: number) {
   return (next + total) % total;
 }
 
-export default function FeaturedProjectsSpotlight({ projects }: { projects: WorkItem[] }) {
+type FeaturedProjectsSpotlightProps = Readonly<{
+  projects: readonly WorkItem[];
+}>;
+
+export default function FeaturedProjectsSpotlight({ projects }: FeaturedProjectsSpotlightProps) {
   const reduced = useReducedMotion();
   const titleId = useId();
 
@@ -22,14 +26,28 @@ export default function FeaturedProjectsSpotlight({ projects }: { projects: Work
   const current = useMemo(() => projects[active] ?? projects[0], [projects, active]);
 
   const go = useCallback(
-    (next: number) => {
-      setActive(() => clampIndex(next, total));
+    (nextIndex: number) => {
+      setActive(() => clampIndex(nextIndex, total));
     },
     [total]
   );
 
   const prev = useCallback(() => setActive((i) => clampIndex(i - 1, total)), [total]);
   const next = useCallback(() => setActive((i) => clampIndex(i + 1, total)), [total]);
+
+  const handleArrowKeys = useCallback(
+    (e: React.KeyboardEvent<HTMLElement>) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prev();
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        next();
+      }
+    },
+    [prev, next]
+  );
 
   if (!current) return null;
 
@@ -62,6 +80,7 @@ export default function FeaturedProjectsSpotlight({ projects }: { projects: Work
             <button
               type="button"
               onClick={prev}
+              onKeyDown={handleArrowKeys}
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/60 shadow-sm backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 dark:focus-visible:ring-white/30"
               aria-label="Projeto anterior"
             >
@@ -71,6 +90,7 @@ export default function FeaturedProjectsSpotlight({ projects }: { projects: Work
             <button
               type="button"
               onClick={next}
+              onKeyDown={handleArrowKeys}
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/60 shadow-sm backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 dark:focus-visible:ring-white/30"
               aria-label="Próximo projeto"
             >
@@ -79,15 +99,10 @@ export default function FeaturedProjectsSpotlight({ projects }: { projects: Work
           </div>
         </motion.div>
 
-        <div
+        <section
           className="mt-6 grid gap-6 lg:grid-cols-[1.25fr_0.75fr] lg:items-start"
-          role="region"
+          aria-label="Carrossel de projetos"
           aria-roledescription="carrossel"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowLeft') prev();
-            if (e.key === 'ArrowRight') next();
-          }}
         >
           {/* Spotlight */}
           <div className="relative overflow-hidden rounded-3xl ring-1 ring-black/10 dark:ring-white/10 lg:h-[520px]">
@@ -155,6 +170,7 @@ export default function FeaturedProjectsSpotlight({ projects }: { projects: Work
                     <button
                       type="button"
                       onClick={() => go(idx)}
+                      onKeyDown={handleArrowKeys}
                       aria-current={isActive ? 'true' : undefined}
                       className={[
                         'group flex w-full items-center gap-3 rounded-2xl border p-3 text-left transition',
@@ -185,7 +201,7 @@ export default function FeaturedProjectsSpotlight({ projects }: { projects: Work
               })}
             </ul>
           </div>
-        </div>
+        </section>
       </motion.div>
     </section>
   );
