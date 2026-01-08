@@ -5,18 +5,30 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import type { AwardsHighlightItem } from '@/app/types/assets/awards'
 import { FiExternalLink } from 'react-icons/fi'
 
-type AwardDetailsProps = {
-  item: AwardsHighlightItem
+type AwardDetailsProps = Readonly<{
+  item: Readonly<AwardsHighlightItem>
   detailsId: string
-}
+}>
 
 export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
   const reduced = useReducedMotion()
 
+  const showMetaSeparator1 = !!(item.subtitle && (item.org || item.dateLabel))
+  const showMetaSeparator2 = !!(item.org && item.dateLabel)
+
+  const hasProof = !!item.proofLink?.href
+  const proofLabel = item.proofLink?.label ?? 'Comprovação'
+
+  const hasRankOrScore = !!(item.rank || item.score)
+  const hasTags = !!item.tags?.length
+
+  const subtitleNode = item.subtitle ? <span className="font-semibold">{item.subtitle}</span> : null
+  const orgNode = item.org ? <span>{item.org}</span> : null
+  const dateNode = item.dateLabel ? <span>{item.dateLabel}</span> : null
+
   return (
-    <div
+    <section
       id={detailsId}
-      role="region"
       aria-label="Detalhes do item selecionado"
       className="mt-6 rounded-2xl border border-theme bg-theme p-6 shadow-sm backdrop-blur-md"
       style={{
@@ -37,11 +49,11 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
               <h3 className="text-lg font-bold leading-snug">{item.title}</h3>
 
               <p className="mt-1 text-sm text-theme-secondary">
-                {item.subtitle ? <span className="font-semibold">{item.subtitle}</span> : null}
-                {item.subtitle && (item.org || item.dateLabel) ? <span> • </span> : null}
-                {item.org ? <span>{item.org}</span> : null}
-                {item.org && item.dateLabel ? <span> • </span> : null}
-                {item.dateLabel ? <span>{item.dateLabel}</span> : null}
+                {subtitleNode}
+                {showMetaSeparator1 ? <span> • </span> : null}
+                {orgNode}
+                {showMetaSeparator2 ? <span> • </span> : null}
+                {dateNode}
               </p>
             </div>
 
@@ -50,14 +62,14 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
                 {item.year}
               </span>
 
-              {item.proofLink?.href ? (
+              {hasProof ? (
                 <Link
-                  href={item.proofLink.href}
+                  href={item.proofLink!.href}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-theme px-4 py-2 text-sm font-semibold text-theme-secondary transition hover:bg-theme-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/25"
                 >
-                  <span>{item.proofLink.label ?? 'Comprovação'}</span>
+                  <span>{proofLabel}</span>
                   <FiExternalLink aria-hidden="true" className="h-4 w-4" />
                 </Link>
               ) : null}
@@ -68,7 +80,7 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
             {item.description}
           </p>
 
-          {item.rank || item.score ? (
+          {hasRankOrScore ? (
             <div className="mt-4 flex flex-wrap gap-2">
               {item.rank ? (
                 <span className="rounded-full border border-theme px-3 py-1 text-xs font-semibold">
@@ -83,9 +95,9 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
             </div>
           ) : null}
 
-          {item.tags?.length ? (
+          {hasTags ? (
             <div className="mt-4 flex flex-wrap gap-2">
-              {item.tags.map((t) => (
+              {item.tags!.map((t) => (
                 <span
                   key={t}
                   className="rounded-full border border-theme px-3 py-1 text-xs font-semibold text-theme-secondary"
@@ -97,6 +109,6 @@ export default function AwardDetails({ item, detailsId }: AwardDetailsProps) {
           ) : null}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </section>
   )
 }
