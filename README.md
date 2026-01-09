@@ -60,7 +60,7 @@ Acesse: `http://localhost:3000`
 
 A estrutura pode variar, mas a lógica geral é:
 
-- `src/app/` — rotas e páginas (App Router)
+- `src/` — rotas e páginas (App Router)
 - `src/components/` — componentes reutilizáveis (ex.: Navbar)
 - `src/store/` — stores do Zustand (ex.: tema)
 - `src/assets.ts` — catálogo central de imagens/ícones usados na UI
@@ -72,7 +72,7 @@ A estrutura pode variar, mas a lógica geral é:
 
 ### Conteúdo (textos, links e seções)
 
-Procure pelas páginas em `src/app/` e pelos componentes em `src/components/`. Normalmente você consegue ajustar:
+Procure pelas páginas em `src/src/` e pelos componentes em `src/components/`. Normalmente você consegue ajustar:
 
 - nome/título principal
 - descrição/bio
