@@ -11,12 +11,12 @@ function normalize(v: string) {
   return (v || '')
     .toLowerCase()
     .normalize('NFD') // separa acentos
-    .replace(/[\u0300-\u036f]/g, '') // remove acentos
-    .replace(/\s+/g, ' ') // colapsa espaços
+    .replaceAll(/[\u0300-\u036f]/g, '') // remove acentos
+    .replaceAll(/\s+/g, ' ') // colapsa espaços
     .trim();
 }
 
-export default function ProjectsList({ projects }: { projects: WorkItem[] }) {
+export default function ProjectsList({ projects }: Readonly<{ projects: WorkItem[] }>) {
   const reduced = useReducedMotion();
   const [query, setQuery] = useState('');
 
