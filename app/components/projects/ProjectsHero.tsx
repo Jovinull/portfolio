@@ -4,7 +4,10 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
 
-export default function ProjectsHero({ total, featured }: Readonly<{ total: number; featured: number }>) {
+export default function ProjectsHero({
+  total,
+  featured,
+}: Readonly<{ total: number; featured: number }>) {
   const reduced = useReducedMotion();
 
   return (
@@ -29,8 +32,8 @@ export default function ProjectsHero({ total, featured }: Readonly<{ total: numb
         </nav>
 
         <h1 className="font-display mt-4 text-balance text-4xl leading-tight sm:text-5xl">
-          Uma vitrine dedicada aos meus projetos
-          <span className="text-theme-secondary"> — com foco no que entrega impacto.</span>
+          Uma vitrine dedicada aos meus projetos{' '}
+          <span className="text-theme-secondary">— com foco no que entrega impacto.</span>
         </h1>
 
         <p className="text-theme-secondary mt-4 max-w-2xl text-balance">
