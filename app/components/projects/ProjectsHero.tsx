@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
 
-export default function ProjectsHero({ total, featured }: { total: number; featured: number }) {
+export default function ProjectsHero({ total, featured }: Readonly<{ total: number; featured: number }>) {
   const reduced = useReducedMotion();
 
   return (

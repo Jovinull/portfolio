@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import type { WorkItem } from '@/app/types/assets';
 import { FiStar } from 'react-icons/fi';
 
-export default function ProjectRowCard({ project, index }: { project: WorkItem; index: number }) {
+export default function ProjectRowCard({ project, index }: Readonly<{ project: WorkItem; index: number }>) {
   const reduced = useReducedMotion();
 
   return (
