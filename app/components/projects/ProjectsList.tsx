@@ -8,22 +8,33 @@ import { fadeUp, staggerContainer } from '@/app/components/motion/variants';
 import ProjectRowCard from './ProjectRowCard';
 
 function normalize(v: string) {
-  return (v || '').toLowerCase().trim();
+  return (v || '')
+    .toLowerCase()
+    .normalize('NFD') // separa acentos
+    .replace(/[\u0300-\u036f]/g, '') // remove acentos
+    .replace(/\s+/g, ' ') // colapsa espaços
+    .trim();
 }
 
 export default function ProjectsList({ projects }: { projects: WorkItem[] }) {
   const reduced = useReducedMotion();
   const [query, setQuery] = useState('');
 
+  const q = useMemo(() => normalize(query), [query]);
+
   const filtered = useMemo(() => {
-    const q = normalize(query);
     if (!q) return projects;
 
+    const tokens = q.split(' ').filter(Boolean);
+
     return projects.filter((p) => {
-      const hay = `${p.title} ${p.description}`;
-      return normalize(hay).includes(q);
+      const hay = normalize(`${p.title || ''} ${p.description || ''}`);
+      return tokens.every((t) => hay.includes(t));
     });
-  }, [projects, query]);
+  }, [projects, q]);
+
+  // força a lista a “reanima” quando a busca muda (evita ficar presa no hidden)
+  const listKey = q ? `q:${q}` : 'all';
 
   return (
     <section className="mt-14 pb-16" aria-labelledby="projects-list-title">
@@ -58,7 +69,13 @@ export default function ProjectsList({ projects }: { projects: WorkItem[] }) {
         </motion.div>
 
         {filtered.length > 0 ? (
-          <motion.ul variants={staggerContainer(!!reduced, 0.06, 0.02)} className="mt-6 space-y-4">
+          <motion.ul
+            key={listKey}
+            variants={staggerContainer(!!reduced, 0.06, 0.02)}
+            initial={reduced ? false : 'hidden'}
+            animate={reduced ? undefined : 'show'}
+            className="mt-6 space-y-4"
+          >
             {filtered.map((p, idx) => (
               <motion.li key={`${p.title}-${idx}`} variants={fadeUp(!!reduced, { distance: 14 })}>
                 <ProjectRowCard project={p} index={idx} />
@@ -67,7 +84,10 @@ export default function ProjectsList({ projects }: { projects: WorkItem[] }) {
           </motion.ul>
         ) : (
           <motion.div
-            variants={fadeUp(!!reduced, { delay: 0.04 })}
+            key={`empty:${listKey}`}
+            initial={reduced ? false : { opacity: 0, y: 12 }}
+            animate={reduced ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: reduced ? 0 : 0.2 }}
             className="mt-8 rounded-3xl border border-black/10 bg-white/40 p-6 backdrop-blur-md dark:border-white/10 dark:bg-white/5"
           >
             <p className="text-theme-secondary">
