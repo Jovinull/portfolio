@@ -10,16 +10,22 @@ function fmtDate(iso?: string) {
 
 function doiLabel(doi?: string) {
   if (!doi) return null
-  const clean = String(doi)
-    .trim()
-    .replace(/^https?:\/\/(dx\.)?doi\.org\//i, '')
-    .trim()
+  const clean = String(doi).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, '').trim()
+  return clean || null
+}
+
+function issnLabel(issn?: string) {
+  if (!issn) return null
+  const clean = String(issn).trim()
   return clean || null
 }
 
 export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }>) {
   const date = fmtDate(item.dateISO)
   const doi = doiLabel(item.doi)
+  const issn = issnLabel(item.issn)
+
+  const hasMeta = Boolean(item.publicationLocation || doi || issn)
 
   return (
     <article className="group rounded-2xl border border-theme bg-theme p-4 shadow-sm transition hover:bg-theme-secondary md:p-5">
@@ -72,17 +78,27 @@ export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }
             {item.summary}
           </p>
 
-          {(item.publicationLocation || doi) ? (
+          {hasMeta ? (
             <p className="mt-2 text-xs text-theme-secondary">
               {item.publicationLocation ? (
                 <>
                   <span className="font-semibold">Local:</span> {item.publicationLocation}
                 </>
               ) : null}
-              {item.publicationLocation && doi ? <span> • </span> : null}
+
+              {item.publicationLocation && (doi || issn) ? <span> • </span> : null}
+
               {doi ? (
                 <>
                   <span className="font-semibold">DOI:</span> {doi}
+                </>
+              ) : null}
+
+              {doi && issn ? <span> • </span> : null}
+
+              {issn ? (
+                <>
+                  <span className="font-semibold">ISSN:</span> {issn}
                 </>
               ) : null}
             </p>

@@ -34,6 +34,17 @@ export type ArticleItem = Readonly<{
    */
   content?: readonly ArticleBlock[]
 
-  doi?: string
   publicationLocation?: string
+
+  /**
+   * Só renderiza se existir.
+   * Pode ser "10.xxxx/..." ou URL do doi.org
+   */
+  doi?: string
+
+  /**
+   * Só renderiza se existir.
+   * Ex: "1234-5678"
+   */
+  issn?: string
 }>

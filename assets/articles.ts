@@ -13,6 +13,7 @@ export const articlesData: readonly ArticleItem[] = [
     frequency: '98.7 FM',
     publicationLocation: 'Aracaju, SE, Brasil',
     doi: '10.1234/abcd.2025.001',
+    issn: '1234-5678',
   },
   {
     slug: 'nextjs-ux-portfolio',
@@ -26,6 +27,7 @@ export const articlesData: readonly ArticleItem[] = [
     frequency: '221 Hz',
     publicationLocation: 'Aracaju, SE, Brasil',
     doi: '10.1234/abcd.2025.001',
+    issn: '1234-5678',
   },
   {
     slug: 'iot-esp32-mqtt-hivemq',
@@ -37,7 +39,8 @@ export const articlesData: readonly ArticleItem[] = [
     tags: ['ESP32', 'MQTT', 'IoT'],
     frequency: 'CH-07',
     publicationLocation: 'Aracaju, SE, Brasil',
-    doi: '10.1234/abcd.2025.001'
+    doi: '10.1234/abcd.2025.001',
+    // issn opcional
   },
   {
     slug: 'ia-local-identidade-visual',
@@ -49,7 +52,8 @@ export const articlesData: readonly ArticleItem[] = [
     tags: ['IA', 'Privacidade', 'Imagens'],
     frequency: '13.6 kHz',
     publicationLocation: 'Aracaju, SE, Brasil',
-    doi: '10.1234/abcd.2025.001'
+    // doi opcional
+    issn: '1234-5678',
   },
   {
     slug: 'api-design-consistencia',
@@ -61,6 +65,7 @@ export const articlesData: readonly ArticleItem[] = [
     tags: ['API', 'Boas práticas'],
     frequency: '404.0',
     publicationLocation: 'Aracaju, SE, Brasil',
-    doi: '10.1234/abcd.2025.001'
+    doi: '10.1234/abcd.2025.001',
+    issn: '1234-5678',
   },
 ]

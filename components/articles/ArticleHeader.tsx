@@ -10,22 +10,24 @@ function fmtDate(iso?: string) {
 function doiToUrl(doi?: string) {
   if (!doi) return null
 
-  const clean = String(doi)
-    .trim()
-    .replace(/^https?:\/\/(dx\.)?doi\.org\//i, '')
-    .trim()
-
+  const clean = String(doi).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, '').trim()
   if (!clean) return null
 
-  return {
-    label: clean,
-    href: `https://doi.org/${clean}`,
-  }
+  return { label: clean, href: `https://doi.org/${clean}` }
+}
+
+function issnLabel(issn?: string) {
+  if (!issn) return null
+  const clean = String(issn).trim()
+  return clean || null
 }
 
 export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>) {
   const date = fmtDate(item.dateISO)
   const doi = doiToUrl(item.doi)
+  const issn = issnLabel(item.issn)
+
+  const hasMeta = Boolean(item.publicationLocation || doi || issn)
 
   return (
     <header className="rounded-2xl border border-theme bg-theme p-6 shadow-sm backdrop-blur-md md:p-10">
@@ -47,7 +49,7 @@ export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>)
         {item.summary}
       </p>
 
-      {(item.publicationLocation || doi) ? (
+      {hasMeta ? (
         <div className="mt-4 space-y-1">
           {item.publicationLocation ? (
             <p className="text-sm text-theme-secondary">
@@ -66,6 +68,12 @@ export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>)
               >
                 {doi.label}
               </a>
+            </p>
+          ) : null}
+
+          {issn ? (
+            <p className="text-sm text-theme-secondary">
+              <span className="font-semibold">ISSN:</span> {issn}
             </p>
           ) : null}
         </div>
