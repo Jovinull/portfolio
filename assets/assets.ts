@@ -653,3 +653,5 @@ export const awardsHighlightsData: AwardsHighlightItem[] = [
     sort: 40,
   },
 ]
+
+export { articlesData } from './articles'
