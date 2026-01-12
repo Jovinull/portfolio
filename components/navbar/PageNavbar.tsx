@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import { FiArrowLeft, FiHome, FiGrid } from 'react-icons/fi';
+import Link from 'next/link'
+import { FiHome, FiGrid, FiFileText } from 'react-icons/fi'
 
-import Logo from './header/Logo';
-import ThemeToggle from '@/components/buttons/ThemeToggle';
+import Logo from './header/Logo'
+import ThemeToggle from '@/components/buttons/ThemeToggle'
 
 type PageNavbarProps = {
-  active?: 'projects' | 'home';
-};
+  active?: 'projects' | 'home' | 'articles'
+}
 
 export default function PageNavbar({ active = 'projects' }: PageNavbarProps) {
   return (
@@ -48,6 +48,21 @@ export default function PageNavbar({ active = 'projects' }: PageNavbarProps) {
             <FiGrid aria-hidden="true" className="h-4 w-4" />
             Projetos
           </Link>
+
+          <Link
+            href="/articles"
+            aria-current={active === 'articles' ? 'page' : undefined}
+            className={[
+              'inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition',
+              active === 'articles'
+                ? 'border-theme bg-theme text-theme shadow-sm'
+                : 'text-theme-secondary hover:text-theme',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/30',
+            ].join(' ')}
+          >
+            <FiFileText aria-hidden="true" className="h-4 w-4" />
+            Artigos
+          </Link>
         </div>
 
         {/* Direita */}
@@ -63,5 +78,5 @@ export default function PageNavbar({ active = 'projects' }: PageNavbarProps) {
         </div>
       </nav>
     </header>
-  );
+  )
 }
