@@ -8,6 +8,7 @@ import Footer from '../../components/footer/Footer'
 import SectionReveal from '../../components/motion/SectionReveal'
 import TimelineSection from '../../components/timeline/TimelineSection'
 import AwardsSection from '../../components/awards/AwardsSection'
+import ArticlesSection from '@/components/articles/ArticlesSection'
 
 export default function Home() {
   return (
@@ -30,6 +31,10 @@ export default function Home() {
 
         <SectionReveal>
           <AwardsSection />
+        </SectionReveal>
+
+        <SectionReveal>
+          <ArticlesSection />
         </SectionReveal>
 
         <SectionReveal>
