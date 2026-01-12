@@ -11,6 +11,11 @@ export type ArticleBlock =
   | Readonly<{ type: 'code'; language?: string; code: string }>
   | Readonly<{ type: 'divider' }>
 
+export type ArticleLink = Readonly<{
+  href: string
+  label?: string
+}>
+
 export type ArticleItem = Readonly<{
   slug: string
   title: string
@@ -47,4 +52,16 @@ export type ArticleItem = Readonly<{
    * Ex: "1234-5678"
    */
   issn?: string
+
+  /**
+   * Link da página do artigo na revista (site).
+   * Só renderiza se existir.
+   */
+  publicationLink?: ArticleLink
+
+  /**
+   * Link para baixar o arquivo (PDF, etc).
+   * Só renderiza se existir.
+   */
+  downloadLink?: ArticleLink
 }>

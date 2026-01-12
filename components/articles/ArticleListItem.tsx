@@ -25,7 +25,10 @@ export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }
   const doi = doiLabel(item.doi)
   const issn = issnLabel(item.issn)
 
-  const hasMeta = Boolean(item.publicationLocation || doi || issn)
+  const hasPublicationLink = Boolean(item.publicationLink?.href)
+  const hasDownloadLink = Boolean(item.downloadLink?.href)
+
+  const hasMeta = Boolean(item.publicationLocation || doi || issn || hasPublicationLink || hasDownloadLink)
 
   return (
     <article className="group rounded-2xl border border-theme bg-theme p-4 shadow-sm transition hover:bg-theme-secondary md:p-5">
@@ -65,9 +68,22 @@ export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }
                 {item.frequency}
               </span>
             ) : null}
+
             {date ? <span>{date}</span> : null}
             {date && item.readTime ? <span>•</span> : null}
             {item.readTime ? <span>{item.readTime}</span> : null}
+
+            {hasPublicationLink ? (
+              <span className="rounded-full border border-theme px-3 py-1 text-xs font-semibold text-theme-secondary">
+                Revista
+              </span>
+            ) : null}
+
+            {hasDownloadLink ? (
+              <span className="rounded-full border border-theme px-3 py-1 text-xs font-semibold text-theme-secondary">
+                PDF
+              </span>
+            ) : null}
           </div>
 
           <h2 className="mt-2 text-lg font-bold leading-snug group-hover:underline">
