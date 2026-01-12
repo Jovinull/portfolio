@@ -8,8 +8,18 @@ function fmtDate(iso?: string) {
   return d.toLocaleDateString('pt-BR', { year: 'numeric', month: 'short', day: '2-digit' })
 }
 
+function doiLabel(doi?: string) {
+  if (!doi) return null
+  const clean = String(doi)
+    .trim()
+    .replace(/^https?:\/\/(dx\.)?doi\.org\//i, '')
+    .trim()
+  return clean || null
+}
+
 export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }>) {
   const date = fmtDate(item.dateISO)
+  const doi = doiLabel(item.doi)
 
   return (
     <article className="group rounded-2xl border border-theme bg-theme p-4 shadow-sm transition hover:bg-theme-secondary md:p-5">
@@ -61,6 +71,22 @@ export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }
           <p className="mt-2 max-w-prose text-sm leading-relaxed text-theme-secondary">
             {item.summary}
           </p>
+
+          {(item.publicationLocation || doi) ? (
+            <p className="mt-2 text-xs text-theme-secondary">
+              {item.publicationLocation ? (
+                <>
+                  <span className="font-semibold">Local:</span> {item.publicationLocation}
+                </>
+              ) : null}
+              {item.publicationLocation && doi ? <span> • </span> : null}
+              {doi ? (
+                <>
+                  <span className="font-semibold">DOI:</span> {doi}
+                </>
+              ) : null}
+            </p>
+          ) : null}
 
           {item.tags?.length ? (
             <div className="mt-3 flex flex-wrap gap-2">

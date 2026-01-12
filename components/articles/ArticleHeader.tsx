@@ -7,8 +7,25 @@ function fmtDate(iso?: string) {
   return d.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: '2-digit' })
 }
 
+function doiToUrl(doi?: string) {
+  if (!doi) return null
+
+  const clean = String(doi)
+    .trim()
+    .replace(/^https?:\/\/(dx\.)?doi\.org\//i, '')
+    .trim()
+
+  if (!clean) return null
+
+  return {
+    label: clean,
+    href: `https://doi.org/${clean}`,
+  }
+}
+
 export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>) {
   const date = fmtDate(item.dateISO)
+  const doi = doiToUrl(item.doi)
 
   return (
     <header className="rounded-2xl border border-theme bg-theme p-6 shadow-sm backdrop-blur-md md:p-10">
@@ -29,6 +46,30 @@ export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>)
       <p className="mt-4 max-w-prose text-sm leading-relaxed text-theme-secondary">
         {item.summary}
       </p>
+
+      {(item.publicationLocation || doi) ? (
+        <div className="mt-4 space-y-1">
+          {item.publicationLocation ? (
+            <p className="text-sm text-theme-secondary">
+              <span className="font-semibold">Local de publicação:</span> {item.publicationLocation}
+            </p>
+          ) : null}
+
+          {doi ? (
+            <p className="text-sm text-theme-secondary">
+              <span className="font-semibold">DOI:</span>{' '}
+              <a
+                href={doi.href}
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4 transition hover:text-theme"
+              >
+                {doi.label}
+              </a>
+            </p>
+          ) : null}
+        </div>
+      ) : null}
 
       {item.tags?.length ? (
         <div className="mt-5 flex flex-wrap gap-2">

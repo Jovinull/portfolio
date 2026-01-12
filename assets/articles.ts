@@ -11,6 +11,8 @@ export const articlesData: readonly ArticleItem[] = [
     tags: ['AdonisJS', 'RBAC', 'Arquitetura'],
     highlight: true,
     frequency: '98.7 FM',
+    publicationLocation: 'Aracaju, SE, Brasil',
+    doi: '10.1234/abcd.2025.001',
   },
   {
     slug: 'nextjs-ux-portfolio',
@@ -22,6 +24,8 @@ export const articlesData: readonly ArticleItem[] = [
     tags: ['Next.js', 'UI/UX', 'Front-end'],
     highlight: true,
     frequency: '221 Hz',
+    publicationLocation: 'Aracaju, SE, Brasil',
+    doi: '10.1234/abcd.2025.001',
   },
   {
     slug: 'iot-esp32-mqtt-hivemq',
@@ -32,6 +36,8 @@ export const articlesData: readonly ArticleItem[] = [
     readTime: '11 min',
     tags: ['ESP32', 'MQTT', 'IoT'],
     frequency: 'CH-07',
+    publicationLocation: 'Aracaju, SE, Brasil',
+    doi: '10.1234/abcd.2025.001'
   },
   {
     slug: 'ia-local-identidade-visual',
@@ -42,6 +48,8 @@ export const articlesData: readonly ArticleItem[] = [
     readTime: '10 min',
     tags: ['IA', 'Privacidade', 'Imagens'],
     frequency: '13.6 kHz',
+    publicationLocation: 'Aracaju, SE, Brasil',
+    doi: '10.1234/abcd.2025.001'
   },
   {
     slug: 'api-design-consistencia',
@@ -52,5 +60,7 @@ export const articlesData: readonly ArticleItem[] = [
     readTime: '6 min',
     tags: ['API', 'Boas práticas'],
     frequency: '404.0',
+    publicationLocation: 'Aracaju, SE, Brasil',
+    doi: '10.1234/abcd.2025.001'
   },
 ]

@@ -33,4 +33,7 @@ export type ArticleItem = Readonly<{
    * Pode ficar vazio agora — você preenche depois.
    */
   content?: readonly ArticleBlock[]
+
+  doi?: string
+  publicationLocation?: string
 }>
