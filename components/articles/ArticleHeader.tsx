@@ -10,10 +10,8 @@ function fmtDate(iso?: string) {
 
 function doiToUrl(doi?: string) {
   if (!doi) return null
-
   const clean = String(doi).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, '').trim()
   if (!clean) return null
-
   return { label: clean, href: `https://doi.org/${clean}` }
 }
 
@@ -21,6 +19,11 @@ function issnLabel(issn?: string) {
   if (!issn) return null
   const clean = String(issn).trim()
   return clean || null
+}
+
+function authorsLabel(authors?: readonly string[]) {
+  const list = authors?.map((a) => String(a).trim()).filter(Boolean) ?? []
+  return list.length ? list.join(', ') : null
 }
 
 function isLocalHref(href: string) {
@@ -58,6 +61,7 @@ export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>)
   const date = fmtDate(item.dateISO)
   const doi = doiToUrl(item.doi)
   const issn = issnLabel(item.issn)
+  const authors = authorsLabel(item.authors)
 
   const publicationHref = item.publicationLink?.href
   const publicationLabel = item.publicationLink?.label ?? 'Ver na revista'
@@ -66,7 +70,7 @@ export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>)
   const downloadLabel = item.downloadLink?.label ?? 'Download'
 
   const hasMeta = Boolean(
-    item.publicationLocation || doi || issn || publicationHref || downloadHref
+    authors || item.publicationLocation || doi || issn || publicationHref || downloadHref
   )
 
   return (
@@ -91,6 +95,12 @@ export default function ArticleHeader({ item }: Readonly<{ item: ArticleItem }>)
 
       {hasMeta ? (
         <div className="mt-4 space-y-1">
+          {authors ? (
+            <p className="text-sm text-theme-secondary">
+              <span className="font-semibold">Autores:</span> {authors}
+            </p>
+          ) : null}
+
           {item.publicationLocation ? (
             <p className="text-sm text-theme-secondary">
               <span className="font-semibold">Local de publicação:</span> {item.publicationLocation}

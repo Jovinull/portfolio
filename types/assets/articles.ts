@@ -39,6 +39,12 @@ export type ArticleItem = Readonly<{
    */
   content?: readonly ArticleBlock[]
 
+  /**
+   * Lista de autores (nomes).
+   * Só renderiza se existir.
+   */
+  authors?: readonly string[]
+
   publicationLocation?: string
 
   /**

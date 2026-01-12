@@ -12,6 +12,8 @@ export const articlesData: readonly ArticleItem[] = [
     highlight: true,
     frequency: '98.7 FM',
 
+    authors: ['Felipe Jovino'],
+
     publicationLocation: 'Aracaju, SE, Brasil',
     doi: '10.1234/abcd.2025.001',
     issn: '1234-5678',
@@ -36,6 +38,8 @@ export const articlesData: readonly ArticleItem[] = [
     highlight: true,
     frequency: '221 Hz',
 
+    authors: ['Felipe Jovino'],
+
     publicationLocation: 'Aracaju, SE, Brasil',
     doi: '10.1234/abcd.2025.001',
     issn: '1234-5678',
@@ -59,9 +63,10 @@ export const articlesData: readonly ArticleItem[] = [
     tags: ['ESP32', 'MQTT', 'IoT'],
     frequency: 'CH-07',
 
+    authors: ['Felipe Jovino', 'Coautor Exemplo'],
+
     publicationLocation: 'Aracaju, SE, Brasil',
     doi: '10.1234/abcd.2025.001',
-    // issn opcional
 
     publicationLink: {
       label: 'Página na revista',
@@ -82,8 +87,9 @@ export const articlesData: readonly ArticleItem[] = [
     tags: ['IA', 'Privacidade', 'Imagens'],
     frequency: '13.6 kHz',
 
+    authors: ['Felipe Jovino'],
+
     publicationLocation: 'Aracaju, SE, Brasil',
-    // doi opcional
     issn: '1234-5678',
 
     publicationLink: {
@@ -104,6 +110,8 @@ export const articlesData: readonly ArticleItem[] = [
     readTime: '6 min',
     tags: ['API', 'Boas práticas'],
     frequency: '404.0',
+
+    authors: ['Felipe Jovino'],
 
     publicationLocation: 'Aracaju, SE, Brasil',
     doi: '10.1234/abcd.2025.001',

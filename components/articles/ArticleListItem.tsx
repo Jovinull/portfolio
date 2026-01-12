@@ -20,15 +20,23 @@ function issnLabel(issn?: string) {
   return clean || null
 }
 
+function authorsLabel(authors?: readonly string[]) {
+  const list = authors?.map((a) => String(a).trim()).filter(Boolean) ?? []
+  return list.length ? list.join(', ') : null
+}
+
 export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }>) {
   const date = fmtDate(item.dateISO)
   const doi = doiLabel(item.doi)
   const issn = issnLabel(item.issn)
+  const authors = authorsLabel(item.authors)
 
   const hasPublicationLink = Boolean(item.publicationLink?.href)
   const hasDownloadLink = Boolean(item.downloadLink?.href)
 
-  const hasMeta = Boolean(item.publicationLocation || doi || issn || hasPublicationLink || hasDownloadLink)
+  const hasMeta = Boolean(
+    authors || item.publicationLocation || doi || issn || hasPublicationLink || hasDownloadLink
+  )
 
   return (
     <article className="group rounded-2xl border border-theme bg-theme p-4 shadow-sm transition hover:bg-theme-secondary md:p-5">
@@ -95,29 +103,39 @@ export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }
           </p>
 
           {hasMeta ? (
-            <p className="mt-2 text-xs text-theme-secondary">
-              {item.publicationLocation ? (
-                <>
-                  <span className="font-semibold">Local:</span> {item.publicationLocation}
-                </>
+            <div className="mt-2 space-y-1 text-xs text-theme-secondary">
+              {authors ? (
+                <p>
+                  <span className="font-semibold">Autores:</span> {authors}
+                </p>
               ) : null}
 
-              {item.publicationLocation && (doi || issn) ? <span> • </span> : null}
+              {item.publicationLocation || doi || issn ? (
+                <p>
+                  {item.publicationLocation ? (
+                    <>
+                      <span className="font-semibold">Local:</span> {item.publicationLocation}
+                    </>
+                  ) : null}
 
-              {doi ? (
-                <>
-                  <span className="font-semibold">DOI:</span> {doi}
-                </>
+                  {item.publicationLocation && (doi || issn) ? <span> • </span> : null}
+
+                  {doi ? (
+                    <>
+                      <span className="font-semibold">DOI:</span> {doi}
+                    </>
+                  ) : null}
+
+                  {doi && issn ? <span> • </span> : null}
+
+                  {issn ? (
+                    <>
+                      <span className="font-semibold">ISSN:</span> {issn}
+                    </>
+                  ) : null}
+                </p>
               ) : null}
-
-              {doi && issn ? <span> • </span> : null}
-
-              {issn ? (
-                <>
-                  <span className="font-semibold">ISSN:</span> {issn}
-                </>
-              ) : null}
-            </p>
+            </div>
           ) : null}
 
           {item.tags?.length ? (
