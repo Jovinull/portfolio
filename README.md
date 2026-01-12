@@ -72,7 +72,7 @@ A estrutura pode variar, mas a lógica geral é:
 
 ### Conteúdo (textos, links e seções)
 
-Procure pelas páginas em `src/src/` e pelos componentes em `src/components/`. Normalmente você consegue ajustar:
+Procure pelas páginas em `src/` e pelos componentes em `src/components/`. Normalmente você consegue ajustar:
 
 - nome/título principal
 - descrição/bio

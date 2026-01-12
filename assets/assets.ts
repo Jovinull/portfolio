@@ -1,5 +1,5 @@
-import type { TimelineEntry, WorkItem } from '@/src/types/assets'
-import type { AwardsHighlightItem } from '@/src/types/assets/awards'
+import type { TimelineEntry, WorkItem } from '@/types/assets'
+import type { AwardsHighlightItem } from '@/types/assets/awards'
 
 import user_image from './user-image.png'
 import logo from './logo.png'

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Outfit, Ovo } from 'next/font/google';
 import './globals.css';
 
-import ThemeHydration from './components/theme/ThemeHydration';
+import ThemeHydration from '@/components/theme/ThemeHydration';
 import Providers from './providers';
 
 const outfit = Outfit({
