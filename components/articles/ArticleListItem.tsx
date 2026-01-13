@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { ArticleItem } from '@/types/assets/articles'
 
 function fmtDate(iso?: string) {
@@ -38,35 +39,55 @@ export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }
     authors || item.publicationLocation || doi || issn || hasPublicationLink || hasDownloadLink
   )
 
+  const coverSrc = item.cover?.src
+  const coverAlt = item.cover?.alt ?? `Capa do artigo: ${item.title}`
+
   return (
     <article className="group rounded-2xl border border-theme bg-theme p-4 shadow-sm transition hover:bg-theme-secondary md:p-5">
       <Link
         href={`/articles/${item.slug}`}
         className="grid gap-4 md:grid-cols-[120px_1fr] md:items-center"
       >
-        {/* “imagem” retangular em pé (placeholder por enquanto) */}
-        <div
-          className="relative h-[170px] w-full overflow-hidden rounded-xl border border-theme md:h-[160px] md:w-[120px]"
-          aria-hidden="true"
-          style={{
-            background:
-              'linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%)',
-          }}
-        >
-          <div
-            className="absolute inset-0 opacity-60"
-            style={{
-              background:
-                'radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--color-accent) 24%, transparent), transparent 55%)',
-            }}
-          />
-          <div
-            className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full blur-2xl"
-            style={{
-              background:
-                'radial-gradient(closest-side, color-mix(in srgb, var(--color-text) 14%, transparent), transparent)',
-            }}
-          />
+        {/* Capa 3:4 (120x160 aprox) */}
+        <div className="relative h-[170px] w-full overflow-hidden rounded-xl border border-theme md:h-[160px] md:w-[120px]">
+          {coverSrc ? (
+            <Image
+              src={coverSrc}
+              alt={coverAlt}
+              fill
+              sizes="(min-width: 768px) 120px, 100vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+              priority={Boolean(item.highlight)}
+            />
+          ) : (
+            // fallback visual caso não tenha cover
+            <>
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%)',
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 opacity-60"
+                style={{
+                  background:
+                    'radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--color-accent) 24%, transparent), transparent 55%)',
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full blur-2xl"
+                style={{
+                  background:
+                    'radial-gradient(closest-side, color-mix(in srgb, var(--color-text) 14%, transparent), transparent)',
+                }}
+                aria-hidden="true"
+              />
+            </>
+          )}
         </div>
 
         <div className="min-w-0">
@@ -94,9 +115,7 @@ export default function ArticleListItem({ item }: Readonly<{ item: ArticleItem }
             ) : null}
           </div>
 
-          <h2 className="mt-2 text-lg font-bold leading-snug group-hover:underline">
-            {item.title}
-          </h2>
+          <h2 className="mt-2 text-lg font-bold leading-snug group-hover:underline">{item.title}</h2>
 
           <p className="mt-2 max-w-prose text-sm leading-relaxed text-theme-secondary">
             {item.summary}
