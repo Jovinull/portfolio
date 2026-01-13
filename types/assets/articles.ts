@@ -1,5 +1,7 @@
+import { StaticImageData } from "next/image";
+
 export type ArticleCover = Readonly<{
-  src?: string
+  src?: string | StaticImageData
   alt?: string
 }>
 
