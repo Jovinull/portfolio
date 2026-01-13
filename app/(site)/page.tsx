@@ -9,6 +9,7 @@ import SectionReveal from '../../components/motion/SectionReveal'
 import TimelineSection from '../../components/timeline/TimelineSection'
 import AwardsSection from '../../components/awards/AwardsSection'
 import ArticlesSection from '@/components/articles/ArticlesSection'
+import SpaceInvadersEasterEgg from '@/components/spaceInvaders/SpaceInvadersEasterEgg'
 
 export default function Home() {
   return (
@@ -39,6 +40,10 @@ export default function Home() {
 
         <SectionReveal>
           <Work />
+        </SectionReveal>
+
+        <SectionReveal>
+          <SpaceInvadersEasterEgg />
         </SectionReveal>
 
         <SectionReveal>
