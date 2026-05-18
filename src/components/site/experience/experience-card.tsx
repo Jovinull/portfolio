@@ -1,30 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { Experience } from "@/lib/experience";
-import { experienceIconMap } from "./icon-map";
 
 type ExperienceCardProps = {
   experience: Experience;
 };
 
-function getInitials(value: string) {
-  return value
-    .split(/[\s·]+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0]?.toUpperCase() ?? "")
-    .join("");
-}
-
 export function ExperienceCard({ experience }: ExperienceCardProps) {
   const {
+    slug,
     company,
     subtitle,
-    iconKey,
     logoAlt,
     period,
     current,
@@ -35,7 +26,6 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
     stack,
     link,
   } = experience;
-  const Icon = experienceIconMap[iconKey];
 
   return (
     <Card className="group relative overflow-hidden border-border bg-card/60 backdrop-blur transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-[var(--glow-primary)]">
@@ -51,27 +41,14 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
       />
 
       <CardHeader className="relative flex flex-row items-start gap-4">
-        {/* PLACEHOLDER_IMAGE: logo da empresa "{logoAlt}" — substituir por SVG/PNG real (192x192, fundo transparente) */}
-        <div
-          aria-label={`Logo ${logoAlt}`}
-          className="relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-xl border border-border bg-background/60 backdrop-blur"
-        >
-          <span
-            aria-hidden
-            className="absolute inset-0 opacity-70"
-            style={{
-              background:
-                "linear-gradient(135deg, color-mix(in oklab, var(--primary) 22%, transparent), color-mix(in oklab, var(--secondary) 18%, transparent))",
-            }}
+        <div className="relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-xl border border-border bg-background/80 backdrop-blur">
+          <Image
+            src={`/images/experience/${slug}.png`}
+            alt={`Logo ${logoAlt}`}
+            width={56}
+            height={56}
+            className="size-full object-contain p-2"
           />
-          <span
-            aria-hidden
-            className="bg-grid absolute inset-0 opacity-30"
-          />
-          <Icon className="relative size-5 text-foreground" />
-          <span className="absolute bottom-0.5 right-1 font-mono text-[8px] uppercase tracking-widest text-foreground/70">
-            {getInitials(logoAlt)}
-          </span>
         </div>
 
         <div className="min-w-0 flex-1">
