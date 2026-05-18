@@ -111,88 +111,99 @@ export function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 text-center"
+        className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-14 px-6"
       >
-        <motion.div variants={itemVariants} className="relative mb-8">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute -inset-4 rounded-3xl opacity-70 blur-2xl sm:-inset-5"
-            style={{
-              background:
-                "linear-gradient(135deg, color-mix(in oklab, var(--primary) 60%, transparent), color-mix(in oklab, var(--secondary) 50%, transparent))",
-            }}
-          />
-          <div className="relative size-28 overflow-hidden rounded-2xl border border-border/80 ring-2 ring-primary/30 shadow-2xl sm:size-32 md:size-36">
-            <Image
-              src="/images/hero-jovino.jpg"
-              alt="Felipe Jovino"
-              fill
-              sizes="(min-width: 768px) 144px, (min-width: 640px) 128px, 112px"
-              priority
-              className="object-cover"
-            />
+        <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
+          <div className="flex flex-col items-start">
+            <motion.div variants={itemVariants}>
+              <Badge
+                variant="outline"
+                className="gap-2 border-primary/40 bg-card/60 px-3 py-1 backdrop-blur"
+              >
+                <span className="relative inline-flex size-2">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex size-2 rounded-full bg-primary" />
+                </span>
+                <span className="text-xs font-medium">Disponível para conversas</span>
+                <Sparkles className="size-3 text-primary" />
+              </Badge>
+            </motion.div>
+
+            <motion.h1
+              variants={itemVariants}
+              className="mt-6 text-balance text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[4.75rem]"
+            >
+              <span className="block">Coordenador de TI.</span>
+              <span className="text-gradient block">CTO & Pesquisador AI.</span>
+            </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
+            >
+              Comecei queimando placas e hoje construo soluções escaláveis que
+              impactam vidas. De interfaces fluidas com Next.js a arquiteturas
+              robustas em Rust, IA e sistemas embarcados — unindo engenharia de
+              ponta, pesquisa acadêmica e liderança de times.
+            </motion.p>
+
+            <motion.div
+              variants={itemVariants}
+              className="mt-10 flex flex-col gap-3 sm:flex-row"
+            >
+              <Button
+                size="lg"
+                render={
+                  <Link href="/projetos" className="group h-12 gap-2 px-6 text-sm font-semibold" />
+                }
+              >
+                Ver projetos
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                render={
+                  <Link href="/contato" className="h-12 px-6 text-sm font-semibold" />
+                }
+              >
+                Falar comigo
+              </Button>
+            </motion.div>
           </div>
-        </motion.div>
 
-        <motion.div variants={itemVariants}>
-          <Badge
-            variant="outline"
-            className="gap-2 border-primary/40 bg-card/60 px-3 py-1 backdrop-blur"
+          <motion.div
+            variants={itemVariants}
+            className="relative mx-auto w-full max-w-xs sm:max-w-sm lg:max-w-none"
           >
-            <span className="relative inline-flex size-2">
-              <span className="absolute inset-0 animate-ping rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-primary" />
-            </span>
-            <span className="text-xs font-medium">Disponível para conversas</span>
-            <Sparkles className="size-3 text-primary" />
-          </Badge>
-        </motion.div>
-
-        <motion.h1
-          variants={itemVariants}
-          className="mt-6 text-balance text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]"
-        >
-          <span className="block">Coordenador de TI.</span>
-          <span className="text-gradient block">CTO & Pesquisador AI.</span>
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
-        >
-          Comecei queimando placas e hoje construo soluções escaláveis que
-          impactam vidas. De interfaces fluidas com Next.js a arquiteturas
-          robustas em Rust, IA e sistemas embarcados — unindo engenharia de
-          ponta, pesquisa acadêmica e liderança de times.
-        </motion.p>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 flex flex-col items-center gap-3 sm:flex-row"
-        >
-          <Button
-            size="lg"
-            render={
-              <Link href="/projetos" className="group h-12 gap-2 px-6 text-sm font-semibold" />
-            }
-          >
-            Ver projetos
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            render={
-              <Link href="/contato" className="h-12 px-6 text-sm font-semibold" />
-            }
-          >
-            Falar comigo
-          </Button>
-        </motion.div>
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -inset-6 rounded-[2.5rem] opacity-60 blur-3xl"
+              style={{
+                background:
+                  "linear-gradient(135deg, color-mix(in oklab, var(--primary) 55%, transparent), color-mix(in oklab, var(--secondary) 45%, transparent))",
+              }}
+            />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/80 ring-2 ring-primary/30 shadow-2xl">
+              <Image
+                src="/images/hero-jovino.jpg"
+                alt="Felipe Jovino"
+                fill
+                sizes="(min-width: 1024px) 380px, (min-width: 640px) 360px, 80vw"
+                priority
+                className="object-cover object-center"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/60 via-background/10 to-transparent"
+              />
+            </div>
+          </motion.div>
+        </div>
 
         <motion.ul
           variants={itemVariants}
-          className="mt-12 flex flex-wrap items-center justify-center gap-2"
+          className="flex flex-wrap items-center justify-center gap-2 lg:justify-start"
         >
           {stackChips.map((chip) => (
             <li key={chip}>
@@ -205,7 +216,7 @@ export function Hero() {
 
         <motion.dl
           variants={itemVariants}
-          className="mt-16 grid w-full max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4"
+          className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {stats.map((stat) => (
             <div
