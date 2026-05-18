@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="brand-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <style>
+    .logo-path {
+      fill: none;
+      stroke: url(#brand-grad);
+      stroke-width: 12;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.3s ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      .logo-path {
+        filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.4));
+      }
+    }
+  </style>
+  <path class="logo-path" d="M 80,20 L 45,20 L 45,45 L 70,45 M 45,45 L 45,65 A 15,15 0 0,1 30,80 A 15,15 0 0,1 15,65" />
+</svg>
