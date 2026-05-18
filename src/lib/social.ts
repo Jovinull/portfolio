@@ -17,13 +17,13 @@ export const socialLinks: SocialLink[] = [
     label: "GitHub",
     href: siteConfig.social.github,
     icon: GithubIcon,
-    handle: "@jovinull",
+    handle: "@Jovinull",
   },
   {
     label: "LinkedIn",
     href: siteConfig.social.linkedin,
     icon: LinkedinIcon,
-    handle: "felipe-jovino",
+    handle: "/in/jobas",
   },
   {
     label: "YouTube",

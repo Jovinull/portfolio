@@ -8,7 +8,11 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://felipejovino.dev",
   locale: "pt-BR",
   jobTitle: "Coordenador de TI | CTO & Co-Founder | Pesquisador AI & Deeptech",
-  email: "felipe.jovino@wmsaude.com.br",
+  email: "felipejovinogamerplay@gmail.com",
+  whatsapp: {
+    display: "+55 79 9988-0776",
+    url: "https://wa.me/557999880776",
+  },
   authorImage: "/og-image.png",
   ogImage: "/og-image.png",
   keywords: [
@@ -30,8 +34,8 @@ export const siteConfig = {
     "INPI Glicemy",
   ],
   social: {
-    github: "https://github.com/jovinull",
-    linkedin: "https://www.linkedin.com/in/felipe-jovino/",
+    github: "https://github.com/Jovinull",
+    linkedin: "https://www.linkedin.com/in/jobas",
     youtube: "https://www.youtube.com/@MastersTech",
     twitter: "@felipejovino",
   },
