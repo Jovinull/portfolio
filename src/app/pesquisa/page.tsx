@@ -1,25 +1,54 @@
 import type { Metadata } from "next";
-import { PageShell } from "@/components/site/page-shell";
+import { AcademicHero } from "@/components/site/research/academic-hero";
+import { PatentsGrid } from "@/components/site/research/patents-grid";
 
 export const metadata: Metadata = {
   title: "Pesquisa",
   description:
-    "Mestrado em Computação (UFS/PROCC) aprovado em 1º lugar, especialização em EPT e artigos em IA (SEMEXT/SNCT).",
+    "Mestrado em Ciência da Computação (UFS/PROCC) aprovado em 1º lugar, artigos premiados em IA e quatro softwares registrados no INPI (Glicemy, Glicemy API, CaptionEase, SignForest).",
 };
 
 export default function PesquisaPage() {
   return (
-    <PageShell
-      eyebrow="Academia · IA aplicada"
-      title="Da bancada ao paper: pesquisa que sustenta o produto."
-      description="Aprovado em 1º lugar no Mestrado em Computação (UFS/PROCC). Especialista em Educação Profissional e Tecnológica. Artigos publicados em eventos científicos de IA."
-    >
-      <div className="mt-8 rounded-xl border border-border bg-card/40 p-8 text-card-foreground backdrop-blur">
-        {/* TODO: Lista de publicações + cards de patentes (INPI) com link */}
-        <p className="text-muted-foreground">
-          Em construção — publicações, patentes e linhas de pesquisa virão aqui.
+    <main className="relative flex flex-1 flex-col overflow-hidden">
+      <div
+        aria-hidden
+        className="bg-grid bg-grid-fade pointer-events-none absolute inset-0 opacity-60"
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -top-40 left-1/4 size-[420px] rounded-full opacity-25 blur-3xl"
+        style={{ background: "radial-gradient(circle, #8b5cf6, transparent 70%)" }}
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute top-1/3 right-0 size-[420px] rounded-full opacity-20 blur-3xl"
+        style={{ background: "radial-gradient(circle, #06b6d4, transparent 70%)" }}
+      />
+
+      <section className="relative mx-auto w-full max-w-6xl px-6 pt-32 pb-12 sm:pt-40 sm:pb-16">
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          Pesquisa & Inovação
+        </span>
+        <h1 className="mt-3 text-balance text-4xl font-bold tracking-tight sm:text-6xl">
+          Da bancada ao paper —{" "}
+          <span className="text-gradient">e do paper ao INPI.</span>
+        </h1>
+        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+          Mestrado em Computação Inteligente aprovado em 1º lugar, artigos
+          premiados em eventos científicos de IA e quatro softwares registrados
+          no Instituto Nacional da Propriedade Industrial. Pesquisa que sustenta
+          o produto.
         </p>
-      </div>
-    </PageShell>
+      </section>
+
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-20">
+        <AcademicHero />
+      </section>
+
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-32">
+        <PatentsGrid />
+      </section>
+    </main>
   );
 }
