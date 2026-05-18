@@ -57,14 +57,10 @@ export function TimelineEntry({ experience, index }: TimelineEntryProps) {
 
       {/* Card */}
       <motion.div
-        initial={{ opacity: 0, y: 24, x: side === "right" ? 24 : -24, filter: "blur(8px)" }}
-        whileInView={{ opacity: 1, y: 0, x: 0, filter: "blur(0px)" }}
-        viewport={{ once: true, margin: "-10%" }}
-        transition={{
-          duration: 0.6,
-          ease: [0.22, 1, 0.36, 1],
-          delay: 0.05,
-        }}
+        initial={{ opacity: 0, y: 50, x: side === "right" ? 30 : -30 }}
+        whileInView={{ opacity: 1, y: 0, x: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
           "group pl-14 md:pl-0",
           side === "right" ? "md:ml-[50%] md:pl-16" : "md:mr-[50%] md:pr-16",
