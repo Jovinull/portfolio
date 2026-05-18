@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { Experience } from "@/lib/experience";
+import { experienceIconMap } from "./icon-map";
 
 type ExperienceCardProps = {
   experience: Experience;
@@ -23,7 +24,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
   const {
     company,
     subtitle,
-    icon: Icon,
+    iconKey,
     logoAlt,
     period,
     current,
@@ -34,6 +35,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
     stack,
     link,
   } = experience;
+  const Icon = experienceIconMap[iconKey];
 
   return (
     <Card className="group relative overflow-hidden border-border bg-card/60 backdrop-blur transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-[var(--glow-primary)]">

@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import type { Experience } from "@/lib/experience";
 import { ExperienceCard } from "./experience-card";
+import { experienceIconMap } from "./icon-map";
 
 type TimelineEntryProps = {
   experience: Experience;
@@ -12,7 +13,8 @@ type TimelineEntryProps = {
 
 export function TimelineEntry({ experience, index }: TimelineEntryProps) {
   const side: "left" | "right" = index % 2 === 0 ? "right" : "left";
-  const { icon: Icon, current, period } = experience;
+  const { iconKey, current, period } = experience;
+  const Icon = experienceIconMap[iconKey];
 
   return (
     <li className="relative">

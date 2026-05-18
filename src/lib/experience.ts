@@ -1,11 +1,9 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  ServerCog,
-  BrainCircuit,
-  Layers,
-  MonitorPlay,
-  FlaskConical,
-} from "lucide-react";
+export type ExperienceIconKey =
+  | "serverCog"
+  | "brainCircuit"
+  | "layers"
+  | "monitorPlay"
+  | "flaskConical";
 
 export type ExperienceRole = {
   title: string;
@@ -17,7 +15,7 @@ export type Experience = {
   slug: string;
   company: string;
   subtitle?: string;
-  icon: LucideIcon;
+  iconKey: ExperienceIconKey;
   logoAlt: string;
   period: string;
   current: boolean;
@@ -34,7 +32,7 @@ export const experiences: Experience[] = [
     slug: "wm-saude",
     company: "WM Saúde",
     subtitle: "Gestão e Tecnologia",
-    icon: ServerCog,
+    iconKey: "serverCog",
     logoAlt: "WM Saúde",
     period: "Nov/2024 — Presente",
     current: true,
@@ -68,7 +66,7 @@ export const experiences: Experience[] = [
     slug: "accesssim",
     company: "AccessSim",
     subtitle: "Sebrae Catalisa ICT",
-    icon: BrainCircuit,
+    iconKey: "brainCircuit",
     logoAlt: "AccessSim",
     period: "Abr/2025 — Presente",
     current: true,
@@ -91,7 +89,7 @@ export const experiences: Experience[] = [
     slug: "wf3-solutions",
     company: "WF3 Solutions",
     subtitle: "Produtos digitais escaláveis",
-    icon: Layers,
+    iconKey: "layers",
     logoAlt: "WF3 Solutions",
     period: "Out/2025 — Presente",
     current: true,
@@ -115,7 +113,7 @@ export const experiences: Experience[] = [
     slug: "masters-tech",
     company: "Canal Masters Tech",
     subtitle: "YouTube · Educação em tecnologia",
-    icon: MonitorPlay,
+    iconKey: "monitorPlay",
     logoAlt: "Masters Tech",
     period: "Jun/2024 — Nov/2025",
     current: false,
@@ -133,7 +131,7 @@ export const experiences: Experience[] = [
     slug: "ifs",
     company: "Instituto Federal de Sergipe",
     subtitle: "IFS · Pesquisa aplicada e inovação",
-    icon: FlaskConical,
+    iconKey: "flaskConical",
     logoAlt: "IFS",
     period: "Dez/2020 — Out/2024",
     current: false,
