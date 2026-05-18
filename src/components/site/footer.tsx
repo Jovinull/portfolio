@@ -48,16 +48,19 @@ export function Footer() {
           </h2>
           <ul className="mt-4 flex flex-col gap-2">
             {socialLinks.map(({ label, href, icon: Icon, handle }) => (
-              <li key={label}>
+              <li key={label} className="min-w-0">
                 <a
                   href={href}
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
                   rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  className="group inline-flex items-center gap-2 text-sm text-foreground/80 transition-colors hover:text-foreground"
+                  title={`${label} · ${handle}`}
+                  className="group flex w-full items-center gap-2 text-sm text-foreground/80 transition-colors hover:text-foreground"
                 >
-                  <Icon className="size-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                  <span>{label}</span>
-                  <span className="text-xs text-muted-foreground">· {handle}</span>
+                  <Icon className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
+                  <span className="shrink-0">{label}</span>
+                  <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground">
+                    · {handle}
+                  </span>
                 </a>
               </li>
             ))}
