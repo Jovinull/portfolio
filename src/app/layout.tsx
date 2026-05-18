@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -147,6 +148,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <Toaster position="top-right" richColors closeButton />
         </ThemeProvider>
         <script
           type="application/ld+json"
