@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 type PageShellProps = {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   description?: string;
   children?: ReactNode;
 };
