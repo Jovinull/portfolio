@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "./logo";
 import { navItems } from "@/lib/nav";
@@ -16,7 +17,18 @@ export function Footer() {
       />
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-2">
-          <Logo />
+          <div className="flex items-center gap-3">
+            <span className="relative inline-block size-12 overflow-hidden rounded-full border border-border ring-1 ring-primary/20">
+              <Image
+                src="/images/avatar-jovino.jpg"
+                alt="Felipe Jovino"
+                fill
+                sizes="48px"
+                className="object-cover"
+              />
+            </span>
+            <Logo />
+          </div>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
             Engenharia de software de ponta, pesquisa em IA e liderança técnica.
             Construindo soluções escaláveis que impactam vidas — do firmware ao

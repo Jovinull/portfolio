@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
@@ -112,6 +113,27 @@ export function Hero() {
         animate="show"
         className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 text-center"
       >
+        <motion.div variants={itemVariants} className="relative mb-8">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -inset-4 rounded-3xl opacity-70 blur-2xl sm:-inset-5"
+            style={{
+              background:
+                "linear-gradient(135deg, color-mix(in oklab, var(--primary) 60%, transparent), color-mix(in oklab, var(--secondary) 50%, transparent))",
+            }}
+          />
+          <div className="relative size-28 overflow-hidden rounded-2xl border border-border/80 ring-2 ring-primary/30 shadow-2xl sm:size-32 md:size-36">
+            <Image
+              src="/images/hero-jovino.jpg"
+              alt="Felipe Jovino"
+              fill
+              sizes="(min-width: 768px) 144px, (min-width: 640px) 128px, 112px"
+              priority
+              className="object-cover"
+            />
+          </div>
+        </motion.div>
+
         <motion.div variants={itemVariants}>
           <Badge
             variant="outline"
