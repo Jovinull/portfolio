@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/site/page-shell";
+import { ProjectsTabs } from "@/components/site/projects/projects-tabs";
 
 export const metadata: Metadata = {
   title: "Projetos",
   description:
-    "Patentes INPI, deeptech, jogos em Java puro e sistemas IoT com ESP32. Engenharia que sai do papel.",
+    "Iron March (roguelike C++20 com ECS), CerneBR Gateway Nacional (Java 25 + Spring Boot 4) e Idle Mine: Redux (Vue 3 + TypeScript strict). Engenharia que sai do código.",
 };
 
 export default function ProjetosPage() {
   return (
     <PageShell
-      eyebrow="Patentes · Deeptech · Open Source"
-      title="Engenharia que sai do papel — e do INPI."
-      description="Glicemy, SignForest, CaptionEase, BitHunter, DomuServer. Cada projeto resolve um problema real, com tecnologia escolhida sob medida."
+      eyebrow="Projetos & Engenharia"
+      title={
+        <>
+          Sistemas pensados — do{" "}
+          <span className="text-gradient">low-level</span> ao{" "}
+          <span className="text-gradient">distribuído</span>.
+        </>
+      }
+      description="Cada projeto resolve um problema real com a stack escolhida sob medida. Da arquitetura ECS em C++20 ao microserviço com Virtual Threads e cache inteligente em Java 25."
     >
-      <div className="mt-8 rounded-xl border border-border bg-card/40 p-8 text-card-foreground backdrop-blur">
-        {/* TODO: Grid de cards de projetos com hover glow e filtro por categoria */}
-        <p className="text-muted-foreground">
-          Em construção — grid de projetos com filtros virá aqui.
-        </p>
-      </div>
+      <ProjectsTabs />
     </PageShell>
   );
 }
