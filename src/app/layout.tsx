@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { siteConfig } from "@/lib/site";
 import { ThemeProvider } from "@/components/site/theme-provider";
+import { Navbar } from "@/components/site/navbar";
+import { Footer } from "@/components/site/footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -142,7 +144,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
         <script
           type="application/ld+json"
