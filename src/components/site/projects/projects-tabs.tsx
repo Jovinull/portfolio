@@ -7,17 +7,16 @@ import { ProjectCard } from "./project-card";
 import { projectFilters, projects, type ProjectFilter } from "@/lib/projects";
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
+  hidden: { opacity: 0, scale: 0.94, y: 16 },
   show: {
     opacity: 1,
+    scale: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
   },
   exit: {
     opacity: 0,
-    y: -12,
-    filter: "blur(6px)",
+    scale: 0.94,
     transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
@@ -52,13 +51,14 @@ export function ProjectsTabs() {
       <LayoutGroup>
         <motion.div
           layout
+          transition={{ layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } }}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => (
               <motion.div
                 key={project.slug}
-                layout
+                layout="position"
                 variants={itemVariants}
                 initial="hidden"
                 animate="show"
