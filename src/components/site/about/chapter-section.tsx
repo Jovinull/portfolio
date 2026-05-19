@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { Check } from "lucide-react";
 import type { AboutChapter } from "@/lib/about";
@@ -131,75 +132,62 @@ export function ChapterSection({ chapter, index }: ChapterSectionProps) {
             }}
           />
 
-          {/* PLACEHOLDER_IMAGE
-              path: ${chapter.imagePath}
-              hint: ${chapter.imageHint}
-              caption: ${chapter.imageCaption}
-          */}
           <div
             className={cn(
-              "relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/80 bg-card/40 backdrop-blur transition-shadow duration-500",
+              "group relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/80 bg-card/40 backdrop-blur transition-shadow duration-500",
               isPrimary ? "ring-1 ring-primary/30 hover:glow-primary" : "ring-1 ring-secondary/30 hover:glow-secondary",
             )}
           >
+            <Image
+              src={chapter.imagePath}
+              alt={chapter.imageCaption}
+              fill
+              sizes="(min-width: 1024px) 460px, (min-width: 640px) 60vw, 90vw"
+              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            />
+
             <div
               aria-hidden
-              className="bg-grid bg-grid-fade absolute inset-0 opacity-60"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/85 via-background/30 to-transparent"
             />
+
             <span
               aria-hidden
-              className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full opacity-40 blur-3xl"
+              className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full opacity-30 blur-3xl mix-blend-screen"
               style={{
                 background: isPrimary
                   ? "radial-gradient(circle, #8b5cf6, transparent 70%)"
                   : "radial-gradient(circle, #06b6d4, transparent 70%)",
               }}
             />
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -bottom-24 -left-24 size-64 rounded-full opacity-30 blur-3xl"
-              style={{
-                background: isPrimary
-                  ? "radial-gradient(circle, #06b6d4, transparent 70%)"
-                  : "radial-gradient(circle, #8b5cf6, transparent 70%)",
-              }}
-            />
 
-            <div className="relative flex h-full flex-col justify-between p-6 sm:p-7">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Capítulo {chapter.number}
-                </span>
-                <span
-                  className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] backdrop-blur",
-                    isPrimary
-                      ? "border-primary/40 bg-primary/[0.06] text-primary"
-                      : "border-secondary/40 bg-secondary/[0.06] text-secondary",
-                  )}
-                >
-                  <span className="size-1.5 rounded-full bg-current" />
-                  Placeholder · trocar foto
-                </span>
-              </div>
+            <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5 sm:p-6">
+              <span className="rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur">
+                Capítulo {chapter.number}
+              </span>
+              <span
+                className={cn(
+                  "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] backdrop-blur",
+                  isPrimary
+                    ? "border-primary/40 bg-primary/[0.1] text-primary"
+                    : "border-secondary/40 bg-secondary/[0.1] text-secondary",
+                )}
+              >
+                <span className="size-1.5 rounded-full bg-current" />
+                {chapter.era.split(" · ")[0]}
+              </span>
+            </div>
 
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  Foto sugerida
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/90">
-                  {chapter.imageHint}
-                </p>
-                <p
-                  className={cn(
-                    "mt-4 inline-flex items-center gap-2 font-mono text-[11px] tracking-wide",
-                    isPrimary ? "text-primary/90" : "text-secondary/90",
-                  )}
-                >
-                  <span className="inline-block size-1.5 rounded-full bg-current" />
-                  {chapter.imageCaption}
-                </p>
-              </div>
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+              <p
+                className={cn(
+                  "inline-flex items-center gap-2 font-mono text-[11px] tracking-wide",
+                  isPrimary ? "text-primary/90" : "text-secondary/90",
+                )}
+              >
+                <span className="inline-block size-1.5 rounded-full bg-current" />
+                {chapter.imageCaption}
+              </p>
             </div>
           </div>
         </motion.div>
