@@ -110,6 +110,68 @@ export const aboutChapters: AboutChapter[] = [
   },
 ];
 
+export type AboutMoment = {
+  slug: string;
+  imagePath: string;
+  alt: string;
+  caption: string;
+  context: string;
+  badge?: string;
+  accent: "primary" | "secondary";
+  span?: "wide" | "default";
+};
+
+export const aboutMoments: AboutMoment[] = [
+  {
+    slug: "ideathon-aracaju",
+    imagePath: "/images/sobre/momento-ideathon-aracaju.jpg",
+    alt:
+      "Felipe Jovino com equipe segurando placa de 2º lugar — Ideathon Prefeitura de Aracaju & Governo de Sergipe — R$ 3.000",
+    caption: "2º lugar — Ideathon Aracaju",
+    context: "Prefeitura de Aracaju + Governo de Sergipe · R$ 3.000",
+    badge: "Premiado",
+    accent: "primary",
+    span: "wide",
+  },
+  {
+    slug: "csbc-2023",
+    imagePath: "/images/sobre/momento-csbc-2023.jpg",
+    alt: "Equipe LABIC no 43º Congresso da Sociedade Brasileira de Computação",
+    caption: "43º CSBC · 2023",
+    context: "Congresso da Sociedade Brasileira de Computação",
+    accent: "secondary",
+    span: "default",
+  },
+  {
+    slug: "premiacao-voucher",
+    imagePath: "/images/sobre/momento-premiacao-voucher.jpg",
+    alt: "Cerimônia de premiação Voucher Logn no programa Inova IFS-ABLab",
+    caption: "Voucher Logn",
+    context: "Programa de Inovação IFS",
+    badge: "Premiado",
+    accent: "primary",
+    span: "default",
+  },
+  {
+    slug: "laboratorio-candid",
+    imagePath: "/images/sobre/momento-laboratorio-candid.jpg",
+    alt: "Felipe Jovino debugando código com colegas no laboratório do IFS",
+    caption: "Hands-on no LABIC",
+    context: "Programação em dupla · IFS",
+    accent: "secondary",
+    span: "default",
+  },
+  {
+    slug: "campus-weekend",
+    imagePath: "/images/sobre/momento-campus-weekend.jpg",
+    alt: "Felipe Jovino no Campus Weekend Aracaju com organizador do evento",
+    caption: "Campus Weekend Aracaju",
+    context: "Networking · ecossistema de tech do Nordeste",
+    accent: "primary",
+    span: "default",
+  },
+];
+
 export const aboutNextLevel = {
   era: "Mestrado · UFS / PROCC · 2026 — 2028",
   title: "O próximo nível.",
