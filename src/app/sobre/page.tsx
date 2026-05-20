@@ -69,7 +69,11 @@ export default function SobrePage() {
         <ChaptersTimeline />
       </section>
 
-      <section className="relative mx-auto w-full max-w-6xl px-6 pb-20">
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-16">
+        <CertificationsGrid />
+      </section>
+
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
         <XghEasterEgg />
       </section>
 
@@ -77,12 +81,8 @@ export default function SobrePage() {
         <MomentsGrid />
       </section>
 
-      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
-        <NextLevelCallout />
-      </section>
-
       <section className="relative mx-auto w-full max-w-6xl px-6 pb-32">
-        <CertificationsGrid />
+        <NextLevelCallout />
       </section>
     </main>
   );
