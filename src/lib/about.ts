@@ -127,27 +127,41 @@ export const aboutMoments: AboutMoment[] = [
     imagePath: "/images/sobre/momento-ideathon-aracaju.jpg",
     alt:
       "Felipe Jovino com equipe segurando placa de 2º lugar — Ideathon Prefeitura de Aracaju & Governo de Sergipe — R$ 3.000",
-    caption: "2º lugar — Ideathon Aracaju",
-    context: "Prefeitura de Aracaju + Governo de Sergipe · R$ 3.000",
+    caption: "2º lugar · Ideathon Aracaju · 2025",
+    context:
+      "Maratona de inovação da Prefeitura de Aracaju + Governo de Sergipe · prêmio de R$ 3.000",
     badge: "Premiado",
     accent: "primary",
     span: "wide",
   },
   {
+    slug: "robotica-2023",
+    imagePath: "/images/sobre/momento-robotica-2023.jpg",
+    alt:
+      "Equipe do LABIC reunida no palco da feira Robótica 2023 com o banner do laboratório, no Instituto Federal de Sergipe",
+    caption: "Robótica 2023 · LABIC/IFS",
+    context:
+      "Equipe do Laboratório de Inovação e Criatividade representando o IFS em evento de robótica",
+    accent: "secondary",
+    span: "default",
+  },
+  {
     slug: "csbc-2023",
     imagePath: "/images/sobre/momento-csbc-2023.jpg",
-    alt: "Equipe LABIC no 43º Congresso da Sociedade Brasileira de Computação",
-    caption: "43º CSBC · 2023",
-    context: "Congresso da Sociedade Brasileira de Computação",
+    alt: "Equipe LABIC no 43º Congresso da Sociedade Brasileira de Computação, agosto de 2023",
+    caption: "43º CSBC · agosto de 2023",
+    context:
+      "Congresso da Sociedade Brasileira de Computação — o maior encontro científico da área no país",
     accent: "secondary",
     span: "default",
   },
   {
     slug: "premiacao-voucher",
     imagePath: "/images/sobre/momento-premiacao-voucher.jpg",
-    alt: "Cerimônia de premiação Voucher Logn no programa Inova IFS-ABLab",
-    caption: "Voucher Logn",
-    context: "Programa de Inovação IFS",
+    alt: "Cerimônia de premiação do programa de inovação do IFS, setembro de 2024",
+    caption: "Voucher de inovação · 2024",
+    context:
+      "Cerimônia de premiação do programa de inovação do Instituto Federal de Sergipe",
     badge: "Premiado",
     accent: "primary",
     span: "default",
@@ -155,18 +169,42 @@ export const aboutMoments: AboutMoment[] = [
   {
     slug: "laboratorio-candid",
     imagePath: "/images/sobre/momento-laboratorio-candid.jpg",
-    alt: "Felipe Jovino debugando código com colegas no laboratório do IFS",
-    caption: "Hands-on no LABIC",
-    context: "Programação em dupla · IFS",
+    alt: "Felipe Jovino programando em dupla com colega no laboratório do IFS, setembro de 2024",
+    caption: "Hands-on no LABIC · 2024",
+    context:
+      "Programação em dupla no Laboratório de Inovação e Criatividade · IFS",
+    accent: "secondary",
+    span: "default",
+  },
+  {
+    slug: "prototipo-esp32",
+    imagePath: "/images/sobre/momento-prototipo-esp32.jpg",
+    alt:
+      "Protótipo em protoboard com microcontrolador ESP32, dois sensores ultrassônicos HC-SR04 e LEDs, ao lado de régua e esquadro",
+    caption: "Protótipo IoT · ESP32 · 2025",
+    context:
+      "Prototipagem em protoboard com sensores ultrassônicos HC-SR04 — pesquisa em IoT de baixo nível",
+    accent: "primary",
+    span: "default",
+  },
+  {
+    slug: "home-lab",
+    imagePath: "/images/sobre/momento-home-lab.jpg",
+    alt:
+      "Bancada de desenvolvimento em casa: notebook com editor de código aberto, protoboard com ESP32, multímetro e caixa de componentes",
+    caption: "Bancada de desenvolvimento · 2025",
+    context:
+      "Firmware, protoboard e multímetro no home lab — onde hardware e software se encontram",
     accent: "secondary",
     span: "default",
   },
   {
     slug: "campus-weekend",
     imagePath: "/images/sobre/momento-campus-weekend.jpg",
-    alt: "Felipe Jovino no Campus Weekend Aracaju com organizador do evento",
-    caption: "Campus Weekend Aracaju",
-    context: "Networking · ecossistema de tech do Nordeste",
+    alt: "Felipe Jovino no Campus Weekend Aracaju com organizador do evento, outubro de 2025",
+    caption: "Campus Weekend · Aracaju 2025",
+    context:
+      "Imersão de empreendedorismo e networking no ecossistema de tecnologia do Nordeste",
     accent: "primary",
     span: "default",
   },
