@@ -221,6 +221,44 @@ export const aboutMoments: AboutMoment[] = [
   },
 ];
 
+export type AboutCertification = {
+  slug: string;
+  issuer: string;
+  title: string;
+  issuedAtLabel: string;
+  credentialId: string;
+  verifyUrl?: string;
+  imagePath: string;
+  alt: string;
+  accent: "primary" | "secondary";
+};
+
+export const aboutCertifications: AboutCertification[] = [
+  {
+    slug: "oracle-oci-ai-foundations-2025",
+    issuer: "Oracle University",
+    title: "Oracle Cloud Infrastructure 2025 · AI Foundations Associate",
+    issuedAtLabel: "Julho de 2025",
+    credentialId: "321291573OCI25AICFA",
+    imagePath: "/images/certificacoes/oracle-oci-ai-foundations-2025.jpg",
+    alt:
+      "Certificado Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate emitido para Felipe Jovino dos Santos em 28 de julho de 2025",
+    accent: "primary",
+  },
+  {
+    slug: "hackerrank-java-basic",
+    issuer: "HackerRank",
+    title: "Java (Basic) · Certificate of Accomplishment",
+    issuedAtLabel: "Maio de 2026",
+    credentialId: "03E7DE0F0135",
+    verifyUrl: "https://www.hackerrank.com/certificates/03e7de0f0135",
+    imagePath: "/images/certificacoes/hackerrank-java-basic-2026.png",
+    alt:
+      "Certificado HackerRank Java (Basic) Certificate of Accomplishment emitido para Felipe Jovino dos Santos em 03 de maio de 2026",
+    accent: "secondary",
+  },
+];
+
 export const aboutNextLevel = {
   era: "Mestrado · UFS / PROCC · 2026 — 2028",
   title: "O próximo nível.",

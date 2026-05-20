@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CertificationsGrid } from "@/components/site/about/certifications-grid";
 import { ChaptersTimeline } from "@/components/site/about/chapters-timeline";
 import { ImpactMetrics } from "@/components/site/about/impact-metrics";
 import { MomentsGrid } from "@/components/site/about/moments-grid";
@@ -71,8 +72,12 @@ export default function SobrePage() {
         <MomentsGrid />
       </section>
 
-      <section className="relative mx-auto w-full max-w-6xl px-6 pb-32">
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
         <NextLevelCallout />
+      </section>
+
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-32">
+        <CertificationsGrid />
       </section>
     </main>
   );
