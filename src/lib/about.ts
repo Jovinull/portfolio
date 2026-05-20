@@ -146,14 +146,15 @@ export const aboutMoments: AboutMoment[] = [
     span: "default",
   },
   {
-    slug: "csbc-2023",
-    imagePath: "/images/sobre/momento-csbc-2023.jpg",
-    alt: "Equipe LABIC no 43º Congresso da Sociedade Brasileira de Computação, agosto de 2023",
-    caption: "43º CSBC · agosto de 2023",
+    slug: "home-lab",
+    imagePath: "/images/sobre/momento-home-lab.jpg",
+    alt:
+      "Bancada de desenvolvimento em casa: notebook com editor de código aberto, protoboard com ESP32, multímetro e caixa de componentes",
+    caption: "Bancada de desenvolvimento · agosto de 2025",
     context:
-      "Congresso da Sociedade Brasileira de Computação — o maior encontro científico da área no país",
+      "Firmware, protoboard e multímetro no home lab — onde hardware e software se encontram",
     accent: "secondary",
-    span: "default",
+    span: "wide",
   },
   {
     slug: "premiacao-voucher",
@@ -164,6 +165,27 @@ export const aboutMoments: AboutMoment[] = [
       "Cerimônia de premiação do programa de inovação do Instituto Federal de Sergipe",
     badge: "Premiado",
     accent: "primary",
+    span: "default",
+  },
+  {
+    slug: "tech-day-cio",
+    imagePath: "/images/sobre/momento-tech-day-cio.jpg",
+    alt:
+      "Crachá de participante de Felipe Jovino no CIO-SE Tech Day, sexta-feira 25 de julho de 2025",
+    caption: "CIO-SE Tech Day · julho de 2025",
+    context:
+      "\"Além da transformação: orquestrando ecossistemas digitais\" — encontro de líderes de TI de Sergipe",
+    accent: "primary",
+    span: "wide",
+  },
+  {
+    slug: "csbc-2023",
+    imagePath: "/images/sobre/momento-csbc-2023.jpg",
+    alt: "Equipe LABIC no 43º Congresso da Sociedade Brasileira de Computação, agosto de 2023",
+    caption: "43º CSBC · agosto de 2023",
+    context:
+      "Congresso da Sociedade Brasileira de Computação — o maior encontro científico da área no país",
+    accent: "secondary",
     span: "default",
   },
   {
@@ -188,24 +210,13 @@ export const aboutMoments: AboutMoment[] = [
     span: "default",
   },
   {
-    slug: "home-lab",
-    imagePath: "/images/sobre/momento-home-lab.jpg",
-    alt:
-      "Bancada de desenvolvimento em casa: notebook com editor de código aberto, protoboard com ESP32, multímetro e caixa de componentes",
-    caption: "Bancada de desenvolvimento · 2025",
-    context:
-      "Firmware, protoboard e multímetro no home lab — onde hardware e software se encontram",
-    accent: "secondary",
-    span: "default",
-  },
-  {
     slug: "campus-weekend",
     imagePath: "/images/sobre/momento-campus-weekend.jpg",
     alt: "Felipe Jovino no Campus Weekend Aracaju com organizador do evento, outubro de 2025",
     caption: "Campus Weekend · Aracaju 2025",
     context:
       "Imersão de empreendedorismo e networking no ecossistema de tecnologia do Nordeste",
-    accent: "primary",
+    accent: "secondary",
     span: "default",
   },
 ];
