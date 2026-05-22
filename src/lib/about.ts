@@ -95,12 +95,12 @@ export const aboutChapters: AboutChapter[] = [
     title: "Engenharia, liderança e deeptech.",
     subtitle: "Do júnior à coordenação em menos de um ano. CTO em uma deeptech do Sebrae Catalisa ICT.",
     body:
-      "Profissionalmente, evoluí rápido no ecossistema Full-Stack (Next.js, AdonisJS, Node, Java/Spring, PostgreSQL). Na WM Saúde, passei de Desenvolvedor Júnior a Coordenador de TI em menos de um ano, liderando squads, desenhando políticas de governança (GitFlow, Azure DevOps) e blindando arquiteturas (RBAC, LGPD). Paralelamente, transformei minha pesquisa científica em uma deeptech real acelerada pelo Sebrae Catalisa ICT: a AccessSim, onde atuo como CTO desenvolvendo motores de IA e Realidade Aumentada para acessibilidade arquitetônica (NBR 9050).",
+      "Profissionalmente, evoluí rápido no ecossistema Full-Stack (Next.js, AdonisJS, Node, Java/Spring, PostgreSQL). Na WM Saúde, passei de Desenvolvedor Júnior a Coordenador de TI em menos de um ano, liderando squads e desenhando políticas de governança. Paralelamente, atuo como sócio e CTO de uma iniciativa gigante: a AccessSim. Nossa startup (passando de Inova Simples para ME) foi aprovada em 2025 na Fase 3 do Centelha em 17º lugar (captando R$ 130.000) e na Fase 2 do Sebrae Catalisa ICT em 42º lugar (com mais de R$ 63.900 em bolsas para pesquisadores). Lidero a pesquisa em IA (NBR 9050), oriento diretamente 2 desenvolvedores contratados e atuo como Product Owner/Mentor no Programa Bolsa Futuro Digital (Cepedi), liderando mais 5 estudantes.",
     highlights: [
       "Coordenador de TI · WM Saúde",
-      "CTO · AccessSim (Sebrae Catalisa ICT)",
-      "Governança: GitFlow, Azure DevOps, RBAC, LGPD",
-      "Motores de IA + AR para NBR 9050",
+      "Co-Founder & CTO · AccessSim",
+      "+R$ 193.900 captados em fomento (2025)",
+      "Mentoria Cepedi e liderança técnica",
     ],
     imagePath: "/images/sobre/capitulo-03-lideranca.jpg",
     imageHint:

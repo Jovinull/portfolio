@@ -65,7 +65,7 @@ export const experiences: Experience[] = [
   {
     slug: "accesssim",
     company: "AccessSim",
-    subtitle: "Sebrae Catalisa ICT",
+    subtitle: "Centelha (Fase 3) & Catalisa ICT (Fase 2) & Cepedi",
     iconKey: "brainCircuit",
     logoAlt: "AccessSim",
     period: "Abr/2025 — Presente",
@@ -73,9 +73,9 @@ export const experiences: Experience[] = [
     type: "Deeptech",
     roles: [{ title: "CTO & Co-Founder", period: "Abr/2025 — Presente", current: true }],
     description:
-      "Startup de base tecnológica acelerada pelo Catalisa ICT. Lidero a concepção de uma solução que une IA e Realidade Aumentada para automatizar a análise de acessibilidade (NBR 9050) na construção civil.",
+      "Uma iniciativa gigante que co-fundei e onde atuo como CTO. A AccessSim é uma startup (em transição de Inova Simples para ME) que, em 2025, foi acelerada pelo Sebrae Catalisa ICT (Fase 2 em 42º lugar, captando R$ 63.900 em bolsas para 1 mestre, 2 graduados e 1 graduando) e pelo Centelha Sergipe (Fase 3 em 17º lugar, com captação de R$ 130.000 em subvenção). Lidero o desenvolvimento do motor de IA para acessibilidade (NBR 9050) e oriento diretamente uma equipe de 2 desenvolvedores contratados. Também atuamos como empresa convidada no Programa Bolsa Futuro Digital (Cepedi), sendo Product Owners e orientadores de 5 estudantes (Maio a Agosto) no desenvolvimento de MVPs institucionais.",
     impact:
-      "Desenvolvi o motor de IA e o backend em Python e orquestrei a construção do app em React Native, reduzindo falhas de acessibilidade ainda na fase de projeto arquitetônico.",
+      "Consolidação tecnológica e de negócios com aprovação nos maiores programas de fomento à inovação do Brasil. Desenvolvi o motor de IA e backend em Python, orquestrando a construção do app em React Native.",
     stack: [
       "Python",
       "Machine Learning",
