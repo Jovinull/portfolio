@@ -203,7 +203,7 @@ export default function AccessSimPage() {
               <div className="p-5">
                 <p className="font-semibold text-foreground">Tração e Validação</p>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  Apresentação do nosso MVP para o primeiro cliente (escritório de arquitetura em Pedrinhas, Sergipe).
+                  Apresentação do nosso MVP para o primeiro cliente: Studio A3 (escritório de arquitetura em Pedrinhas, Sergipe).
                 </p>
               </div>
             </div>
