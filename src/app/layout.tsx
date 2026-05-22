@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/site/theme-provider";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { ParticlesBackground } from "@/components/ui/particles-background";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -95,7 +96,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0f" },
+    { media: "(prefers-color-scheme: dark)", color: "#07090f" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -147,6 +148,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="hidden dark:block">
+            <ParticlesBackground />
+          </div>
           <Navbar />
           {children}
           <Footer />
