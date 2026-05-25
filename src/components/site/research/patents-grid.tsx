@@ -35,8 +35,9 @@ export function PatentsGrid() {
           </h2>
           <p className="mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
             Plataformas, APIs e pipelines de IA com registro formal no Instituto
-            Nacional da Propriedade Industrial. Cada um resolve um problema real e
-            carrega o peso da Lei 9.609/98.
+            Nacional da Propriedade Industrial. Cada certificado oficial — com
+            brasão, nº de processo e proteção de 50 anos pela Lei 9.609/98 — está
+            disponível para consulta.
           </p>
         </div>
       </div>

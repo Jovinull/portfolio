@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import {
   Activity,
   Captions,
-  Fingerprint,
+  ExternalLink,
   Server,
+  ShieldCheck,
   Trees,
   Users,
   type LucideIcon,
@@ -36,8 +38,13 @@ export function PatentCard({ patent }: PatentCardProps) {
     description,
     stack,
     coauthors,
+    certImagePath,
+    certAlt,
+    certHref,
+    span,
   } = patent;
   const Icon = iconMap[iconKey];
+  const isWide = span === "wide";
 
   return (
     <Card
@@ -54,30 +61,29 @@ export function PatentCard({ patent }: PatentCardProps) {
         style={{ background: "radial-gradient(circle, #06b6d4, transparent 70%)" }}
       />
 
-      {/* PLACEHOLDER_IMAGE: diagrama de arquitetura de "{name}" — substituir por SVG real (proporção 5/2, fundo transparente) */}
-      <div className="relative aspect-[5/2] overflow-hidden border-b border-border">
+      {/* Cabeçalho real do certificado INPI (brasão, título oficial e nº do processo). */}
+      <div className="relative aspect-[5/2] overflow-hidden border-b border-border bg-muted">
+        <Image
+          src={certImagePath}
+          alt={certAlt}
+          fill
+          sizes={isWide ? "(min-width: 1024px) 760px, 100vw" : "(min-width: 1024px) 380px, 100vw"}
+          className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+        />
         <div
           aria-hidden
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, color-mix(in oklab, var(--primary) 22%, transparent), color-mix(in oklab, var(--secondary) 18%, transparent))",
-          }}
+          className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent"
         />
-        <div aria-hidden className="bg-grid absolute inset-0 opacity-40" />
-        <div className="absolute inset-0 grid place-items-center">
-          <Icon className="size-12 text-foreground/80 drop-shadow-[0_2px_24px_rgba(167,139,250,0.45)]" />
-        </div>
         <Badge
           variant="outline"
-          className="absolute top-3 left-3 gap-1.5 border-primary/40 bg-background/70 backdrop-blur"
+          className="absolute bottom-3 left-3 gap-1.5 border-emerald-400/40 bg-background/70 backdrop-blur"
         >
-          <Fingerprint className="size-3 text-primary" />
-          <span className="font-mono text-[10px] uppercase tracking-wider text-primary">
-            INPI
+          <ShieldCheck className="size-3 text-emerald-300" />
+          <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-200">
+            INPI · Verificado
           </span>
         </Badge>
-        <span className="absolute right-3 bottom-3 max-w-[60%] truncate font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/70">
+        <span className="absolute right-3 bottom-3 max-w-[55%] truncate font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/80">
           {inpiCode}
         </span>
       </div>
@@ -86,7 +92,8 @@ export function PatentCard({ patent }: PatentCardProps) {
         <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           {category}
         </p>
-        <h3 className="mt-1 text-xl font-semibold tracking-tight text-foreground">
+        <h3 className="mt-1 flex items-center gap-2 text-xl font-semibold tracking-tight text-foreground">
+          <Icon className="size-5 shrink-0 text-primary" />
           {name}
         </h3>
         <p className="mt-2 font-mono text-[11px] text-muted-foreground">
@@ -106,8 +113,8 @@ export function PatentCard({ patent }: PatentCardProps) {
           </div>
         )}
 
-        <div className="mt-auto">
-          <Separator className="mb-3 opacity-50" />
+        <div className="mt-auto space-y-3">
+          <Separator className="opacity-50" />
           <div className="flex flex-wrap gap-1.5">
             {stack.map((tech) => (
               <Badge
@@ -119,6 +126,15 @@ export function PatentCard({ patent }: PatentCardProps) {
               </Badge>
             ))}
           </div>
+          <a
+            href={certHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-fit items-center gap-1.5 text-sm font-medium text-primary underline-offset-4 transition-colors hover:underline"
+          >
+            Ver certificado oficial
+            <ExternalLink className="size-3.5" />
+          </a>
         </div>
       </CardContent>
     </Card>
