@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "motion/react";
-import { BadgeCheck, ExternalLink } from "lucide-react";
+import { ArrowRight, BadgeCheck, ExternalLink } from "lucide-react";
 import { aboutCertifications } from "@/lib/about";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -58,6 +58,13 @@ export function CertificationsGrid() {
           Credenciais verificáveis em cloud, IA e linguagens — emitidas por
           fabricantes e plataformas reconhecidas globalmente.
         </p>
+        <Link
+          href="/formacao"
+          className="mt-4 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-primary underline-offset-4 hover:underline"
+        >
+          Ver formação completa — +100 certificados
+          <ArrowRight className="size-3.5" />
+        </Link>
       </motion.header>
 
       <div className="grid gap-6 lg:grid-cols-2">

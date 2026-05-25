@@ -22,5 +22,10 @@ export const navItems: NavItem[] = [
     label: "Pesquisa",
     description: "Mestrado, artigos e IA aplicada",
   },
+  {
+    href: "/formacao",
+    label: "Formação",
+    description: "Certificações, cursos e ensino",
+  },
   { href: "/contato", label: "Contato", description: "Vamos conversar" },
 ];
