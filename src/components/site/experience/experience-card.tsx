@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import type { Experience } from "@/lib/experience";
 
@@ -124,17 +126,31 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           </div>
         </div>
 
-        {link && (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 transition-colors hover:text-foreground"
-          >
-            {link.label}
-            <ArrowUpRight className="size-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-          </a>
-        )}
+        <div className="flex flex-wrap items-center gap-4">
+          {slug === "accesssim" && (
+            <Button
+              variant="default"
+              size="sm"
+              className="gap-1.5 rounded-full"
+              render={<Link href="/accesssim" />}
+            >
+              Conhecer Deeptech AccessSim
+              <ArrowRight className="size-3.5" />
+            </Button>
+          )}
+
+          {link && (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-foreground/80 transition-colors hover:text-foreground"
+            >
+              {link.label}
+              <ArrowUpRight className="size-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+            </a>
+          )}
+        </div>
       </CardContent>
     </Card>
   );

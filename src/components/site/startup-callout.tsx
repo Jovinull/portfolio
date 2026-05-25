@@ -63,13 +63,22 @@ export function StartupCallout() {
           <p className="mt-4 text-pretty text-muted-foreground">
             Não atuo apenas como desenvolvedor, mas como sócio e CTO de uma iniciativa gigante: a <strong>AccessSim</strong>. Uma startup (nascida Inova Simples e agora transicionando para Microempresa - ME) que construí do zero. Em <strong>2025</strong>, fomos aprovados e selecionados em dois dos maiores programas de fomento do país: o <strong>Programa Centelha (Fase 3, 17º lugar)</strong>, captando R$ 130.000, e o <strong>Sebrae Catalisa ICT (Fase 2, 42º lugar)</strong>. No Catalisa, garantimos 9 meses de bolsas (totalizando R$ 63.900) para uma equipe de 4 pesquisadores (1 mestre, 2 graduados e 1 graduando). Para tracionar o desenvolvimento focado em acessibilidade (NBR 9050), contratamos 2 desenvolvedores que atuam sob minha liderança e orientação direta. Adicionalmente, fomos empresa convidada no <strong>Programa Bolsa Futuro Digital (Cepedi)</strong>, atuando como Product Owners na mentoria de duas equipes de 5 estudantes (Maio a Agosto) para o desenvolvimento do nosso MVP Institucional.
           </p>
-          <Button
-            variant="outline"
-            className="mt-8 h-10 gap-2 px-4"
-            render={<Link href="/experiencia" />}
-          >
-            Ver mais sobre minha experiência
-          </Button>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Button
+              variant="default"
+              className="h-10 gap-2 px-6"
+              render={<Link href="/accesssim" />}
+            >
+              Conheça o Deeptech AccessSim
+            </Button>
+            <Button
+              variant="outline"
+              className="h-10 gap-2 px-6"
+              render={<Link href="/experiencia" />}
+            >
+              Ver mais sobre minha experiência
+            </Button>
+          </div>
         </motion.div>
 
         <motion.ul
