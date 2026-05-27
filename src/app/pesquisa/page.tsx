@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { AcademicHero } from "@/components/site/research/academic-hero";
+import { ArticlesShowcase } from "@/components/site/research/articles-showcase";
 import { PatentsGrid } from "@/components/site/research/patents-grid";
 
 export const metadata: Metadata = {
   title: "Pesquisa",
   description:
-    "Mestrado em Ciência da Computação (UFS/PROCC) aprovado em 1º lugar, artigos premiados em IA e quatro softwares registrados no INPI (Glicemy, Glicemy API, CaptionEase, SignForest).",
+    "Mestrado em Ciência da Computação (UFS/PROCC) aprovado em 1º lugar, seis artigos publicados — dois premiados — em IA, acessibilidade e educação, e quatro softwares registrados no INPI (Glicemy, Glicemy API, CaptionEase, SignForest).",
 };
 
 export default function PesquisaPage() {
@@ -35,15 +36,19 @@ export default function PesquisaPage() {
           <span className="text-gradient">e do paper ao INPI.</span>
         </h1>
         <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Mestrado em Computação Inteligente aprovado em 1º lugar, artigos
-          premiados em eventos científicos de IA e quatro softwares registrados
-          no Instituto Nacional da Propriedade Industrial. Pesquisa que sustenta
-          o produto.
+          Mestrado em Computação Inteligente aprovado em 1º lugar, seis artigos
+          publicados — dois premiados como melhor artigo — e quatro softwares
+          registrados no Instituto Nacional da Propriedade Industrial. Pesquisa
+          que sustenta o produto.
         </p>
       </section>
 
-      <section className="relative mx-auto w-full max-w-6xl px-6 pb-20">
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
         <AcademicHero />
+      </section>
+
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
+        <ArticlesShowcase />
       </section>
 
       <section className="relative mx-auto w-full max-w-6xl px-6 pb-32">
