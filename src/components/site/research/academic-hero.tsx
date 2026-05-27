@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import { Award, BookOpen, GraduationCap, Trophy } from "lucide-react";
+import { BookOpen, GraduationCap, Trophy } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { academic, publications } from "@/lib/research";
+import { academic, researchStats } from "@/lib/research";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -85,65 +85,44 @@ export function AcademicHero() {
         </dl>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="flex flex-col gap-4">
+      <motion.div variants={itemVariants} className="flex flex-col gap-5">
         <div className="flex items-center gap-3">
           <span className="grid size-9 place-items-center rounded-lg border border-secondary/30 bg-secondary/[0.08] text-secondary">
             <BookOpen className="size-4" />
           </span>
           <h3 className="text-lg font-semibold tracking-tight text-foreground">
-            Artigos & premiações
+            Produção científica
           </h3>
         </div>
 
-        <motion.ul variants={containerVariants} className="space-y-3">
-          {publications.map((pub) => {
-            const isAwarded = Boolean(pub.award);
-            return (
-              <motion.li
-                key={`${pub.title}-${pub.event ?? "paper"}`}
-                variants={itemVariants}
-                className="group relative flex items-start gap-3 overflow-hidden rounded-xl border border-border bg-card/40 p-4 backdrop-blur transition-colors hover:border-primary/40"
-              >
-                <span
-                  className={
-                    isAwarded
-                      ? "grid size-9 shrink-0 place-items-center rounded-lg border border-amber-400/30 bg-amber-400/[0.08] text-amber-300"
-                      : "grid size-9 shrink-0 place-items-center rounded-lg border border-border bg-background/40 text-primary"
-                  }
-                >
-                  {isAwarded ? <Award className="size-4" /> : <BookOpen className="size-4" />}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium leading-snug text-foreground">{pub.title}</p>
-                  <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-                    {pub.event && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                        {pub.event}
-                      </span>
-                    )}
-                    {pub.award && (
-                      <Badge
-                        variant="outline"
-                        className="border-amber-400/40 bg-amber-400/[0.06] gap-1 font-mono text-[10px] uppercase tracking-wider text-amber-200"
-                      >
-                        <Trophy className="size-2.5" />
-                        {pub.award}
-                      </Badge>
-                    )}
-                    {pub.qualis && (
-                      <Badge
-                        variant="outline"
-                        className="border-primary/40 bg-primary/[0.06] font-mono text-[10px] uppercase tracking-wider text-primary"
-                      >
-                        {pub.qualis}
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Da IA aplicada à ética da tecnologia — seis artigos publicados em
+          periódicos, anais e revistas acadêmicas, dois deles premiados como
+          melhor artigo no IFS.
+        </p>
+
+        <motion.dl
+          variants={containerVariants}
+          className="grid grid-cols-2 gap-3"
+        >
+          {researchStats.map((stat) => (
+            <motion.div
+              key={stat.label}
+              variants={itemVariants}
+              className="group relative overflow-hidden rounded-xl border border-border bg-card/40 p-4 backdrop-blur transition-colors hover:border-secondary/40"
+            >
+              <dt className="text-2xl font-bold tracking-tight text-gradient sm:text-3xl">
+                {stat.value}
+              </dt>
+              <dd className="mt-1 text-sm font-medium leading-snug text-foreground">
+                {stat.label}
+              </dd>
+              <dd className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                {stat.hint}
+              </dd>
+            </motion.div>
+          ))}
+        </motion.dl>
       </motion.div>
     </motion.div>
   );
