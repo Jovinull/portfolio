@@ -5,7 +5,7 @@ import { ProjectsTabs } from "@/components/site/projects/projects-tabs";
 export const metadata: Metadata = {
   title: "Projetos",
   description:
-    "Iron March (roguelike C++20 com ECS), CerneBR Gateway Nacional (Java 25 + Spring Boot 4) e Idle Mine: Redux (Vue 3 + TypeScript strict). Engenharia que sai do código.",
+    "CerneBR Gateway Nacional (Java 25 + Spring Boot 4), Iron March (roguelike C++20 com ECS), Idle Mine: Redux (Vue 3 strict), StoreStash (gestão de estoque em Laravel 13) e StdoutSpace (motor de renderização de espaço no terminal em C++17). Engenharia que sai do código.",
 };
 
 export default function ProjetosPage() {
@@ -19,7 +19,7 @@ export default function ProjetosPage() {
           <span className="text-gradient">distribuído</span>.
         </>
       }
-      description="Cada projeto resolve um problema real com a stack escolhida sob medida. Da arquitetura ECS em C++20 ao microserviço com Virtual Threads e cache inteligente em Java 25."
+      description="Cada projeto resolve um problema real com a stack escolhida sob medida — da arquitetura ECS em C++20 e do microserviço com Virtual Threads em Java 25 ao full-stack em Laravel e a um motor que renderiza galáxias direto no terminal."
     >
       <ProjectsTabs />
     </PageShell>
