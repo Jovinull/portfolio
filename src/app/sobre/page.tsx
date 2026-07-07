@@ -3,6 +3,7 @@ import { CertificationsGrid } from "@/components/site/about/certifications-grid"
 import { ChaptersTimeline } from "@/components/site/about/chapters-timeline";
 import { ImpactMetrics } from "@/components/site/about/impact-metrics";
 import { MomentsGrid } from "@/components/site/about/moments-grid";
+import { TechStackGrid } from "@/components/site/about/tech-stack-grid";
 import { NextLevelCallout } from "@/components/site/about/next-level-callout";
 import { XghEasterEgg } from "@/components/site/about/xgh-easter-egg";
 import SpaceInvadersEasterEgg from "@/components/site/space-invaders/SpaceInvadersEasterEgg";
@@ -70,7 +71,11 @@ export default function SobrePage() {
         <ChaptersTimeline />
       </section>
 
-      <section className="relative mx-auto w-full max-w-6xl px-6 pb-16">
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
+        <TechStackGrid />
+      </section>
+
+      <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
         <CertificationsGrid />
       </section>
 
