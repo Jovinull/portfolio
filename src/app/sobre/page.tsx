@@ -5,6 +5,7 @@ import { ImpactMetrics } from "@/components/site/about/impact-metrics";
 import { MomentsGrid } from "@/components/site/about/moments-grid";
 import { NextLevelCallout } from "@/components/site/about/next-level-callout";
 import { XghEasterEgg } from "@/components/site/about/xgh-easter-egg";
+import SpaceInvadersEasterEgg from "@/components/site/space-invaders/SpaceInvadersEasterEgg";
 import { aboutHeadline, aboutKicker } from "@/lib/about";
 
 export const metadata: Metadata = {
@@ -75,6 +76,9 @@ export default function SobrePage() {
 
       <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
         <XghEasterEgg />
+        <div className="mt-8">
+          <SpaceInvadersEasterEgg />
+        </div>
       </section>
 
       <section className="relative mx-auto w-full max-w-6xl px-6 pb-24">
