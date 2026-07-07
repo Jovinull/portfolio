@@ -33,6 +33,38 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "saberly",
+    name: "Saberly",
+    tagline: "LMS Full Stack (Udemy-like) em Laravel",
+    category: "Full Stack",
+    cover: "/images/projetos/saberly.svg",
+    coverFit: "contain",
+    summaryShort:
+      "Plataforma LMS completa estilo Udemy, construída com Laravel. Inclui carrinho via AJAX, wishlist, checkout integrado, CMS de blog e chat em tempo real.",
+    summaryLong:
+      "Saberly é uma plataforma LMS (Learning Management System) construída com foco em práticas reais de mercado. Apresenta páginas públicas ricas, catálogo de cursos, carrinho e wishlist via AJAX (sem reload), checkout com Stripe, automações de e-mail e painéis dedicados para Admin e Instrutor. A arquitetura mantém coerência de domínio e separação de responsabilidades (Domain/Services), contando com chat em tempo real via broadcasting (Pusher) entre alunos e professores, sistema de RBAC e painel de controle absoluto para os instrutores.",
+    highlights: [
+      "Carrinho, wishlist e filtros dinâmicos via AJAX",
+      "Checkout integrado com Stripe e automações de email",
+      "Chat em tempo real (Broadcasting) Instrutor ↔ Estudante",
+      "CMS completo de Blog e Newsletter nativo",
+      "Arquitetura Laravel limpa (Services, Repositories, Jobs)",
+      "Role-Based Access Control (RBAC) para Admin, Instrutor e Aluno",
+    ],
+    stack: [
+      "Laravel",
+      "PHP",
+      "Tailwind CSS",
+      "Vite",
+      "AJAX",
+      "Stripe",
+      "PostgreSQL",
+    ],
+    status: "Concluído",
+    links: [{ label: "github.com/Jovinull/Saberly", href: "https://github.com/Jovinull/Saberly" }],
+    featured: true,
+  },
+  {
     slug: "gateway-nacional",
     name: "CerneBR · Gateway Nacional",
     tagline: "Microserviço self-hosted para dados públicos brasileiros",
