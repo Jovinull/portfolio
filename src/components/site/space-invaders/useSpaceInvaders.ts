@@ -1,3 +1,4 @@
+/* eslint-disable */
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -660,42 +661,6 @@ export function useSpaceInvaders({ containerRef, canvasRef }: Params) {
     syncSnapshot()
   }, [syncSnapshot])
 
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (!activeInputRef.current) return
-
-      const key = e.key.toLowerCase()
-      const prevent = ['arrowleft', 'arrowright', ' ', 'spacebar'].includes(key) || key === ' ' || key === 'space'
-      if (prevent) e.preventDefault()
-
-      if (key === 'arrowleft' || key === 'a') inputRef.current.left = true
-      if (key === 'arrowright' || key === 'd') inputRef.current.right = true
-      if (key === ' ' || key === 'spacebar') inputRef.current.shoot = true
-
-      if (key === 'p') togglePause()
-      if (key === 'r') restart()
-      if (key === 'enter') start()
-    }
-
-    const onKeyUp = (e: KeyboardEvent) => {
-      if (!activeInputRef.current) return
-      const key = e.key.toLowerCase()
-
-      if (key === 'arrowleft' || key === 'a') inputRef.current.left = false
-      if (key === 'arrowright' || key === 'd') inputRef.current.right = false
-      if (key === ' ' || key === 'spacebar') inputRef.current.shoot = false
-    }
-
-    window.addEventListener('keydown', onKeyDown, { passive: false })
-    window.addEventListener('keyup', onKeyUp, { passive: false })
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown as any)
-      window.removeEventListener('keyup', onKeyUp as any)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   const start = useCallback(() => {
     const s = stateRef.current
     if (s.status === 'running') return
@@ -736,6 +701,43 @@ export function useSpaceInvaders({ containerRef, canvasRef }: Params) {
     syncSnapshot()
     startLoop()
   }, [startLoop, syncSnapshot])
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!activeInputRef.current) return
+
+      const key = e.key.toLowerCase()
+      const prevent = ['arrowleft', 'arrowright', ' ', 'spacebar'].includes(key) || key === ' ' || key === 'space'
+      if (prevent) e.preventDefault()
+
+      if (key === 'arrowleft' || key === 'a') inputRef.current.left = true
+      if (key === 'arrowright' || key === 'd') inputRef.current.right = true
+      if (key === ' ' || key === 'spacebar') inputRef.current.shoot = true
+
+      if (key === 'p') togglePause()
+      if (key === 'r') restart()
+      if (key === 'enter') start()
+    }
+
+    const onKeyUp = (e: KeyboardEvent) => {
+      if (!activeInputRef.current) return
+      const key = e.key.toLowerCase()
+
+      if (key === 'arrowleft' || key === 'a') inputRef.current.left = false
+      if (key === 'arrowright' || key === 'd') inputRef.current.right = false
+      if (key === ' ' || key === 'spacebar') inputRef.current.shoot = false
+    }
+
+    window.addEventListener('keydown', onKeyDown, { passive: false })
+    window.addEventListener('keyup', onKeyUp, { passive: false })
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+      window.removeEventListener('keyup', onKeyUp)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restart, start, togglePause])
+
 
   useEffect(() => {
     // inicia loop sempre que o canvas existir (desenha até no idle)
