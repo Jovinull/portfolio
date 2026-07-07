@@ -37,7 +37,7 @@ export const projects: Project[] = [
     name: "Saberly",
     tagline: "LMS Full Stack (Udemy-like) em Laravel",
     category: "Full Stack",
-    cover: "/images/projetos/saberly.svg",
+    cover: "/images/projetos/saberly.jpeg",
     coverFit: "contain",
     summaryShort:
       "Plataforma LMS completa estilo Udemy, construída com Laravel. Inclui carrinho via AJAX, wishlist, checkout integrado, CMS de blog e chat em tempo real.",
@@ -62,6 +62,35 @@ export const projects: Project[] = [
     ],
     status: "Concluído",
     links: [{ label: "github.com/Jovinull/Saberly", href: "https://github.com/Jovinull/Saberly" }],
+    featured: true,
+  },
+  {
+    slug: "stinkos",
+    name: "StinkOS",
+    tagline: "Sistema Operacional 32-bit x86 from scratch",
+    category: "Gráficos & Sistemas",
+    cover: "/images/projetos/stinkos.png",
+    coverFit: "contain",
+    summaryShort:
+      "Sistema Operacional de 32-bits feito do zero. Possui bootloader compatível com Multiboot, kernel em C, TCP/IP stack (RFC 793), scheduler preemptivo e um port completo de Doom.",
+    summaryLong:
+      "O StinkOS é um Sistema Operacional 32-bit x86 construído totalmente do zero, sem usar nenhuma biblioteca de terceiros no kernel. Ele possui um bootloader ELF-aware, scheduler preemptivo, IPC via anonymous pipes e signals, Virtual File System (VFS) por processo, mixer SB16 com resampling Q16.16 e um pacote completo de rede com TCP/IP stack, DHCP e DNS. Além de ser altamente focado em baixo nível, ele roda um port completo e nativo de Doom no seu userland.",
+    highlights: [
+      "Zero bibliotecas de terceiros no Kernel",
+      "Multiboot-compatible kernel & ELF-aware bootloader",
+      "Stack TCP/IP completa implementada do zero (RFC 793)",
+      "SB16 Audio Mixer com resampling e VFS por processo",
+      "Port completo de Doom rodando de forma nativa",
+    ],
+    stack: [
+      "C",
+      "x86 Assembly",
+      "OS Development",
+      "TCP/IP",
+      "Multiboot",
+    ],
+    status: "Concluído",
+    links: [{ label: "github.com/Jovinull/StinkOS", href: "https://github.com/Jovinull/StinkOS" }],
     featured: true,
   },
   {
@@ -232,7 +261,7 @@ export const projects: Project[] = [
       },
     ],
   },
-{
+  {
     slug: "gestao-saude",
     name: "Gestão em Saúde (WM)",
     tagline: "Plataforma crítica de saúde com alta governança",
