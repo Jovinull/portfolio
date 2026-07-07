@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "motion/react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Download } from "lucide-react";
 import { useCallback, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -168,6 +168,17 @@ export function Hero() {
                 }
               >
                 Falar comigo
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="hover:bg-primary/10 hover:text-primary"
+                render={
+                  <a href="/cv.pdf" download className="h-12 gap-2 px-4 text-sm font-semibold" />
+                }
+              >
+                <Download className="size-4" />
+                Baixar CV
               </Button>
             </motion.div>
           </div>
